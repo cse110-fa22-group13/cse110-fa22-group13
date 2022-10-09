@@ -27,10 +27,11 @@
   >Link to personal webpage: https://amaansingh160.github.io/pages-project/
 
 - Ada Burton - *Developer* (aburton@ucsd.edu)
-- >Link to personal webpage: https://adaburton.github.io/
+  >Link to personal webpage: https://adaburton.github.io/
   
 - Dou Hoon Kwark - *Developer* (dkwark@ucsd.edu)
   >Link to personal webpage: https://douhoonkwark.github.io/CSE110/ 
+
 
 <br/> <br/>
 
