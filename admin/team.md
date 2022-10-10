@@ -35,7 +35,7 @@
 
 <br/> <br/>
 
-# Any values that we thick are important
+# Any values that we think are important
 
 
 
