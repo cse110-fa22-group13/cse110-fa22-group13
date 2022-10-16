@@ -51,5 +51,5 @@
 # Humor & Culture
 We all enjoy Anime. We are all big fans of Halloween, hence the team name. 
 
-What we do when we are in doubt:
+What we do when we are in doubt:  
 ![When in Doubt](images/pinkyOut.png)
