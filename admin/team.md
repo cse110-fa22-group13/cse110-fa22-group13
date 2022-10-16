@@ -1,8 +1,8 @@
 # **Team name**
-
+    *The JSONs*
 
 # **Team brand**
-
+![The JSONs](images/The JSONs Logo.svg)
 
 # **Roster of team members**
 - Guillaume Cristiani - *Team Lead* (guillaume.crist@gmail.com)
@@ -36,7 +36,17 @@
 <br/> <br/>
 
 # Any values that we think are important
-
+- Respect and Empathy
+- Inclusion
+- Aesthetics
+- Dependability
+- Punctuality
+- Quick responses to communication 
+- That the team enhances and streamlines the processes
+- Understanding the impact and meaning of our work
+- User privacy
+- Quality software with extensive documentation
 
 
 # Humor & Culture
+We all enjoy Anime. We are all big fans of Halloween, hence the team name. 
