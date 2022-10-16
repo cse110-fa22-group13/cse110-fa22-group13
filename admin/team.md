@@ -2,7 +2,7 @@
     *The JSONs*
 
 # **Team brand**
-[The JSONs]()
+![The JSONs](images/The JSONs Logo.svg)
 
 # **Roster of team members**
 - Guillaume Cristiani - *Team Lead* (guillaume.crist@gmail.com)
