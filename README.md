@@ -1,4 +1,4 @@
-# cse110-fa22-group13
+# The Jsons (Team 13)
 
 Description of project: We plan to make a local first, CRUD project
 
