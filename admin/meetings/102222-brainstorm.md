@@ -1,9 +1,17 @@
-# Team number 13 
+# The Jsons (team 13)
 
 ## Type of meeting held: Virtual
 
 ## Which members are present:  
-
+- [x] Nick Ehsani
+- [x] Guillaume Cristiani
+- [x] Brendan Devlin
+- [x] Ada Burton
+- [x] Dou Kwark
+- [x] Zachary Weber
+- [x] Amaan Singh
+- [x] Matthew Bernard
+- [x] Kenny Nguyen
 
 ## When & Where the meeting was held:  
 Start Time: 6:00pm Place: On Discord
