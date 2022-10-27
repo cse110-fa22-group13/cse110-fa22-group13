@@ -40,6 +40,8 @@ N/A
   - System Diagrams: Brendan, Ada
   - Interface Design Documents: Guiallume, Dou 
   - Roadmap: Amaan, Nick, Kenny ( Nick and Kenny decided to work on both tasks, ADRs and Roadmap )
+
+
   - Set the soft deadline for discussed tasks to be done: Oct 27th (Thursday) except for the project pitch
   - Set the next meeting to be on this weekend; specific time is to be determined through when2meet
 
