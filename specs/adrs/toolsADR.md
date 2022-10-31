@@ -14,7 +14,9 @@ We need to decide which tools we will use to develop our project.
 
 * Languages: HTML, CSS, JavaScript
 * Front-end: HTML, CSS, JavaScript
-* Back-end: 
+* No backend, no databases, no NODEJS as individual server
+* Storage-> local storage - browser tools cashing
+* Back-end: (NO BACKEND)
     * __JavaScript__
         * Fetch API for webscraping?
         * Local (user machine) 
@@ -27,6 +29,8 @@ We need to decide which tools we will use to develop our project.
 * Diagramming: With draw.io vscode extension 
 * (need to research) Framework: Possibly make our webapp as a binary in _electron_? 
     * Put together a small team to look into electron
+
+* NO FRAMEWORKS ALLOWED --> Packager instead 
 
 ## Decision Outcome
 
