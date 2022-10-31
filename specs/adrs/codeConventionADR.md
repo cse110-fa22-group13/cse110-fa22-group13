@@ -1,35 +1,38 @@
-### status: {proposed | rejected | accepted | deprecated | … }
-### date: {YYYY-MM-DD when the decision was last updated}
-### consulted: {list everyone whose opinions are sought (typically subject-matter experts); and with whom there is a two-way communication}
-### informed: {list everyone who is kept up-to-date on progress; and with whom there is a one-way communication}
+### status: WIP
+### date: 10/30/2022
+### consulted: Nick, Kenny, Amaan, Brendan, Ada, Dou, Matthew, Guillaume
+### informed: Nick, Kenny, Amaan, Brendan, Ada, Dou, Matthew, Guillaume
 ---
 <!-- we need to disable MD025, because we use the different heading "ADR Template" in the homepage (see above) than it is foreseen in the template -->
 <!-- markdownlint-disable-next-line MD025 -->
-# {short title of solved problem and solution}
+# Code Convention and Documentation
 
 ## Context and Problem Statement
 
-{Describe the context and problem statement, e.g., in free form using two to three sentences or in the form of an illustrative story.
- You may want to articulate the problem in form of a question and add links to collaboration boards or issue management systems.}
+We need to have a coding format that we adhere to when we code. Add
 
-<!-- This is an optional element. Feel free to remove. -->
-## Decision Drivers
-
-* {decision driver 1, e.g., a force, facing concern, …}
-* {decision driver 2, e.g., a force, facing concern, …}
-* … <!-- numbers of drivers can vary -->
 
 ## Considered Options
 
-* {title of option 1}
-* {title of option 2}
-* {title of option 3}
-* … <!-- numbers of options can vary -->
+* Spacing: 4 spaces
+* Adhere to the convention of whatever technology/language you are using. 
+* Comments:
+    * Headers for functions explaining what they do
+* Decide what documentation to use (js docs, etc)
+* Github
+    * Make issues before implementing what you plan to pull
+    * Have descriptive commit messages
+    * Branch Protection so we can't push straight to master
+    * Commit approval
+        * Have the leader of a small group (front end, back end etc) approve the commits.
+    * __Don't push to master/main__
+    * Add incrementally to the CI pipeline
+        * As a feature is written, unit tests are required for each feature as well as documentation
 
 ## Decision Outcome
 
-Chosen option: "{title of option 1}", because
-{justification. e.g., only option, which meets k.o. criterion decision driver | which resolves force {force} | … | comes out best (see below)}.
+* Still need to decide what documentation to use.
+
 
 <!-- This is an optional element. Feel free to remove. -->
 ### Consequences
