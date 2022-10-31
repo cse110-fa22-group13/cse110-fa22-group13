@@ -3,7 +3,7 @@ name: hello-team-13
 on:
   push:
     branches:
-      - master
+      - main
 jobs:
   my-job:
     runs-on: ubuntu-22.04
