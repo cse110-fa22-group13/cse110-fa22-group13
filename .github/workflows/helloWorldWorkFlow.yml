@@ -1,0 +1,9 @@
+
+name: hello-team-13
+on: push
+jobs:
+  my-job:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: helloStep
+        run: echo "Hello The JSONs!"
