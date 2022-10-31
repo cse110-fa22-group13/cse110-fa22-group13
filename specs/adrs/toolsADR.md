@@ -1,7 +1,7 @@
-### status: proposed
-### date: 10/27/2022
-### consulted: Nick, Amaan, Kenny, Brendan
-### informed: Nick, Amaan, Kenny, Brendan
+### status: tentative to change
+### date: 10/30/2022
+### consulted: Nick, Kenny, Amaan, Brendan, Ada, Dou, Matthew, Guillaume
+### informed: Nick, Kenny, Amaan, Brendan, Ada, Dou, Matthew, Guillaume
 ---
 
 # Essential Tools for Developing the Project
@@ -9,76 +9,39 @@
 ## Context and Problem Statement
 We need to decide which tools we will use to develop our project. 
 
-<!-- This is an optional element. Feel free to remove. -->
-## Decision Drivers
-
-* {decision driver 1, e.g., a force, facing concern, …}
-* {decision driver 2, e.g., a force, facing concern, …}
-* … <!-- numbers of drivers can vary -->
 
 ## Considered Options
 
 * Languages: HTML, CSS, JavaScript
 * Front-end: HTML, CSS, JavaScript
 * Back-end: 
-    * Data Storage: ?
-    * JavaScript
+    * __JavaScript__
         * Fetch API for webscraping?
-    * ?? - Other tools for problem solving (accounts, social media integration)
+        * Local (user machine) 
 * Version Control: GitHub
-* Hosting: Docker
+* Hosting: Hosted Locally
 * UI Design: Figma
 * Communication: Slack
 * Planning: Miro
 * Application type: CRUD Web App
+* Diagramming: With draw.io vscode extension 
+* (need to research) Framework: Possibly make our webapp as a binary in _electron_? 
+    * Put together a small team to look into electron
 
 ## Decision Outcome
 
-Chosen option: "{title of option 1}", because
-{justification. e.g., only option, which meets k.o. criterion decision driver | which resolves force {force} | … | comes out best (see below)}.
+* Decisions are made with the priority of the local first system in mind.
+* Stick with JS for backend
+    * A bit unsure if we can even use other languages for backend.
+* Data Storage is still a little unsure.
+    * Decide in future
+* Not using docker, local hosting
+    * Potentially use server in future
+* Electron or Electron alternative would be preferred to use as a framework. 
 
 <!-- This is an optional element. Feel free to remove. -->
 ### Consequences
 
-* Good, because {positive consequence, e.g., improvement of one or more desired qualities, …}
-* Bad, because {negative consequence, e.g., compromising one or more desired qualities, …}
-* … <!-- numbers of consequences can vary -->
-
-<!-- This is an optional element. Feel free to remove. -->
-## Validation
-
-{describe how the implementation of/compliance with the ADR is validated. E.g., by a review or an ArchUnit test}
-
-<!-- This is an optional element. Feel free to remove. -->
-## Pros and Cons of the Options
-
-### {title of option 1}
-
-<!-- This is an optional element. Feel free to remove. -->
-{example | description | pointer to more information | …}
-
-* Good, because {argument a}
-* Good, because {argument b}
-<!-- use "neutral" if the given argument weights neither for good nor bad -->
-* Neutral, because {argument c}
-* Bad, because {argument d}
-* … <!-- numbers of pros and cons can vary -->
-
-### {title of other option}
-
-{example | description | pointer to more information | …}
-
-* Good, because {argument a}
-* Good, because {argument b}
-* Neutral, because {argument c}
-* Bad, because {argument d}
-* …
-
-<!-- This is an optional element. Feel free to remove. -->
-## More Information
-
-{You might want to provide additional evidence/confidence for the decision outcome here and/or
- document the team agreement on the decision and/or
- define when this decision when and how the decision should be realized and if/when it should be re-visited and/or
- how the decision is validated.
- Links to other decisions and resources might here appear as well.}
+* Electron
+    * Pro: Useful framework considering we're using local first. It wraps it in a binary (turns website into an executable). 
+    * Con: Wil make the project heavier, can take time for our group to understand
