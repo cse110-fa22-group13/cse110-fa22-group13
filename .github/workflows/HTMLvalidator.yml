@@ -25,6 +25,6 @@ jobs:
     - name: Checks HTML5
       uses: Cyb3r-Jak3/html5validator-action@master
       with:
-        root: ./source/homepage/
+        root: ./source/
         css: true
 
