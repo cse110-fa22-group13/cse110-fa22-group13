@@ -1,0 +1,110 @@
+* {
+    margin: 0 0 0 0;
+    padding: 0 0 0 0; 
+}
+
+section-body {
+    display: grid;
+    /* grid-row: 5; */
+    grid-template-rows: 100px 300px 300px 300px 300px;
+}
+
+header {
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    height: 100px;
+    background-color: rgb(89, 18, 95);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+header > ul > li {
+    margin-left: 8px;
+}
+
+/**
+ * when it is being sized to be really tiny,
+ * the words tend to be overlapping each other.
+ *
+ */
+
+header > ul{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+    list-style-type: none;  
+    grid-column-start: 2;
+    grid-column-end: 3;
+    color: white;
+}
+
+#header-main {
+    /* background-color: rgb(184, 113, 190);  */
+    color: white;
+    text-align: center;
+    align-items: center;
+    max-width: 6em;
+    max-height: 1.3em;
+    margin-top: 6%;
+    margin-left: 34%;
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+
+.page {
+    /* background-color: rgb(90, 14, 97); */
+}
+
+#first-row {
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    background-color: orange;
+    min-height: 120px;
+    display: block;
+    align-items: center;
+}
+
+#greeting {
+    max-height: 500px;
+}
+
+#second-row {
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 3;
+    grid-row-end: 4;
+    /* margin-bottom: 15px;
+    margin-left: 0.5em; */
+    border-style: solid;
+    min-height: 120px;
+    background-color:rgb(216, 204, 171);
+}
+
+#third-row {
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 4;
+    grid-row-end: 5;
+    /* margin-bottom: 15px;
+    margin-left: 0.5em; */
+    border-style: solid;
+    background-color:rgb(216, 204, 171);
+}
+
+#fourth-row {
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 5;
+    grid-row-end: 6;
+    /* margin-bottom: 15px;
+    margin-left: 0.5em; */
+    border-style: solid;
+    background-color:rgb(216, 204, 171);
+}
