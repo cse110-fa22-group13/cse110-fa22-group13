@@ -26,6 +26,7 @@ header {
     grid-template-columns: 1fr 1fr 1fr;
 }
 
+
 header > ul > li {
     margin-left: 8px;
 }
@@ -52,6 +53,19 @@ header > ul{
 #header-main {
     /* background-color: rgb(184, 113, 190);  */
     color: #DBC6BB;
+    text-align: center;
+    align-items: center;
+    max-width: 6em;
+    max-height: 1.3em;
+    margin-top: 6%;
+    margin-left: 34%;
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+.header-main1 {
+    /* background-color: rgb(184, 113, 190);  */
+    color: #DBC6BB;
+    display: flex;
     text-align: center;
     align-items: center;
     max-width: 6em;
@@ -216,4 +230,18 @@ body{
 
 p{
     color: white;
+}
+
+.row {
+    display: flex;
+  }
+  
+.column {
+    flex: 33.33%;
+    padding: 50px;
+}
+#statements{
+    display: flex;
+    align-items: center;
+    justify-content: center
 }
