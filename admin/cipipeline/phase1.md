@@ -20,4 +20,4 @@
 - Unit testing functionality for branches could be nice. But it could also slow down development.
 
 #### Diagram    
-![CI/CD Diagram]()
+![CI/CD Diagram](/admin/cipipeline/phase1.png)
