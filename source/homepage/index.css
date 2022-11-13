@@ -1,0 +1,285 @@
+@font-face {
+    font-family: roboto-regular;
+    src: url('Roboto-Regular.ttf');
+}
+
+* {
+    font-family: roboto-regular;
+    margin: 0 0 0 0;
+    padding: 0 0 0 0; 
+    /* background-color: red; */
+}
+
+/* html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden; 
+} */
+
+section-body {
+    display: grid;
+    /* grid-row: 5; */
+    grid-template-rows: 100px 300px 300px 300px 300px;
+}
+
+header {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    height: 100px;
+    background-color: #422040;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+
+header > ul > li {
+    margin-left: 8px;
+}
+
+/**
+ * when it is being sized to be really tiny,
+ * the words tend to be overlapping each other.
+ *
+ */
+
+header > ul{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+    list-style-type: none;  
+    grid-column-start: 2;
+    grid-column-end: 3;
+    color: #DBC6BB;
+}
+
+#header-main {
+    /* background-color: rgb(184, 113, 190);  */
+    color: #DBC6BB;
+    text-align: center;
+    align-items: center;
+    max-width: 6em;
+    max-height: 1.3em;
+    margin-top: 6%;
+    margin-left: 34%;
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+.header-main1 {
+    /* background-color: rgb(184, 113, 190);  */
+    color: #DBC6BB;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    max-width: 6em;
+    max-height: 1.3em;
+    margin-top: 6%;
+    margin-left: 34%;
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+
+.page:hover {
+    color:white;
+}
+
+.page:active {
+    color:white;
+}
+
+body{
+    background-color: #DBC6BB;
+}
+
+#first-row {
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    background-color: #E57A44;
+    display: block;
+    align-items: center;
+    text-align: center;
+    min-height: 350px;
+}
+
+#greeting {
+    color: white;
+    position: relative;
+    top: 65px;
+    font-size: 48px;
+}
+
+#sub-greeting {
+    position: relative;
+    top: 100px;
+}
+
+#start{
+    position: relative;
+    top: 150px;
+    font-size: large;
+    background-color: #422040;
+    color: white;
+    padding: 12px 32px;
+}
+
+#learn {
+    position: relative;
+    top: 150px;
+    font-size: large;
+    padding: 12px 32px;
+}
+
+#second-row {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 3;
+    grid-row-end: 4;
+    /* margin-bottom: 15px;
+    margin-left: 0.5em; */
+    min-height: 250px;
+    background-color:#DBC6BB;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    text-align: center;
+}
+
+#second-row-1 {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    text-align: center;
+}
+
+#cloud {
+    width: 60px;
+    height: 50px;
+    position: relative;
+    /* left: 30%; */
+    top: 40px;
+}
+
+#left-column {
+    position: relative;
+    /* text-align: left; */
+    /* left: 16%; */
+    top: 60px;
+    font-size: 20px;
+}
+
+#left-column2 {
+    position: relative;
+    /* text-align: left; */
+    top: 70px;
+    max-width: 450px;
+    left: 7%;
+    text-align: center;
+    font-size: smaller;
+}
+
+#second-row-2 {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    text-align: center;
+}
+
+#mid-column {
+    position: relative;
+    top: 60px;
+    font-size: 20px;
+}
+
+#mid-column2 { 
+    position: relative;
+    top: 70px;
+    text-align: center;
+    font-size: smaller;
+}
+
+#books {
+    width: 60px;
+    height: 50px;
+    position:relative;
+    /* left: 48%; */
+    top: 40px;
+}
+
+#second-row-3 {
+    grid-column-start: 3;
+    grid-column-end: 4;
+}
+
+#right-column {
+    position: relative;
+    top: 50px;
+    /* left: 75%; */
+    font-size: 20px;
+}
+
+#right-column2 {
+    position: relative;
+    top: 60px;
+    /* left: 68%; */
+    font-size: smaller;
+}
+
+#checklist {
+    width: 50px;
+    height: 60px;
+    position:relative;
+    top: 40px;
+}
+
+#third-row {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 4;
+    grid-row-end: 5;
+    /* margin-bottom: 15px;
+    margin-left: 0.5em; */
+    border-style: solid;
+    background-color:#DBC6BB;
+}
+
+#fourth-row {
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 5;
+    grid-row-end: 6;
+    /* margin-bottom: 15px;
+    margin-left: 0.5em; */
+    background-color:#DBC6BB;
+}
+
+p{
+    color: white;
+}
+
+div > p {
+    color: black;
+    background-color: white;
+    border-style: solid;
+    white-space: pre-line;
+}
+.row {
+    display: flex;
+    align-items: center;
+  }
+  
+.column {
+    flex: 33.33%;
+    padding: 50px;
+}
+
+/* #statements{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+} */

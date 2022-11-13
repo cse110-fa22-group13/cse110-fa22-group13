@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!--Header-->
+  <head>
+    <meta name="author" content="The JSons">
+    <link rel="stylesheet" href="bookEntries.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather">
+    <title>My Book List</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/source/assets/images/Logo.svg">
+    <style>
+        body {
+            background-color: hsl(36, 100%, 90%);
+        }
+    </style>
+  </head>
+  <!--body-->
+  <body class="body">
+    <section id="section-body">
+        <header>
+            <h1 style="color: maroon"> BookTime </h1>
+            <button id="homepage" onclick="location.href='/source/homepage/index.html'">Go back to homepage</button>
+            <ul>
+                <li class="page">Profile</li>
+                <li class="page">Recommendations</li>
+                <li class="page">Booklist</li>
+            </ul>           
+        </header>
+
+
+        
+        <main>
+            <div id="add-entry">
+                <button id="add-entry-button">Add Entry</button>
+                <fieldset></fieldset>
+            </div>
+            <section id="booklist">
+                <section id="in-progress">
+                    <h2 class="list-title">In Progress</h2>
+                    <div class="list-index">
+                        <span class="column-name">Book Title</span>
+                        <span class="column-name">Score</span>
+                        <span class="column-name">Progress</span>
+                        <span class="column-name">Genres</span>
+                    </div>
+                    <div class="entries">
+                        <article class="entry">
+                            <img src="" class="book-img" alt="Book Image">
+                            <span class="name">Generic Book Name</span>
+                            <div class="rating">
+                                <span class="score">7.8/10</span>
+                                <img src="" class="score-img">
+                            </div>
+                            <span class="progress">123/456</span>
+                            <span class="genres">Nothing</span>
+                            <span class="review">This is placeholder text.</span>
+                            <div class="modify-entry">
+                                <button class="modify-entry">Modify Entry</button>
+                            </div>
+                        </article>
+                        <article class="entry">
+                            <img src="" class="book-img" alt="Book Image 2">
+                            <span class="name">Other Book</span>
+                            <div class="rating">
+                                <span class="score">8.4/10</span>
+                                <img src="" class="score-img">
+                            </div>
+                            <span class="progress">234/300</span>
+                            <span class="genres">Action</span>
+                            <span class="review">This is placeholder text too.</span>
+                            <div class="modify-entry">
+                                <button class="modify-entry">Modify Entry</button>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+                <section id="completed">
+                    <h2 class="list-title">Completed</h2>
+                    <div class="list-index">
+                        <span class="column-name">Book Title</span>
+                        <span class="column-name">Score</span>
+                        <span class="column-name">Progress</span>
+                        <span class="column-name">Genres</span>
+                    </div>
+                    <div class="entries">
+                        <article class="entry">
+                            <img src="" class="book-img" alt="Book Image">
+                            <span class="name">Generic Book Name</span>
+                            <div class="rating">
+                                <span class="score">7.8/10</span>
+                                <img src="" class="score-img">
+                            </div>
+                            <span class="progress">123/456</span>
+                            <span class="genres">Nothing</span>
+                            <span class="review">This is placeholder text.</span>
+                            <div class="modify-entry">
+                                <button class="modify-entry">Modify Entry</button>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+                <section id="dropped" hidden>
+                    <h2 class="list-title">Dropped</h2>
+                    <div class="list-index">
+                        <span class="column-name">Book Title</span>
+                        <span class="column-name">Score</span>
+                        <span class="column-name">Progress</span>
+                        <span class="column-name">Genres</span>
+                    </div>
+                    <div class="entries">
+                        <article class="entry">
+                            <img src="" class="book-img" alt="Book Image">
+                            <span class="name">Generic Book Name</span>
+                            <div class="rating">
+                                <span class="score">7.8/10</span>
+                                <img src="" class="score-img">
+                            </div>
+                            <span class="progress">123/456</span>
+                            <span class="genres">Nothing</span>
+                            <span class="review">This is placeholder text.</span>
+                            <div class="modify-entry">
+                                <button class="modify-entry">Modify Entry</button>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+                <section id="planned" hidden>
+                    <h2 class="list-title">Planned</h2>
+                    <div class="list-index">
+                        <span class="column-name">Book Title</span>
+                        <span class="column-name">Score</span>
+                        <span class="column-name">Progress</span>
+                        <span class="column-name">Genres</span>
+                    </div>
+                    <div class="entries">
+                        <article class="entry">
+                            <img src="" class="book-img" alt="Book Image">
+                            <span class="name">Generic Book Name</span>
+                            <div class="rating">
+                                <span class="score">7.8/10</span>
+                                <img src="" class="score-img">
+                            </div>
+                            <span class="progress">123/456</span>
+                            <span class="genres">Nothing</span>
+                            <span class="review">This is placeholder text.</span>
+                            <div class="modify-entry">
+                                <button class="modify-entry">Modify Entry</button>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+            </section>
+        </main> 
+    </section>
+    <!--footer-->
+  </body>
+</html>
