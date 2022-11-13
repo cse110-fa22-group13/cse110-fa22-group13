@@ -39,7 +39,8 @@ Start Time: 7:00 pm Place: On Discord
 - Discussed progress on linter
 ## Backlog
 - Items needed to be continued and improved from the first sprint are pushed into backlog of the sprint 2.
-- Created some tasks related to Javascript for the second sprint
+- Created some tasks related to Javascript for the second sprint, including Book Entries and their object
 - Created some documentation update tasks based on the accomplishment of the first sprint as well as the upcoming assignments' checkpoint
+- The details can be found on [issues](https://github.com/cse110-fa22-group13/cse110-fa22-group13/issues)
 
 **When the meeting finished:** 7:45pm
