@@ -19,8 +19,10 @@
   <body class="body">
     <section id="section-body">
         <header>
-            <h1 style="color: maroon"> BookTime </h1>
-            <button id="homepage" onclick="location.href='/source/homepage/index.html'">Go back to homepage</button>
+            <div class="header-main">
+                <img src="/source/assets/images/Logo.svg" alt="logo" />
+                <h1>BookTime</h1>
+            </div>
             <ul>
                 <li class="page">Profile</li>
                 <li class="page">Recommendations</li>
@@ -32,125 +34,143 @@
         
         <main>
             <div id="add-entry">
-                <button id="add-entry-button">Add Entry</button>
+                <button class="add-button" title="Click to add a new entry to your list.">Add Entry</button>
                 <fieldset></fieldset>
             </div>
             <section id="booklist">
                 <section id="in-progress">
                     <h2 class="list-title">In Progress</h2>
-                    <div class="list-index">
-                        <span class="column-name">Book Title</span>
-                        <span class="column-name">Score</span>
-                        <span class="column-name">Progress</span>
-                        <span class="column-name">Genres</span>
-                    </div>
-                    <div class="entries">
-                        <article class="entry">
-                            <img src="" class="book-img" alt="Book Image">
-                            <span class="name">Generic Book Name</span>
-                            <div class="rating">
-                                <span class="score">7.8/10</span>
-                                <img src="" class="score-img">
-                            </div>
-                            <span class="progress">123/456</span>
-                            <span class="genres">Nothing</span>
-                            <span class="review">This is placeholder text.</span>
-                            <div class="modify-entry">
-                                <button class="modify-entry">Modify Entry</button>
-                            </div>
-                        </article>
-                        <article class="entry">
-                            <img src="" class="book-img" alt="Book Image 2">
-                            <span class="name">Other Book</span>
-                            <div class="rating">
-                                <span class="score">8.4/10</span>
-                                <img src="" class="score-img">
-                            </div>
-                            <span class="progress">234/300</span>
-                            <span class="genres">Action</span>
-                            <span class="review">This is placeholder text too.</span>
-                            <div class="modify-entry">
-                                <button class="modify-entry">Modify Entry</button>
-                            </div>
-                        </article>
+                    <div class="entry-list">
+                        <div class="list-header">
+                            <span class="entry-cover">&nbsp;</span>
+                            <span class="entry-name">Title</span>
+                            <span class="entry-rating">Rating</span>
+                            <span class="entry-progress">Progress</span>
+                            <span class="entry-genres">Genres</span>
+                            <span class="entry-review">Review</span>
+                        </div>
+                        <div class="entries">
+                            <article class="entry">
+                                <div class="entry-cover">
+                                    <img src="/source/assets/images/Books-Icon.png" class="entry-img" alt="Generic Book Icon">
+                                    <button class="modify-button" title="Click to modify this entry.">Modify Entry</button>
+                                </div>
+                                <span class="entry-name">Generic Book Name</span>
+                                <div class="entry-rating">
+                                    <span class="entry-score">7.8/10</span>
+                                    <img src="" class="score-img">
+                                </div>
+                                <span class="entry-progress">123/456</span>
+                                <span class="entry-genres">Nothing</span>
+                                <details class="entry-review">
+                                    <summary>View Review</summary>
+                                    <p>Too much water.</p>
+                                </details>
+                            </article>
+                            <article class="entry">
+                                <div class="entry-cover">
+                                    <img src="/source/assets/images/Books-Icon.png" class="entry-img" alt="Generic Book Icon">
+                                    <button class="modify-button" title="Click to modify this entry.">Modify Entry</button>
+                                </div>
+                                <span class="entry-name">Another Book Name</span>
+                                <div class="entry-rating">
+                                    <span class="entry-score">8.5/10</span>
+                                    <img src="" class="score-img">
+                                </div>
+                                <span class="entry-progress">654/765</span>
+                                <span class="entry-genres">Action</span>
+                                <details class="entry-review">
+                                    <summary>View Review</summary>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Pretium nibh ipsum consequat nisl vel pretium lectus quam. Tristique sollicitudin nibh sit amet commodo nulla facilisi nullam. Varius morbi enim nunc faucibus. Adipiscing bibendum est ultricies integer quis auctor elit. Turpis egestas pretium aenean pharetra magna ac placerat vestibulum lectus. Sed euismod nisi porta lorem mollis. Mi proin sed libero enim sed. Faucibus nisl tincidunt eget nullam non nisi est sit amet.</p>
+                                </details>
+                            </article>
+                        </div>
                     </div>
                 </section>
                 <section id="completed">
                     <h2 class="list-title">Completed</h2>
-                    <div class="list-index">
-                        <span class="column-name">Book Title</span>
-                        <span class="column-name">Score</span>
-                        <span class="column-name">Progress</span>
-                        <span class="column-name">Genres</span>
-                    </div>
-                    <div class="entries">
-                        <article class="entry">
-                            <img src="" class="book-img" alt="Book Image">
-                            <span class="name">Generic Book Name</span>
-                            <div class="rating">
-                                <span class="score">7.8/10</span>
-                                <img src="" class="score-img">
-                            </div>
-                            <span class="progress">123/456</span>
-                            <span class="genres">Nothing</span>
-                            <span class="review">This is placeholder text.</span>
-                            <div class="modify-entry">
-                                <button class="modify-entry">Modify Entry</button>
-                            </div>
-                        </article>
+                    <div class="entry-list">
+                        <div class="list-header">
+                            <span class="entry-cover">&nbsp;</span>
+                            <span class="entry-name">Title</span>
+                            <span class="entry-rating">Rating</span>
+                            <span class="entry-progress">Progress</span>
+                            <span class="entry-genres">Genres</span>
+                            <span class="entry-review">Review</span>
+                        </div>
+                        <div class="entries">
+                            <article class="entry">
+                                <div class="entry-cover">
+                                    <img src="/source/assets/images/Checklist-Icon.jpg" class="entry-img" alt="Checklist Icon">
+                                    <button class="modify-button" title="Click to modify this entry.">Modify Entry</button>
+                                </div>
+                                <span class="entry-name">The Check</span>
+                                <div class="entry-rating">
+                                    <span class="entry-score">6.5/10</span>
+                                    <img src="" class="score-img">
+                                </div>
+                                <span class="entry-progress">333/333</span>
+                                <span class="entry-genres">Reference</span>
+                                <details class="entry-review">
+                                    <summary>View Review</summary>
+                                    <p>It was mid.</p>
+                                </details>
+                            </article>
+                        </div>
                     </div>
                 </section>
                 <section id="dropped" hidden>
                     <h2 class="list-title">Dropped</h2>
-                    <div class="list-index">
-                        <span class="column-name">Book Title</span>
-                        <span class="column-name">Score</span>
-                        <span class="column-name">Progress</span>
-                        <span class="column-name">Genres</span>
-                    </div>
-                    <div class="entries">
-                        <article class="entry">
-                            <img src="" class="book-img" alt="Book Image">
-                            <span class="name">Generic Book Name</span>
-                            <div class="rating">
-                                <span class="score">7.8/10</span>
-                                <img src="" class="score-img">
-                            </div>
-                            <span class="progress">123/456</span>
-                            <span class="genres">Nothing</span>
-                            <span class="review">This is placeholder text.</span>
-                            <div class="modify-entry">
-                                <button class="modify-entry">Modify Entry</button>
-                            </div>
-                        </article>
+                    <div class="entry-list">
+                        <div class="list-header">
+                            <span class="entry-cover">&nbsp;</span>
+                            <span class="entry-name">Title</span>
+                            <span class="entry-rating">Rating</span>
+                            <span class="entry-progress">Progress</span>
+                            <span class="entry-genres">Genres</span>
+                            <span class="entry-review">Review</span>
+                        </div>
+                        <div class="entries">
+                            <article class="entry">
+                                <div class="entry-cover">
+                                    <img src="/source/assets/images/Checklist-Icon.jpg" class="entry-img" alt="Checklist Icon">
+                                    <button class="modify-button" title="Click to modify this entry.">Modify Entry</button>
+                                </div>
+                                <span class="entry-name">The Check</span>
+                                <div class="entry-rating">
+                                    <span class="entry-score">6.5/10</span>
+                                    <img src="" class="score-img">
+                                </div>
+                                <span class="entry-progress">333/333</span>
+                                <span class="entry-genres">Reference</span>
+                                <details class="entry-review">
+                                    <summary>View Review</summary>
+                                    <p>It was mid.</p>
+                                </details>
+                            </article>
+                        </div>
                     </div>
                 </section>
                 <section id="planned" hidden>
                     <h2 class="list-title">Planned</h2>
-                    <div class="list-index">
-                        <span class="column-name">Book Title</span>
-                        <span class="column-name">Score</span>
-                        <span class="column-name">Progress</span>
-                        <span class="column-name">Genres</span>
-                    </div>
-                    <div class="entries">
-                        <article class="entry">
-                            <img src="" class="book-img" alt="Book Image">
-                            <span class="name">Generic Book Name</span>
-                            <div class="rating">
-                                <span class="score">7.8/10</span>
-                                <img src="" class="score-img">
-                            </div>
-                            <span class="progress">123/456</span>
-                            <span class="genres">Nothing</span>
-                            <span class="review">This is placeholder text.</span>
-                            <div class="modify-entry">
-                                <button class="modify-entry">Modify Entry</button>
-                            </div>
-                        </article>
+                    <div class="entry-list">
+                        <div class="list-header">
+                            <span class="entry-cover">&nbsp;</span>
+                            <span class="entry-name">Title</span>
+                            <span class="entry-rating">Rating</span>
+                            <span class="entry-progress">Progress</span>
+                            <span class="entry-genres">Genres</span>
+                            <details class="entry-review">
+                                <summary>View Review</summary>
+                                <p></p>
+                            </details>
+                        </div>
+                        <div class="entries">
+                        </div>
                     </div>
                 </section>
             </section>
+            <button id="homepage" onclick="location.href='/source/homepage/index.html'">Go back to homepage</button>
         </main> 
     </section>
     <!--footer-->
