@@ -34,6 +34,8 @@ jobs:
           output_dir: ./out
           template: minami
           front_page: README.md
+      - name: Print path
+        run: ls -la /home/runner/work/cse110-fa22-group13/cse110-fa22-group13/    
       - name: Setup Pages
         uses: actions/configure-pages@v2
       - name: Upload artifact
