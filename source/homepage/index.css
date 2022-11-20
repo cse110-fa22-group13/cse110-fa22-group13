@@ -1,6 +1,6 @@
 @font-face {
     font-family: roboto-regular;
-    src: url('Roboto-Regular.ttf');
+    src: url('/source/resources/fonts/Roboto-Regular.ttf');
 }
 
 * {
@@ -70,6 +70,7 @@ header > ul{
     max-height: 1.3em;
     margin-top: 6%;
     margin-left: 34%;
+    gap: 5px;
     grid-column-start: 1;
     grid-column-end: 2;
 }
