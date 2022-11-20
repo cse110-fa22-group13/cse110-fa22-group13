@@ -93,7 +93,6 @@ booklist {
     display: flex;
     flex-flow: column nowrap;
     justify-content: space-between;
-    align-items: left;
     align-content: space-between;
     row-gap: 20px;
     margin: 5px;
@@ -104,7 +103,6 @@ booklist {
     display: flex;
     flex-flow: column nowrap;
     justify-content: space-between;
-    align-items: left;
     align-content: space-between;
     row-gap: 0px;
     border: 2px #E57A44 solid;
@@ -117,7 +115,6 @@ booklist {
     display: flex;
     flex-flow: column nowrap;
     justify-content: space-between;
-    align-items: left;
     align-content: space-between;
     row-gap: 0px;
 }
