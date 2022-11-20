@@ -23,6 +23,7 @@ We need to decide which tools we will use to develop our project.
 * Diagramming: With draw.io vscode extension 
 * Packager: Wrap our webapp as a binary in electron.js
     * Put together a small team to look into electron
+* Testing Tool: Jest
 
 * NO FRAMEWORKS ALLOWED --> Packager instead 
 
@@ -31,3 +32,4 @@ We need to decide which tools we will use to develop our project.
 * Decisions are made with the priority of the local first system in mind.
 * Electron.js would be preferred to use as a packager. 
 * Developing a desktop app using the given languages. 
+* Using Jest as our testing tool
