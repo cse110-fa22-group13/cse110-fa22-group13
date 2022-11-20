@@ -1,6 +1,6 @@
 @font-face {
     font-family: roboto-regular;
-    src: url('Roboto-Regular.ttf');
+    src: url('/source/resources/fonts/Roboto-Regular.ttf');
 }
 
 * {
@@ -140,8 +140,8 @@ booklist {
     background-color: #422040;
 }
 
-/* All table components except entry entry cover and title */
-.entry-rating, .entry-progress, .entry-genres {
+/* Entry rating and progress */
+.entry-rating, .entry-progress {
     flex: 1;
 }
 
@@ -192,10 +192,10 @@ booklist {
     text-align: left;
 }
 
-.entry-review {
+.entry-extras, .entry-review {
     flex: 2;
 }
 
-.entries .entry-review p {
+.entries .entry-review p, .entry-genres {
     text-align: left;
 }

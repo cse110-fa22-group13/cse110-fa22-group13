@@ -2,13 +2,13 @@
 <html lang="en">
   <!--Header-->
   <head>
+    <title>My Book List</title>
     <meta name="author" content="The JSons">
     <link rel="stylesheet" href="bookEntries.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather">
-    <title>My Book List</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="/source/assets/images/Logo.svg">
+    <link rel="icon" type="image/x-icon" href="/source/resources/images/vectors/Logo.svg">
     <style>
         body {
             background-color: hsl(36, 100%, 90%);
@@ -17,27 +17,25 @@
   </head>
   <!--body-->
   <body class="body">
-    <section id="section-body">
         <header>
             <div class="header-main">
-                <img src="/source/assets/images/Logo.svg" alt="logo" />
+                <img src="/source/resources/images/vectors/Logo.svg" alt="logo">
                 <h1>BookTime</h1>
             </div>
             <ul>
                 <li class="page">Profile</li>
                 <li class="page">Recommendations</li>
-                <li class="page">Booklist</li>
+                <li class="page" onclick="location.href='/source/bookEntries/bookEntries.html'">Booklist</li>
             </ul>           
         </header>
 
-
-        
         <main>
             <div id="add-entry">
                 <button class="add-button" title="Click to add a new entry to your list.">Add Entry</button>
                 <fieldset></fieldset>
             </div>
             <section id="booklist">
+                <h2 class="booklist-title">Your Book List</h2>
                 <section id="in-progress">
                     <h2 class="list-title">In Progress</h2>
                     <div class="entry-list">
@@ -46,44 +44,54 @@
                             <span class="entry-name">Title</span>
                             <span class="entry-rating">Rating</span>
                             <span class="entry-progress">Progress</span>
-                            <span class="entry-genres">Genres</span>
+                            <span class="entry-extras">Extras</span>
                             <span class="entry-review">Review</span>
                         </div>
                         <div class="entries">
-                            <article class="entry">
+                            <div class="entry">
                                 <div class="entry-cover">
-                                    <img src="/source/assets/images/Books-Icon.png" class="entry-img" alt="Generic Book Icon">
+                                    <img src="/source/resources/images/icons/Books-Icon.png" class="entry-img" alt="Generic Book Icon">
                                     <button class="modify-button" title="Click to modify this entry.">Modify Entry</button>
                                 </div>
                                 <span class="entry-name">Generic Book Name</span>
                                 <div class="entry-rating">
                                     <span class="entry-score">7.8/10</span>
-                                    <img src="" class="score-img">
                                 </div>
                                 <span class="entry-progress">123/456</span>
-                                <span class="entry-genres">Nothing</span>
+                                <details class="entry-extras">
+                                    <summary>Extra Details</summary>
+                                    <span class="entry-genres">Genres</span>
+                                    <ul class="entry-genres">
+                                        <li>Reference</li>
+                                    </ul>
+                                </details>
                                 <details class="entry-review">
                                     <summary>View Review</summary>
                                     <p>Too much water.</p>
                                 </details>
-                            </article>
-                            <article class="entry">
+                            </div>
+                            <div class="entry">
                                 <div class="entry-cover">
-                                    <img src="/source/assets/images/Books-Icon.png" class="entry-img" alt="Generic Book Icon">
+                                    <img src="/source/resources/images/book-covers/all-my-rage-cover.png" class="entry-img" alt="Generic Book Icon">
                                     <button class="modify-button" title="Click to modify this entry.">Modify Entry</button>
                                 </div>
                                 <span class="entry-name">Another Book Name</span>
                                 <div class="entry-rating">
                                     <span class="entry-score">8.5/10</span>
-                                    <img src="" class="score-img">
                                 </div>
                                 <span class="entry-progress">654/765</span>
-                                <span class="entry-genres">Action</span>
+                                <details class="entry-extras">
+                                    <summary>Extra Details</summary>
+                                    <span class="entry-genres">Genres</span>
+                                    <ul class="entry-genres">
+                                        <li>Reference</li>
+                                    </ul>
+                                </details>
                                 <details class="entry-review">
                                     <summary>View Review</summary>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Pretium nibh ipsum consequat nisl vel pretium lectus quam. Tristique sollicitudin nibh sit amet commodo nulla facilisi nullam. Varius morbi enim nunc faucibus. Adipiscing bibendum est ultricies integer quis auctor elit. Turpis egestas pretium aenean pharetra magna ac placerat vestibulum lectus. Sed euismod nisi porta lorem mollis. Mi proin sed libero enim sed. Faucibus nisl tincidunt eget nullam non nisi est sit amet.</p>
                                 </details>
-                            </article>
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -95,27 +103,32 @@
                             <span class="entry-name">Title</span>
                             <span class="entry-rating">Rating</span>
                             <span class="entry-progress">Progress</span>
-                            <span class="entry-genres">Genres</span>
+                            <span class="entry-extras">Extras</span>
                             <span class="entry-review">Review</span>
                         </div>
                         <div class="entries">
-                            <article class="entry">
+                            <div class="entry">
                                 <div class="entry-cover">
-                                    <img src="/source/assets/images/Checklist-Icon.jpg" class="entry-img" alt="Checklist Icon">
+                                    <img src="/source/resources/images/icons/Checklist-Icon.jpg" class="entry-img" alt="Checklist Icon">
                                     <button class="modify-button" title="Click to modify this entry.">Modify Entry</button>
                                 </div>
                                 <span class="entry-name">The Check</span>
                                 <div class="entry-rating">
                                     <span class="entry-score">6.5/10</span>
-                                    <img src="" class="score-img">
                                 </div>
                                 <span class="entry-progress">333/333</span>
-                                <span class="entry-genres">Reference</span>
+                                <details class="entry-extras">
+                                    <summary>Extra Details</summary>
+                                    <span class="entry-genres">Genres</span>
+                                    <ul class="entry-genres">
+                                        <li>Reference</li>
+                                    </ul>
+                                </details>
                                 <details class="entry-review">
                                     <summary>View Review</summary>
                                     <p>It was mid.</p>
                                 </details>
-                            </article>
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -127,27 +140,32 @@
                             <span class="entry-name">Title</span>
                             <span class="entry-rating">Rating</span>
                             <span class="entry-progress">Progress</span>
-                            <span class="entry-genres">Genres</span>
+                            <span class="entry-extras">Extras</span>
                             <span class="entry-review">Review</span>
                         </div>
                         <div class="entries">
-                            <article class="entry">
+                            <div class="entry">
                                 <div class="entry-cover">
-                                    <img src="/source/assets/images/Checklist-Icon.jpg" class="entry-img" alt="Checklist Icon">
+                                    <img src="/source/resources/images/icons/Checklist-Icon.jpg" class="entry-img" alt="Checklist Icon">
                                     <button class="modify-button" title="Click to modify this entry.">Modify Entry</button>
                                 </div>
                                 <span class="entry-name">The Check</span>
                                 <div class="entry-rating">
                                     <span class="entry-score">6.5/10</span>
-                                    <img src="" class="score-img">
                                 </div>
                                 <span class="entry-progress">333/333</span>
-                                <span class="entry-genres">Reference</span>
+                                <details class="entry-extras">
+                                    <summary>Extra Details</summary>
+                                    <span class="entry-genres">Genres</span>
+                                    <ul class="entry-genres">
+                                        <li>Reference</li>
+                                    </ul>
+                                </details>
                                 <details class="entry-review">
                                     <summary>View Review</summary>
                                     <p>It was mid.</p>
                                 </details>
-                            </article>
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -159,7 +177,7 @@
                             <span class="entry-name">Title</span>
                             <span class="entry-rating">Rating</span>
                             <span class="entry-progress">Progress</span>
-                            <span class="entry-genres">Genres</span>
+                            <span class="entry-extras">Extras</span>
                             <details class="entry-review">
                                 <summary>View Review</summary>
                                 <p></p>
@@ -172,7 +190,6 @@
             </section>
             <button id="homepage" onclick="location.href='/source/homepage/index.html'">Go back to homepage</button>
         </main> 
-    </section>
     <!--footer-->
   </body>
 </html>

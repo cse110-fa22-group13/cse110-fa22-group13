@@ -19,7 +19,7 @@ We need to have a coding format that we adhere to when we code. Add
     * If using Javascript, adhere to js conventions (use camelCase, etc), if using HTML adhere to those conventions, etc.
 * Comments:
     * Headers for functions explaining what they do
-* Documentation: docsify.js
+* Documentation: JSDocs
 * Github
     * Make issues before implementing what you plan to pull
     * Have descriptive commit messages
@@ -32,5 +32,5 @@ We need to have a coding format that we adhere to when we code. Add
 
 ## Decision Outcome
 
-* Decided on docsify.js as documentation
+* Decided on JSdocs as documentation
 * Decided on other conventions as is
