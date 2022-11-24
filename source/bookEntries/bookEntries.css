@@ -95,7 +95,7 @@ booklist {
     justify-content: space-between;
     align-content: space-between;
     row-gap: 20px;
-    margin: 5px;
+    margin: 50px;
 }
 
 /* Single Booklist, includes list header and all list entries */

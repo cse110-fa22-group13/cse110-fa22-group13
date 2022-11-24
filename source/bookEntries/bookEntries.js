@@ -1,25 +1,20 @@
-let editButton
+let addButton;
 
 window.addEventListener('DOMContentLoaded', init);
 
 function init() {
-    editButton = document.getElementById("edit button");
-    editButton.addEventListener('click', toggleEditMode);
+    addButton = document.querySelector('.add-button');
+    addButton.addEventListener('click', addNewList);
+
 }
 
-function toggleEditMode(){
-    let elements = document.querySelectorAll('#booklist > *');
+function addNewList(){
+    const testList = document.createElement('book-list');
+    document.querySelector('#booklist').appendChild(testList);
 
-    if(editButton.innerText == "Edit"){ 
-        editButton.innerText = "Done";
-        for(el in elements){
-            el.contenteditable = true;
-        }
-        
-    } else{ 
-        editButton.innerText = "Edit";
-        for(el in elements){
-            el.contenteditable = false;
-        }
-    }
+    const testEntry = document.createElement('book-entry');
+    testList.addEntry(testEntry);
+
+    const testEntry2 = document.createElement('book-entry');
+    testList.addEntry(testEntry2);
 }
