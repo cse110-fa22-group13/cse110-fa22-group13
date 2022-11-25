@@ -1,3 +1,4 @@
+/* basic settings for the background */
 @font-face {
     font-family: roboto-regular;
     src: url('/source/resources/fonts/Roboto-Regular.ttf');
@@ -9,12 +10,25 @@
     padding: 0 0 0 0; 
 }
 
-
 body {
     display: grid;
     grid-template-rows: 100px 300px 300px 300px 300px;
+    background-color: #DBC6BB;
 }
 
+.page:hover {
+    color:white;
+}
+
+.page:active {
+    color:white;
+}
+
+p{
+    color: white;
+}
+
+/* basic settings for the header tab */
 header {
     grid-column-start: 1;
     grid-column-end: 2;
@@ -26,16 +40,9 @@ header {
     grid-template-columns: 1fr 1fr 1fr;
 }
 
-
 header > ul > li {
     margin-left: 8px;
 }
-
-/**
- * when it is being sized to be really tiny,
- * the words tend to be overlapping each other.
- *
- */
 
 header > ul{
     display: grid;
@@ -50,17 +57,6 @@ header > ul{
     color: #DBC6BB;
 }
 
-#header-main {
-    color: #DBC6BB;
-    text-align: center;
-    align-items: center;
-    max-width: 6em;
-    max-height: 1.3em;
-    margin-top: 6%;
-    margin-left: 34%;
-    grid-column-start: 1;
-    grid-column-end: 2;
-}
 .header-main1 {
     color: #DBC6BB;
     display: flex;
@@ -75,18 +71,8 @@ header > ul{
     grid-column-end: 2;
 }
 
-.page:hover {
-    color:white;
-}
-
-.page:active {
-    color:white;
-}
-
-body{
-    background-color: #DBC6BB;
-}
-
+/* basic settings for main */
+/* settings for the first row */
 #first-row {
     grid-column-start: 1;
     grid-column-end: 1;
@@ -127,6 +113,7 @@ body{
     padding: 12px 32px;
 }
 
+/* settings for the second row */
 #second-row {
     grid-column-start: 1;
     grid-column-end: 2;
@@ -217,6 +204,7 @@ body{
     top: 40px;
 }
 
+/* settings for the third row */
 #third-row {
     grid-column-start: 1;
     grid-column-end: 2;
@@ -226,16 +214,13 @@ body{
     background-color:#DBC6BB;
 }
 
+/* settings for the third row */
 #fourth-row {
     grid-column-start: 1;
     grid-column-end: 1;
     grid-row-start: 5;
     grid-row-end: 6;
     background-color:#DBC6BB;
-}
-
-p{
-    color: white;
 }
 
 .description {
@@ -245,10 +230,11 @@ p{
     white-space: pre-line;
     padding: 2%;
 }
+
 .row {
     display: flex;
     align-items: center;
-  }
+}
   
 .column {
     flex: 33.33%;
