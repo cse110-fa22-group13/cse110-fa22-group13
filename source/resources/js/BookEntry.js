@@ -55,11 +55,11 @@
      */
          addToTags(tagsToAdd){
             if(tagsToAdd === null || tagsToAdd === undefined ) {
-                console.log('The tags to set was null or undefined, did not add:', tagsToAdd);
+                console.error('The tags to set was null or undefined, did not add:', tagsToAdd);
                 return;
             }  
             if(tagsToAdd.size === 0){
-                console.log('The tags set was empty, did not add:', tagsToAdd);
+                console.error('The tags set was empty, did not add:', tagsToAdd);
                 return;
             }
             if(typeof tagsToAdd === 'string'){
@@ -79,11 +79,11 @@
      */
      setTags(tagsToSet){
         if(tagsToSet === null || tagsToSet === undefined ) {
-            console.log('The tags to set was null or undefined, did not set:', tagsToSet);
+            console.error('The tags to set was null or undefined, did not set:', tagsToSet);
             return;
         }  
         if(tagsToSet.size === 0){
-            console.log('The tags set was empty, did not set:', tagsToSet);
+            console.error('The tags set was empty, did not set:', tagsToSet);
             return;
         }
         this.tags = tagsToSet;
@@ -97,11 +97,11 @@
      */
     setDateRead(dateToSet){
         if(dateToSet === null || dateToSet === undefined ){
-            console.log('The Date to set was null or undefined, did not set:', dateToSet);
+            console.error('The Date to set was null or undefined, did not set:', dateToSet);
             return;
         }  
         if(typeof dateToSet != 'object'){
-            console.log('The date passed in was not an object, did not set:', dateToSet);
+            console.error('The date passed in was not an object, did not set:', dateToSet);
             return;
         }
         this.dateRead = dateToSet;
@@ -115,19 +115,19 @@
      */
      setRating(ratingToSet){
         if(ratingToSet === null || ratingToSet === undefined ){
-            console.log('The ratings to set was null or undefined, did not set:', ratingToSet);
+            console.error('The ratings to set was null or undefined, did not set:', ratingToSet);
             return;
         }  
         if(typeof ratingToSet != 'number'){
-            console.log('The rating passed in was not of type Number, did not set:', ratingToSet);
+            console.error('The rating passed in was not of type Number, did not set:', ratingToSet);
             return;
         }
         if(ratingToSet < 0){
-            console.log('The rating passed in was not a positive rating, did not set:', ratingToSet);
+            console.error('The rating passed in was not a positive rating, did not set:', ratingToSet);
             return;
         }
         if(ratingToSet < 0 && ratingToSet > 10){
-            console.log('The rating passed in was not between 0 and 10, end inclusive, did not set:', ratingToSet);
+            console.error('The rating passed in was not between 0 and 10, end inclusive, did not set:', ratingToSet);
             return;
         }
         this.rating = ratingToSet;
@@ -141,23 +141,23 @@
      */
      setPageProgress(pageProgressToSet){
         if(pageProgressToSet === null || pageProgressToSet === undefined ){
-            console.log('The page progress to set was null or undefined, did not set:', pageProgressToSet);
+            console.error('The page progress to set was null or undefined, did not set:', pageProgressToSet);
             return;
         }  
         if(typeof pageProgressToSet != 'number'){
-            console.log('The page progress passed in was not of type Number, did not set:', pageProgressToSet);
+            console.error('The page progress passed in was not of type Number, did not set:', pageProgressToSet);
             return;
         }
         if(!Number.isInteger(pageProgressToSet)){
-            console.log('The page progress passed in was of type Number, but it was a float, did not set:', pageProgressToSet);
+            console.error('The page progress passed in was of type Number, but it was a float, did not set:', pageProgressToSet);
             return;
         }
         if(pageProgressToSet < 0){
-            console.log('The page progress passed in was not a positive page progress, did not set:', pageProgressToSet);
+            console.error('The page progress passed in was not a positive page progress, did not set:', pageProgressToSet);
             return;
         }
         if(pageProgressToSet < this.pageProgress){
-            console.log('The page progress passed in was less than the current page progress, did not set:', pageProgressToSet);
+            console.error('The page progress passed in was less than the current page progress, did not set:', pageProgressToSet);
             return;
         }
         this.pageProgress = pageProgressToSet;
@@ -171,15 +171,15 @@
      */
      setStatus(statusToSet){
         if(statusToSet === null || statusToSet === undefined ){
-            console.log('The status to set was null or undefined, did not set:', statusToSet);
+            console.error('The status to set was null or undefined, did not set:', statusToSet);
             return;
         }  
         if(typeof statusToSet !== 'string'){
-            console.log('The status passed in was not of type string, did not set:', statusToSet);
+            console.error('The status passed in was not of type string, did not set:', statusToSet);
             return;
         }
         if(statusToSet !== STATUSES[0] && statusToSet !== STATUSES[1] && statusToSet !== STATUSES[2]){
-            console.log('The status passed in was not one of the 3 possibilities, completed, in progress, and planned, did not set:', statusToSet);
+            console.error('The status passed in was not one of the 3 possibilities, completed, in progress, and planned, did not set:', statusToSet);
             return;
         }
         this.status = statusToSet;
@@ -192,15 +192,15 @@
      */
      setReviewTextBody(reviewTextBodyToSet){
         if(reviewTextBodyToSet === null || reviewTextBodyToSet === undefined ){
-            console.log('The review to set was null or undefined, did not set:', reviewTextBodyToSet);
+            console.error('The review to set was null or undefined, did not set:', reviewTextBodyToSet);
             return;
         }  
         if(typeof reviewTextBodyToSet !== 'string'){
-            console.log('The review passed in was not of type string, did not set:', reviewTextBodyToSet);
+            console.error('The review passed in was not of type string, did not set:', reviewTextBodyToSet);
             return;
         }
         if(reviewTextBodyToSet === ''){
-            console.log('The review passed in was empty, did not set:', reviewTextBodyToSet);
+            console.error('The review passed in was empty, did not set:', reviewTextBodyToSet);
             return;
         }
         this.reviewTextBody = reviewTextBodyToSet;
@@ -213,19 +213,19 @@
      */
      setISBN(ISBNtoSet){
         if(ISBNtoSet === null || ISBNtoSet === undefined ){
-            console.log('The ISBN to set was null or undefined, did not set:', ISBNtoSet);
+            console.error('The ISBN to set was null or undefined, did not set:', ISBNtoSet);
             return;
         }  
         if(typeof ISBNtoSet !== 'string'){
-            console.log('The ISBN passed in was not of type string, did not set:', ISBNtoSet);
+            console.error('The ISBN passed in was not of type string, did not set:', ISBNtoSet);
             return;
         }
         if(ISBNtoSet.length < 10){
-            console.log('The ISBN passed in was not valid, it needs to be at least 10 characters:', ISBNtoSet);
+            console.error('The ISBN passed in was not valid, it needs to be at least 10 characters:', ISBNtoSet);
             return;
         }
         if(ISBNtoSet.length > 13){
-            console.log('The ISBN passed in was not valid, it needs to be at most 13 characters:', ISBNtoSet);
+            console.error('The ISBN passed in was not valid, it needs to be at most 13 characters:', ISBNtoSet);
             return;
         }
         this.ISBN = ISBNtoSet;
@@ -238,15 +238,15 @@
      */
      setAuthorName(authorNameToSet){
         if(authorNameToSet === null || authorNameToSet === undefined ){
-            console.log('The author name to set was null or undefined, did not set:', authorNameToSet);
+            console.error('The author name to set was null or undefined, did not set:', authorNameToSet);
             return;
         }  
         if(typeof authorNameToSet !== 'string'){
-            console.log('The author name passed in was not of type string, did not set:', authorNameToSet);
+            console.error('The author name passed in was not of type string, did not set:', authorNameToSet);
             return;
         }
         if(authorNameToSet.length < 1){
-            console.log('The author name passed in was not valid, it was of 0 length', authorNameToSet);
+            console.error('The author name passed in was not valid, it was of 0 length', authorNameToSet);
             return;
         }
         this.authorName = authorNameToSet;
@@ -259,15 +259,15 @@
      */
      setTitle(titleToSet){
         if(titleToSet === null || titleToSet === undefined ){
-            console.log('The title to set was null or undefined, did not set:', titleToSet);
+            console.error('The title to set was null or undefined, did not set:', titleToSet);
             return;
         }  
         if(typeof titleToSet !== 'string'){
-            console.log('The title passed in was not of type string, did not set:', titleToSet);
+            console.error('The title passed in was not of type string, did not set:', titleToSet);
             return;
         }
         if(titleToSet.length < 1){
-            console.log('The title passed in was not valid, it was of 0 length', titleToSet);
+            console.error('The title passed in was not valid, it was of 0 length', titleToSet);
             return;
         }
         this.title = titleToSet;
