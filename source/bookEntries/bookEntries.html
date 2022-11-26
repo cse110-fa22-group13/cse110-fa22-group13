@@ -17,9 +17,10 @@
   </head>
   <!--body-->
   <body class="body">
+        <!--topmost header tab-->
         <header>
             <div class="header-main">
-                <img src="/source/resources/images/vectors/Logo.svg" alt="logo">
+                <img id="logo" src="/source/resources/images/vectors/Logo.svg" alt="logo">
                 <h1>BookTime</h1>
             </div>
             <ul>
@@ -29,11 +30,14 @@
             </ul>           
         </header>
 
+        <!--main-->
         <main>
             <div id="add-entry">
                 <button class="add-button" title="Click to add a new entry to your list.">Add Entry</button>
                 <fieldset></fieldset>
             </div>
+
+            <!--structure for in progress list-->
             <section id="booklist">
                 <h2 class="booklist-title">Your Book List</h2>
                 <section id="in-progress">
@@ -47,7 +51,10 @@
                             <span class="entry-extras">Extras</span>
                             <span class="entry-review">Review</span>
                         </div>
+
                         <div class="entries">
+
+                            <!--default entry-->
                             <div class="entry">
                                 <div class="entry-cover">
                                     <img src="/source/resources/images/icons/Books-Icon.png" class="entry-img" alt="Generic Book Icon">
@@ -70,6 +77,12 @@
                                     <p>Too much water.</p>
                                 </details>
                             </div>
+
+                            <div>
+
+                            </div>
+
+                            <!--default entry2-->
                             <div class="entry">
                                 <div class="entry-cover">
                                     <img src="/source/resources/images/book-covers/all-my-rage-cover.png" class="entry-img" alt="Generic Book Icon">
@@ -95,6 +108,8 @@
                         </div>
                     </div>
                 </section>
+
+                <!--structure for in completed list-->
                 <section id="completed">
                     <h2 class="list-title">Completed</h2>
                     <div class="entry-list">
@@ -107,6 +122,7 @@
                             <span class="entry-review">Review</span>
                         </div>
                         <div class="entries">
+                            <!--default entry-->
                             <div class="entry">
                                 <div class="entry-cover">
                                     <img src="/source/resources/images/icons/Checklist-Icon.jpg" class="entry-img" alt="Checklist Icon">
@@ -132,6 +148,8 @@
                         </div>
                     </div>
                 </section>
+
+                <!--structure for in dropped list-->
                 <section id="dropped" hidden>
                     <h2 class="list-title">Dropped</h2>
                     <div class="entry-list">
@@ -144,6 +162,8 @@
                             <span class="entry-review">Review</span>
                         </div>
                         <div class="entries">
+
+                            <!--default entry-->
                             <div class="entry">
                                 <div class="entry-cover">
                                     <img src="/source/resources/images/icons/Checklist-Icon.jpg" class="entry-img" alt="Checklist Icon">
@@ -169,6 +189,8 @@
                         </div>
                     </div>
                 </section>
+
+                <!--structure for in planned list-->
                 <section id="planned" hidden>
                     <h2 class="list-title">Planned</h2>
                     <div class="entry-list">
