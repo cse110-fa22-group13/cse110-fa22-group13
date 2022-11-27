@@ -196,3 +196,7 @@ booklist {
 .entries .entry-review p, .entry-genres {
     text-align: left;
 }
+
+.add-book:hover{
+    color: white;
+}

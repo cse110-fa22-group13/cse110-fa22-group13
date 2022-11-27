@@ -115,7 +115,9 @@ class BookList extends HTMLElement {
 
         // add the section for the list to inhabit
         const section = document.createElement('section');
-        section.id = 'new-list';
+        // Makes the id seperate for each new section
+        const allNewIds = document.querySelectorAll('*[id^="new-list"]');
+        section.id = 'new-list' + allNewIds.length;
         
         const listLabel = document.createElement('h2');
         listLabel.classList.add('list-title');
@@ -164,6 +166,11 @@ class BookList extends HTMLElement {
         entryReview.classList.add('entry-review');
         entryReview.innerHTML = 'Review';
 
+        // add book entry button
+        const addBook = document.createElement('button');
+        addBook.classList.add('addButton');
+        addBook.innerHTML = 'Add-Book';
+
         // add column text to header
         header.appendChild(entryCover);
         header.appendChild(entryName);
@@ -171,6 +178,7 @@ class BookList extends HTMLElement {
         header.appendChild(entryProgress);
         header.appendChild(entryExtras);
         header.appendChild(entryReview);
+        header.appendChild(addBook);
 
         // add the wrapper for the entries
         const entries = document.createElement('div');
@@ -188,6 +196,10 @@ class BookList extends HTMLElement {
     addEntry(entry){
         const entries = this.shadowRoot.querySelector('.entries');
         entries.appendChild(entry);
+    }
+    setListLabel(entry){
+        const listLabel = this.shadowRoot.querySelector(".list-title");
+        listLabel.innerHTML = entry;
     }
 }
 
