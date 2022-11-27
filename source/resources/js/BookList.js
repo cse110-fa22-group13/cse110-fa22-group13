@@ -171,6 +171,13 @@ class BookList extends HTMLElement {
         addBook.classList.add('addButton');
         addBook.innerHTML = 'Add-Book';
 
+        addBook.addEventListener('click', () => {
+            const entries = this.shadowRoot.querySelector('.entries');
+            const entry = document.createElement('book-entry');
+
+            entries.appendChild(entry);
+        });
+
         // add column text to header
         header.appendChild(entryCover);
         header.appendChild(entryName);
@@ -180,6 +187,8 @@ class BookList extends HTMLElement {
         header.appendChild(entryReview);
         header.appendChild(addBook);
 
+
+
         // add the wrapper for the entries
         const entries = document.createElement('div');
         entries.classList.add('entries');
@@ -187,16 +196,14 @@ class BookList extends HTMLElement {
 
         this.shadowRoot.append(section);
         
+        
+        
     }
 
     /*
     *
     *
     */
-    addEntry(entry){
-        const entries = this.shadowRoot.querySelector('.entries');
-        entries.appendChild(entry);
-    }
     setListLabel(entry){
         const listLabel = this.shadowRoot.querySelector(".list-title");
         listLabel.innerHTML = entry;
