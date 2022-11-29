@@ -1,11 +1,11 @@
 module.exports = {
-  "plugins": [
-        "css",
-        "html"
-    ],
-    "extends": [
-        "plugin:css/recommended"
-    ],
+  'plugins': [
+    'css',
+    'html',
+  ],
+  'extends': [
+    'plugin:css/recommended',
+  ],
   'env': {
     'browser': true,
     'commonjs': true,
