@@ -5,6 +5,8 @@
     "babel-jest": "^29.3.1",
     "eslint": "^8.28.0",
     "eslint-config-google": "^0.14.0",
+    "eslint-plugin-css": "^0.6.0",
+    "eslint-plugin-html": "^7.1.0",
     "jest": "^29.3.1",
     "jest-puppeteer": "^6.1.1",
     "puppeteer": "^19.2.2"
