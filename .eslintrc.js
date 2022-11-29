@@ -14,8 +14,10 @@ module.exports = {
   'extends': 'google',
   'overrides': [
   ],
-  'parserOptions': {
-    'ecmaVersion': 'latest',
+  parser: 'babel-eslint',
+  parserOptions: {
+      ecmaVersion: 2020,
+      sourceType: 'module'
   },
   'rules': {
   },
