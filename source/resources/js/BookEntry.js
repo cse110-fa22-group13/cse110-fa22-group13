@@ -24,6 +24,7 @@
      * @param {string} authorName - a string representing the book author's name, should be both first and sur name
      * @param {string} title - a string representing the title of the book
      * 
+     *
      * when initially creating a BookEntry for a new book, pass pageProgress=0, reviewTextBody='', rating=NaN, dateRead=Date() for defaults
      */
     constructor(tags, dateRead, rating, pageProgress, status, reviewTextBody, ISBN, authorName, title){
