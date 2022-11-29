@@ -27,11 +27,11 @@ Start Time: 7:40PM Place: On Discord
 - Update and create new and existing ADRs
 - Documented the first draft for the current CI
   - It includes CI pipeline, diagrams, page, and introducing video
-- Updated the code base previsouly implemented from the first sprint so that it can be in accordance with the new code implemented within this second sprint
+- Updated the code base previously implemented from the first sprint so that it can be in accordance with the new code implemented within this second sprint
 - Created more labels for Github issues
   
 ## Feedback
-- Need to discuss the need for the existance of the current homepage
+- Need to discuss the need for the existence of the current homepage
   - As the project proceeds, we have decided to more focus on CRUD features. The current homepage does not offer any feature that a user can make a change. Therefore, we are doubting the need of having the current homepage. We will make the further decision after talking with Malcolm.
 
 - Acknowledged that we are currently in a slow pace for the project.
@@ -46,7 +46,7 @@ Start Time: 7:40PM Place: On Discord
   - How far do we need to describe our works during the sprint review meeting?
   - What items do we need to discuss during the sprint review meeting?
 
-**Before the Backlog, we paused the meeing at 8:20pm for a break/retrospective meeting and resumed it at 8:50pm**
+**Before the Backlog, we paused the meeting at 8:20pm for a break/retrospective meeting and resumed it at 8:50pm**
 
 ## Backlog
 - Items needed to be continued and improved from the first sprint are pushed into backlog of the sprint 3.
@@ -54,7 +54,7 @@ Start Time: 7:40PM Place: On Discord
 - Created unit testing tasks for CRUD features.
 - Created a task to set Jest in our CI environment.
 - Created a task for team status video due to the assignment
-- Created a task to implement reponsive feature for the book entries page.
+- Created a task to implement responsive feature for the book entries page.
 - The details can be found on [issues](https://github.com/cse110-fa22-group13/cse110-fa22-group13/issues)
 
 **When the meeting finished:** 9:55pm
