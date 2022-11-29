@@ -1,8 +1,5 @@
 /* basic settings for the background */
-@font-face { 
-    font-family: roboto-regular;
-    src: url('/source/resources/fonts/Roboto-Regular.ttf');
-}
+
 
 * {
     font-family: roboto-regular;
