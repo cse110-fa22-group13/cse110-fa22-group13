@@ -35,6 +35,6 @@ Start Time: 6:35 pm Place: On Discord
 
 - There was an overall feeling that if we really crunch down and persevere, we can push through and get a working project that has quality. 
 
-The work can be found [here]()
+The work can be found [here](retrospective3pic.png)
 
 **When the meeting finished:** 6:57 pm
