@@ -1,3 +1,4 @@
+/* basic settings for the background */
 @font-face {
     font-family: roboto-regular;
     src: url('/source/resources/fonts/Roboto-Regular.ttf');
@@ -7,15 +8,22 @@
     font-family: roboto-regular;
     margin: 0 0 0 0;
     padding: 0 0 0 0; 
-    /* background-color: red; */
 }
 
+.page:hover {
+    color:white;
+}
 
+.page:active {
+    color:white;
+}
+
+body {
+    background-color: #DBC6BB;
+}
+
+/* basic settings for the header tab */
 header {
-    grid-column-start: 1;
-    grid-column-end: 2;
-    grid-row-start: 1;
-    grid-row-end: 2;
     height: 100px;
     background-color: #422040;
     display: grid;
@@ -23,7 +31,6 @@ header {
 }
 
 .header-main {
-    /* background-color: rgb(184, 113, 190);  */
     display: flex;
     text-align: center;
     align-items: center;
@@ -35,6 +42,10 @@ header {
     grid-column-start: 1;
     grid-column-end: 2;
     color: #DBC6BB;
+}
+
+header > ul > li {
+    margin-left: 8px;
 }
 
 header > ul{
@@ -50,18 +61,7 @@ header > ul{
     color: #DBC6BB;
 }
 
-.page:hover {
-    color:white;
-}
-
-.page:active {
-    color:white;
-}
-
-body {
-    background-color: #DBC6BB;
-}
-
+/* basic settings for main */
 fieldset {
     border: 2px solid rgb(214, 214, 214);
     box-sizing: border-box;
@@ -185,7 +185,7 @@ booklist {
 }
 
 .entry-name {
-    flex: 5;
+    flex: 3;
     text-align: left;
 }
 
@@ -197,6 +197,82 @@ booklist {
     text-align: left;
 }
 
+
 .add-book:hover{
     color: white;
 }
+=======
+/* responsive feature according to the size of the screen */
+@media only screen and (max-width: 1400px) {
+
+    .entry-name {
+        flex: 2;
+        text-align: left;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+
+    h1 {
+        font-size: 5vw;
+    }
+
+    h2 {
+        font-size: 2.5vh;
+    }
+
+    p {
+        font-size: 2.5vmin;
+    }
+
+    * {
+        font-size: 3vmin;
+    }
+
+    header {
+        min-height: 65px;
+        background-color: #422040;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .entry-review {
+        flex: 1 0 100%
+    }
+
+    .list-header, .entry {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        align-items: center;
+        align-content: space-between;
+        text-align: center;
+        gap: 10px;
+        border: 1px #422040 solid;
+        color: #DBC6BB;
+    }
+    
+    .entry > .list-header {
+        font-weight: bold;
+        background-color: #422040;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items: center;
+        align-content: space-between;
+        text-align: center;
+        gap: 10px;
+    }
+}
+
+@media only screen and (min-width: 730px) and (max-width: 900px) {
+    h1 {
+        font-size: 4vw;
+    }
+
+    * {
+        font-size: 2.5vmin;
+    }
+
+ }
+
