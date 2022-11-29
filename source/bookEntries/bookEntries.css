@@ -201,7 +201,6 @@ booklist {
 .add-book:hover{
     color: white;
 }
-=======
 /* responsive feature according to the size of the screen */
 @media only screen and (max-width: 1400px) {
 
