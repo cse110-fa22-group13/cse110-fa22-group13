@@ -40,6 +40,6 @@ Start Time: 8:20 pm Place: On Discord
 
 - We also felt the needs to devise ways to make a better project environment so that everyone can fully dedicate themselves to the project and understand each other.
 
-The work can be found [here](admin\meetings\retrospectives\JSONs Retrospective 2.pdf)
+The work can be found [here](admin\meetings\retrospectives\JSONs Retrospective 2.pdf) 
 
 **When the meeting finished:** 8:50 pm
