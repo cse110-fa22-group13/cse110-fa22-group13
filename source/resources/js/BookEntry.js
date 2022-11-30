@@ -156,7 +156,7 @@
         // apply style to the shadow DOM
         this.shadowRoot.append(styles);
 
-        contentDialog(this);
+        //contentDialog(this);
 
         // wrapper for the entry
         const entryWrapper = document.createElement('div');

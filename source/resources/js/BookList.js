@@ -172,10 +172,46 @@ class BookList extends HTMLElement {
         addBook.innerHTML = 'Add-Book';
 
         addBook.addEventListener('click', () => {
-            const entries = this.shadowRoot.querySelector('.entries');
-            const entry = document.createElement('book-entry');
+            
+    
+            // get the modal from the document
+            const modal = document.getElementById("modal");
+            
+            // don't do anything if you can't find it
+            if(modal == null) return;
+            
+            // otherwise show the dialog box
+            modal.classList.add('active');
+            overlay.classList.add('active');
+            
+            // add close button functionality
+            const closeButton = document.querySelector('#modal .close-button'); 
+            closeButton.addEventListener('click', () => {
+                modal.classList.remove('active');
+                overlay.classList.remove('active');
+            });
 
-            entries.appendChild(entry);
+            // add the book and close the dialog if the user hits the add button
+            const addButton = document.querySelectorAll('#modal .entry-add-button')
+            addButton.forEach(button => {
+                button.addEventListener('click', () => {
+                    const entries = this.shadowRoot.querySelector('.entries');
+                    const entry = document.createElement('book-entry');
+                    entries.appendChild(entry);
+                        
+                    modal.classList.remove('active');
+                    overlay.classList.remove('active');
+
+                });
+            });
+
+            
+            
+            
+            
+            
+
+            
         });
 
         // add column text to header
