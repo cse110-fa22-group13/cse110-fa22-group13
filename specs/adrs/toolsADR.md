@@ -13,7 +13,7 @@ We need to decide which tools we will use to develop our project.
 ## Considered Options
 
 * Languages: HTML, CSS, JavaScript
-* Note: No backend, no databases, no NODEJS as individual server
+    * Note: No backend, no databases, no NODEJS as individual server
 * Storage-> _local storage_ - browser tools cashing
 * Version Control: GitHub
 * UI Design: Figma
@@ -21,8 +21,9 @@ We need to decide which tools we will use to develop our project.
 * Planning: Miro
 * Application type: CRUD Web App
 * Diagramming: With draw.io vscode extension 
-* Packager: Wrap our webapp as a binary in electron.js
-    * Put together a small team to look into electron
+* Using local storage
+* Electron as packager
+    * Decided to not use it, just using local storage instead
 * Testing Tool: Jest
 
 * NO FRAMEWORKS ALLOWED --> Packager instead 
@@ -30,6 +31,6 @@ We need to decide which tools we will use to develop our project.
 ## Decision Outcome
 
 * Decisions are made with the priority of the local first system in mind.
-* Electron.js would be preferred to use as a packager. 
+* Storage is local
 * Developing a desktop app using the given languages. 
 * Using Jest as our testing tool
