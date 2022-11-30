@@ -203,6 +203,9 @@ class BookList extends HTMLElement {
                 button.addEventListener('click', () => {
                     const entries = this.shadowRoot.querySelector('.entries');
                     const entry = document.createElement('book-entry');
+
+
+                    
                     entries.appendChild(entry);
                         
                     modal.classList.remove('active');
