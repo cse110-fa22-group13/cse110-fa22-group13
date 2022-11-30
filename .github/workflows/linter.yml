@@ -20,6 +20,6 @@ jobs:
       - uses: sibiraj-s/action-eslint@v2
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }} # Optional
-          eslint-args: './source'
-          extensions: 'js,jsx,ts,tsx,html,css'
+          eslint-args: '--fix ./source'
+          extensions: 'js,jsx,ts,tsx,html'
           annotations: true

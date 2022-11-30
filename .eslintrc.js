@@ -1,10 +1,6 @@
 module.exports = {
   'plugins': [
-    'css',
     'html',
-  ],
-  'extends': [
-    'plugin:css/recommended',
   ],
   'env': {
     'browser': true,
@@ -18,5 +14,6 @@ module.exports = {
     'ecmaVersion': 'latest',
   },
   'rules': {
+    'max-len': 0,
   },
 };

@@ -1,18 +1,17 @@
-/** 
+/**
 * The unit test file for the BookEntry class - BookEntry.js
 *@TestFile
 */
-const BookEntryClass = require('./BookEntry.js')
-//import {BookEntryClass} from './BookEntry.js';
+const BookEntryClass = require('./BookEntry.js');
+// import {BookEntryClass} from './BookEntry.js';
 
-//test constructor/setters
+// test constructor/setters
 test('valid constructor', () => {
-
-  //const testBookEntryForConstructor = new BookEntry(new Set(['Sci-fi']), new Date('November 17, 2022 03:24:00'), 9, 340, 'completed', 'I thought it was poignantly pointless.', 'A4238A53I1', 'Robert Heinlein', 'Stranger in a Strange Land')  ;  
-  const testBookEntryForConstructor = BookEntryClass.bookentry(new Set(['Sci-fi', 'Fiction']), new Date('November 17, 2022 03:24:00'), 9, 340, 'completed', 'I thought it was poignantly pointless.', 'A4238A53I1', 'Robert Heinlein', 'Stranger in a Strange Land')  ;  
+  // const testBookEntryForConstructor = new BookEntry(new Set(['Sci-fi']), new Date('November 17, 2022 03:24:00'), 9, 340, 'completed', 'I thought it was poignantly pointless.', 'A4238A53I1', 'Robert Heinlein', 'Stranger in a Strange Land')  ;
+  const testBookEntryForConstructor = BookEntryClass.bookentry(new Set(['Sci-fi', 'Fiction']), new Date('November 17, 2022 03:24:00'), 9, 340, 'completed', 'I thought it was poignantly pointless.', 'A4238A53I1', 'Robert Heinlein', 'Stranger in a Strange Land');
 
   expect(testBookEntryForConstructor.printBookEntry()).toBe('Stranger in a Strange Land by: Robert Heinlein, rating: 9, progress: 340, status: completed, Date read: Thu Nov 17 2022 03:24:00 GMT+0000 (Coordinated Universal Time) \nReview: I thought it was poignantly pointless., ISBN: A4238A53I1, tags: Sci-fi, Fiction');
-}); 
+});
 
 test('empty string constructor', () => {
   const testEntryEmptyStrings = BookEntryClass.bookentry('', '', '', '', '', '', '', '', '');
@@ -51,7 +50,7 @@ test('8/9 entries constructor', () => {
   expect(testEntry8Entries.rating).toBe(undefined);
   expect(testEntry8Entries.reviewTextBody).toBe(undefined);
   expect(testEntry8Entries.status).toBe(undefined);
-  expect(testEntry8Entries.tags).toBe("");    //should be empty set
+  expect(testEntry8Entries.tags).toBe(''); // should be empty set
   expect(testEntry8Entries.title).toBe(undefined);
 });
 
@@ -75,22 +74,22 @@ test('empty date set constructor', () => {
 test('setting all constructor', () => {
   const testEntryEmptyDateSet = BookEntryClass.bookentry(' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ');
   testEntryEmptyDateSet.setTags(['tag']);
-  testEntryEmptyDateSet.setAuthorName("tag");
+  testEntryEmptyDateSet.setAuthorName('tag');
   testEntryEmptyDateSet.setDateRead();
-  testEntryEmptyDateSet.setISBN("102854810328");
+  testEntryEmptyDateSet.setISBN('102854810328');
   testEntryEmptyDateSet.setPageProgress(4);
   testEntryEmptyDateSet.setRating(8);
-  testEntryEmptyDateSet.setReviewTextBody("tag");
-  testEntryEmptyDateSet.setStatus("planned");
-  testEntryEmptyDateSet.setTitle("tag");
+  testEntryEmptyDateSet.setReviewTextBody('tag');
+  testEntryEmptyDateSet.setStatus('planned');
+  testEntryEmptyDateSet.setTitle('tag');
   expect(testEntryEmptyDateSet.printBookEntry()).toBe('tag by: tag, rating: 8, progress: 4, status: planned, Date read: undefined \nReview: tag, ISBN: 102854810328, tags: tag');
 });
 
 test('set ISBN too few constructor', () => {
   const testEntryIsbnTooFew = BookEntryClass.bookentry(' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ');
-  testEntryIsbnTooFew.setISBN("A");
+  testEntryIsbnTooFew.setISBN('A');
   expect(testEntryIsbnTooFew.ISBN).toBe(undefined);
-  expect(testEntryIsbnTooFew.ISBN).not.toBe("A");
+  expect(testEntryIsbnTooFew.ISBN).not.toBe('A');
 });
 
 test('set ISBN too long ', () => {
@@ -115,7 +114,7 @@ test('set page negative', () => {
 });
 
 test('all null constructor', () => {
-  const testEntryAllNull = BookEntryClass.bookentry(null,null,null,null,null,null,null,null,null);
+  const testEntryAllNull = BookEntryClass.bookentry(null, null, null, null, null, null, null, null, null);
   expect(testEntryAllNull.ISBN).toBe(undefined);
   expect(testEntryAllNull.authorName).toBe(undefined);
   expect(testEntryAllNull.dateRead).toBe(undefined);
@@ -123,7 +122,7 @@ test('all null constructor', () => {
   expect(testEntryAllNull.rating).toBe(undefined);
   expect(testEntryAllNull.reviewTextBody).toBe(undefined);
   expect(testEntryAllNull.status).toBe(undefined);
-  expect(testEntryAllNull.tags).toBe(undefined);   
+  expect(testEntryAllNull.tags).toBe(undefined);
   expect(testEntryAllNull.title).toBe(undefined);
 });
 
@@ -142,12 +141,12 @@ test('null constructor', () => {
 });
 
 test('addToTags function test', () => {
-  let testAddToSet = BookEntryClass.bookentry(' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ');
-  let setToCompareTo = new Set(['hey']);
+  const testAddToSet = BookEntryClass.bookentry(' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ');
+  const setToCompareTo = new Set(['hey']);
   setToCompareTo.add('ok');
   testAddToSet.tags = new Set(['hey']);
   testAddToSet.addToTags('ok');
-  
+
   expect(testAddToSet.tags.toString()).toBe(setToCompareTo.toString());
   expect(testAddToSet.tags).toStrictEqual(setToCompareTo);
 
@@ -163,13 +162,13 @@ test('addToTags function test', () => {
 });
 
 test('addToTags function test failure', () => {
-  let testAddToSet = BookEntryClass.bookentry(' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ');
-  let setToCompareTo = new Set(['hey']);
+  const testAddToSet = BookEntryClass.bookentry(' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ');
+  const setToCompareTo = new Set(['hey']);
   setToCompareTo.add('ok');
   testAddToSet.tags = new Set(['hey']);
   testAddToSet.addToTags('ok');
   testAddToSet.addToTags('there');
-  
+
   expect(testAddToSet.tags.toString()).not.toBe(setToCompareTo);
 
   testAddToSet.addToTags('then');

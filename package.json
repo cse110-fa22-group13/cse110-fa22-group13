@@ -9,11 +9,15 @@
     "eslint-plugin-html": "^7.1.0",
     "jest": "^29.3.1",
     "jest-puppeteer": "^6.1.1",
-    "puppeteer": "^19.2.2"
+    "puppeteer": "^19.2.2",
+    "stylelint": "^14.15.0",
+    "stylelint-config-recommended": "^9.0.0",
+    "stylelint-config-standard": "^29.0.0"
   },
   "scripts": {
     "test": "jest",
-    "start": "lint"
+    "eslint": "eslint --fix",
+    "stylelint": "stylelint '**/*.css' --fix"
   },
   "jest": {
     "preset": "jest-puppeteer",
