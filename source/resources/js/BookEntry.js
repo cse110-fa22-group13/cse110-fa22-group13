@@ -282,6 +282,12 @@ function contentDialog(entry) {
         overlay.classList.remove('active');
     });
 
+    // close the dialog if the user clicks outside of it
+    overlay.addEventListener('click', () => {
+        modal.classList.remove('active');
+        overlay.classList.remove('active');
+    });
+
 
 }
 

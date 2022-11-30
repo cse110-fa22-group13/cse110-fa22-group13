@@ -191,6 +191,12 @@ class BookList extends HTMLElement {
                 overlay.classList.remove('active');
             });
 
+            // close the dialog if the user clicks outside of it
+            overlay.addEventListener('click', () => {
+                modal.classList.remove('active');
+                overlay.classList.remove('active');
+            });
+
             // add the book and close the dialog if the user hits the add button
             const addButton = document.querySelectorAll('#modal .entry-add-button')
             addButton.forEach(button => {
@@ -204,12 +210,6 @@ class BookList extends HTMLElement {
 
                 });
             });
-
-            
-            
-            
-            
-            
 
             
         });
