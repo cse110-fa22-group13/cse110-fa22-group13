@@ -179,6 +179,10 @@
         modifyButton.classList.add('modify-button');
         modifyButton.title = "Click to modify this entry.";
         modifyButton.innerHTML = 'Modify Entry';
+
+        // button functionality
+        modifyButton.addEventListener('click', contentDialog(this));
+
         entryCover.appendChild(modifyButton);
 
         // entry name
