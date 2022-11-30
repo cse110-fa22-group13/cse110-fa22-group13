@@ -13,7 +13,7 @@
   },
   "scripts": {
     "test": "jest",
-    "start": "lint"
+    "eslint": "eslint --fix"
   },
   "jest": {
     "preset": "jest-puppeteer",
