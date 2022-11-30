@@ -41,6 +41,62 @@
                 <fieldset></fieldset>
             </div>
 
+            <!-- modal page; it will pop up when some certain button is clicked -->
+            <div class="modal" id="modal">
+                <div class="modal-header">
+                    <div class="title">
+                        <h2>BookEntry</h2>
+                    </div>
+                    <div>
+                        <button id="entry-add-button">ADD</button>
+                        <button class="close-button">&times</button>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <form id="new-modal-info">
+                        <fieldset>
+                            <legend>Title</legend>
+                            <label for="modal-title">
+                                <input type="text" id="modalBookTitle" name="modalBookTitle" required>
+                            </label>
+                        </fieldset>
+                        <fieldset>
+                            <label for="modal-title-lnk">
+                                <legend>Image Link</legend>
+                                <input type="url" id="modalBookLnk" name="modalTitleLnk">
+                            </label>
+                        </fieldset>
+                        <fieldset>
+                            <legend>Genre</legend>
+                            <label for="modal-genre">
+                                <input type="text" id="modalBookGenre" name="modalBookGenre" required>
+                            </label>
+                        </fieldset>
+                        <fieldset>
+                            <legend>Number of Pages</legend>
+                            <label for="modal-book-curr-pageNum1">
+                                <input type="number" id="modalBookCurrPageNum1" name="modalBookCurrPageNum1" required>
+                            </label>/
+                            <label for="modal-book-curr-pageNum2">
+                                <input type="number" id="modalBookCurrPageNum2" name="modalBookCurrPageNum2" required>
+                            </label>
+                        </fieldset>
+                        <fieldset>
+                            <legend>Rating</legend>
+                            <label for="modal-book-rating">
+                                <input type="number" id="modalBookRating" name="modalBookRating" min="0" max ="10" required> 
+                            </label>
+                        </fieldset>
+                        <fieldset>
+                            <legend>Review</legend>
+                            <textarea name="modalBookReview" id="modalBookReview" cols="38" rows="10"></textarea>
+                        </fieldset>
+                        <button type="submit">ADD</button>
+                    </form>
+                </div>
+            </div>
+            <div class="" id="overlay"></div>
+
             <!--structure for in progress list-->
             <section id="booklist">
                 <h2 class="booklist-title">Your Book List</h2>

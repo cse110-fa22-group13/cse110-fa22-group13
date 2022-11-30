@@ -265,6 +265,23 @@
 // takes a book entry as input, throws a popup on the screen, updates the entry, and closes
 function contentDialog(entry) {
     
+    // get the modal from the document
+    const modal = document.getElementById("modal");
+
+    // don't do anything if you can't find it
+    if(modal == null) return;
+
+    // otherwise show the dialog box
+    modal.classList.add('active');
+    overlay.classList.add('active');
+
+    // add close button functionality
+    const closeButton = document.querySelector('#modal .close-button'); 
+    closeButton.addEventListener('click', () => {
+        modal.classList.remove('active');
+        overlay.classList.remove('active');
+    });
+
 
 }
 
