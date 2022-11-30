@@ -181,7 +181,7 @@
         modifyButton.innerHTML = 'Modify Entry';
 
         // button functionality
-        modifyButton.addEventListener('click', contentDialog(this));
+        cover.addEventListener('click', () => contentDialog(this));
 
         entryCover.appendChild(modifyButton);
 
