@@ -2,9 +2,10 @@
  * @global
  * @constant STATUSES
 *  The STATUSES constant which holds the 3 possibilities for the status variable: completed, in progress, and planned
-* 
+*
 */
- const STATUSES = ['completed', 'in progress', 'planned']
+const STATUSES = ['completed', 'in progress', 'planned'];
+
 
  class BookEntry extends HTMLElement {
     /**
@@ -19,11 +20,11 @@
      * @param {Number} rating - a number rating, representing the rating the user has given the book
      * @param {Number} pageProgress - a number representing the number of pages currently read for the book, should be a positive integer
      * @param {string} status - a string representing the current status of the book being planned, in progress, or completed
-     * @param {string} reviewBodyText - a string representing the review for the book
+     * @param {string} reviewTextBody - a string representing the review for the book
      * @param {string} ISBN - a string representing the ISBN of the book
      * @param {string} authorName - a string representing the book author's name, should be both first and sur name
      * @param {string} title - a string representing the title of the book
-     * 
+     *
      * when initially creating a BookEntry for a new book, pass pageProgress=0, reviewTextBody='', rating=NaN, dateRead=Date() for defaults
      */
     constructor(){
@@ -106,11 +107,9 @@
             width: 70px;
             max-width: 70px;
             height: auto;
-
             object-fit: cover;
             display: inline-block;
             width: calc(100% + 32px);
-
         }
         
         .entry-cover:hover .entry-img {
