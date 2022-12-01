@@ -221,38 +221,22 @@ class BookList extends HTMLElement {
                 overlay.classList.remove('active');
                 document.querySelector('form').reset();
             });
+         
+            const addButton = document.querySelectorAll('#modal .entry-add-button')
+            addButton.forEach(button => {
+                button.addEventListener('click', () => {
+                    const entries = this.shadowRoot.querySelector('.entries');
+                    const entry = document.createElement('book-entry');
 
 
-            // add the book and close the dialog if the user hits the add button
-            // const addButton = document.querySelectorAll('#modal .entry-add-button')
-            // addButton.forEach(button => {
-            //     button.addEventListener('click', () => {
-            //         const entries = this.shadowRoot.querySelector('.entries');
-            //         const entry = document.createElement('book-entry');
-            //         entries.appendChild(entry);
-            //         modal.classList.remove('active');
-            //         overlay.classList.remove('active');
+                    
+                    entries.appendChild(entry);
+                        
+                    modal.classList.remove('active');
+                    overlay.classList.remove('active');
 
-            //         const recipeObject = new Object();
-            //         entry.data = recipeObject;
-
-            //         // add local storage functionality
-            //         // random class name generator 
-            //         let guid = () => {
-            //             let s4 = () => {
-            //                 return Math.floor((1 + Math.random()) * 0x10000)
-            //                     .toString(16)
-            //                     .substring(1);
-            //             }
-            //             //return id of format 'aaaaaaaa'-'aaaa'-'aaaa'-'aaaa'-'aaaaaaaaaaaa'
-            //             return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
-            //         }
-            //         const uniqueClass = String(guid());
-
-            //     });
-            // });
-
-            
+                });
+            });
             
             
             const formRef = document.querySelector("form");
