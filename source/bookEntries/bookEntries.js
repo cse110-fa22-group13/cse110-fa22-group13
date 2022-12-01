@@ -13,8 +13,6 @@ async function init() {
       }
     addButton = document.querySelector('.add-button');
     addButton.addEventListener('click', addNewList);
-    
-
 }
 
 function addNewList(){

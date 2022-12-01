@@ -82,6 +82,7 @@
         /* Entry image/modify button */
         .entry-cover {
             width: 70px;
+            max-width: 70px;
             height: auto;
             flex: 0 1 auto;
         }
@@ -103,7 +104,13 @@
         .entry-img {
             opacity: 1.0;
             width: 70px;
+            max-width: 70px;
             height: auto;
+
+            object-fit: cover;
+            display: inline-block;
+            width: calc(100% + 32px);
+
         }
         
         .entry-cover:hover .entry-img {
@@ -113,6 +120,7 @@
         .entry-cover .modify-button {
             opacity: 0.0;
             width: 70px;
+            max-width: 70px;
             height: 100%;
             border: none;
         }
@@ -280,7 +288,8 @@
         if(data.modalBookLnk) {
             const entryCover = entryDiv.querySelector('.entry-cover');
             const cover = entryCover.querySelector('.entry-img');
-            cover.src = String(data.modalBookLnk);
+            console.log(data.modalBookLnk);
+            cover.src = data.modalBookLnk;
         }
     }
 }
