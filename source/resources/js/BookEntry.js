@@ -241,17 +241,13 @@
         const deleteButton = document.createElement('button');
         deleteButton.classList.add('delete-button');
         deleteButton.innerHTML = 'Delete';
-
-        // deleteButton.addEventListener('click', () => {
-        //     entryWrapper.remove();
-        // });
+        deleteButton.addEventListener('click', () => deleteStorage(this));
 
         deleteButtonWrapper.appendChild(deleteButton);
         entryWrapper.appendChild(deleteButton);
 
         shadowOpen.append(entryWrapper);
 
-        console.log(entryWrapper);
     }
 
     /**
@@ -275,6 +271,7 @@
         const extras = entryDiv.querySelector('.entry-extras');
         const extrasGenresTitle = extras.querySelector('.entry-genres');
         extrasGenresTitle.innerHTML = `${data.modalBookGenre}`;
+
         if(data.modalBookReview) {
             const entryReviewWrapper = entryDiv.querySelector('.entry-review');
             const reviewBody = entryReviewWrapper.querySelector('p');
@@ -313,6 +310,65 @@ function contentDialog(entry) {
         modal.classList.remove('active');
         overlay.classList.remove('active');
     });
+
+    const formRef = document.querySelector("form");
+
+    formRef.addEventListener('submit', () => {
+
+        modal.classList.remove('active');
+        overlay.classList.remove('active');
+        const grabEntry = entry.shadowRoot.querySelector('.entry');
+        const entryKey = grabEntry.classList[2];
+
+        const formData = new FormData(formRef);
+        const entryObject = new Object();
+        for (const [key, value] of formData) {
+            entryObject[key] = value;
+        }
+
+        entry.data(entryObject);
+
+        // set info to a unique class name of the entry
+        window.localStorage.removeItem(entryKey);
+        const eachArray = getEntriesFromStorage(entryKey);
+        eachArray.push(entryObject);
+        localStorage.setItem(entryKey, JSON.stringify(eachArray));
+    });   
 }
 
+// when delete button is clicked, it deletes the corresponding the info from the local storage
+function deleteStorage(entry) {
+    const grabEntry = entry.shadowRoot.querySelector('.entry');
+    //key for the entry list
+    const listKey = grabEntry.classList[1];
+
+    //key for the entry
+    const entryKey = grabEntry.classList[2];
+
+    window.localStorage.removeItem(entryKey);
+
+    const entriesArray = getEntriesFromStorage(listKey);
+    if (entriesArray.length === 1) {
+        window.localStorage.removeItem(listKey);
+    } else {
+        const array = [];
+        for(let i = 0; i < entriesArray.length; i++) {
+            if (entriesArray[i] !== entryKey) {
+                array.push(entriesArray[i]);
+            }
+        }
+        localStorage.setItem(listKey, JSON.stringify(array));
+    }
+    
+    grabEntry.remove();
+}
+
+function getEntriesFromStorage(title) {
+    if (window.localStorage.getItem(title) === null) {
+      return [];
+    }
+    
+    return JSON.parse(window.localStorage.getItem(title));
+  
+}
 customElements.define('book-entry', BookEntry);

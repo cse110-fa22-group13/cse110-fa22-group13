@@ -197,7 +197,6 @@ class BookList extends HTMLElement {
 
         addBook.addEventListener('click', () => {
             
-            console.log(section.classList);
             // get the modal from the document
             const modal = document.getElementById("modal");
             
@@ -257,7 +256,6 @@ class BookList extends HTMLElement {
             const formRef = document.querySelector("form");
 
             formRef.addEventListener('submit', () => {
-                console.log(section.classList);
 
                 modal.classList.remove('active');
                 overlay.classList.remove('active');
@@ -265,19 +263,25 @@ class BookList extends HTMLElement {
                 const entries = this.shadowRoot.querySelector('.entries');
                 const entry = document.createElement('book-entry');
 
-                const uniqueClassForEntry = String(guid());
-                entry.classList.add(uniqueClassForEntry);
+                const uniqueIdForEntry = String(guid());
+
+                // entry.classList.add(uniqueIdForEntry);
+
+                // store the unique key for entry
+                const entryDiv = entry.shadowRoot.querySelector('.entry');
+                entryDiv.id = uniqueIdForEntry;
+                
                 entries.appendChild(entry);
 
-                // access to modify button 
-                //const entryDiv = this.shadowRoot.querySelector('.entry');
+                // store the section.id value to a child node of entry node
+                // to avoid having the same id, add 1 to the front
+                const entryExtra = entryDiv.querySelector('.entry-extras');
+                const infoStorage = entryExtra.querySelector('summary');
+                infoStorage.id= '1' + section.id;
+
                 //const entrySome = entryDiv.querySelector('.entry-cover');
                 //const editButton = entrySome.querySelector('button');
                 // editButton.classList.add(section.id);                
-
-                // console.log(section.id);
-                //console.log(editButton.classList);
-
 
                 const formData = new FormData(formRef);
                 const entryObject = new Object();
@@ -285,17 +289,17 @@ class BookList extends HTMLElement {
                     entryObject[key] = value;
                 }
                 
-                entry.set = entryObject;
+                entry.data(entryObject);
 
                 // set a unique class name of the entry to specific title 
                 const entriesArray = getEntriesFromStorage(section.id);
-                entriesArray.push(uniqueClassForEntry);
+                entriesArray.push(uniqueIdForEntry);
                 localStorage.setItem(section.id, JSON.stringify(entriesArray));
 
                 // set info to a unique class name of the entry
-                const eachArray = getEntriesFromStorage(uniqueClassForEntry);
+                const eachArray = getEntriesFromStorage(uniqueIdForEntry);
                 eachArray.push(entryObject);
-                localStorage.setItem(uniqueClassForEntry, JSON.stringify(eachArray));
+                localStorage.setItem(uniqueIdForEntry, JSON.stringify(eachArray));
             });   
         });
 

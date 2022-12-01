@@ -75,9 +75,12 @@ async function fetchItems() {
                 if(newEntries !== null){
                     for (let j = 0; j < newEntries.length; j++) {
                         const testEntry = document.createElement('book-entry');
+                        const storeListID = testEntry.shadowRoot.querySelector('.entry');
+                        storeListID.classList.add('new-list' + i);
                         const retrievedData = newEntries[j];
                         const newEntry = await JSON.parse(localStorage.getItem(retrievedData));
                         testEntry.data(newEntry[0]);  
+                        storeListID.classList.add(newEntries[j]);
                         entries.appendChild(testEntry);
                     }
                 }
