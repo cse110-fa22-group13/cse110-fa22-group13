@@ -212,12 +212,14 @@ class BookList extends HTMLElement {
             closeButton.addEventListener('click', () => {
                 modal.classList.remove('active');
                 overlay.classList.remove('active');
+                document.querySelector('form').reset();
             });
 
             // close the dialog if the user clicks outside of it
             overlay.addEventListener('click', () => {
                 modal.classList.remove('active');
                 overlay.classList.remove('active');
+                document.querySelector('form').reset();
             });
 
 

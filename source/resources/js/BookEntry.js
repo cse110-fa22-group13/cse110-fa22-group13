@@ -312,12 +312,16 @@ function contentDialog(entry) {
     closeButton.addEventListener('click', () => {
         modal.classList.remove('active');
         overlay.classList.remove('active');
+        document.querySelector('form').reset();
+        
     });
 
     // close the dialog if the user clicks outside of it
     overlay.addEventListener('click', () => {
         modal.classList.remove('active');
         overlay.classList.remove('active');
+        document.querySelector('form').reset();
+        
     });
 
     const formRef = document.querySelector("form");
@@ -334,7 +338,7 @@ function contentDialog(entry) {
         for (const [key, value] of formData) {
             entryObject[key] = value;
         }
-
+        
         entry.data(entryObject);
 
         // set info to a unique class name of the entry
