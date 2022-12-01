@@ -176,7 +176,7 @@ fieldset {
 }
 
 /* All Booklists */
-booklist {
+#book-list {
     display: flex;
     flex-flow: column nowrap;
     justify-content: space-between;

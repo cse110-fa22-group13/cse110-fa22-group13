@@ -30,7 +30,7 @@
 
         super();
         // attach shadow DOM
-        this.attachShadow({ mode: 'open' });
+        const shadowOpen = this.attachShadow({ mode: 'open' });
 
         // add css
         const styles = document.createElement('style');
@@ -147,14 +147,10 @@
             top: 0;
             left: 0;
         }
-
-        
-    
-
         `;
 
         // apply style to the shadow DOM
-        this.shadowRoot.append(styles);
+        shadowOpen.append(styles);
 
         //contentDialog(this);
 
@@ -246,20 +242,50 @@
         deleteButton.classList.add('delete-button');
         deleteButton.innerHTML = 'Delete';
 
-        deleteButton.addEventListener('click', () => {
-            entryWrapper.remove();
-        });
+        // deleteButton.addEventListener('click', () => {
+        //     entryWrapper.remove();
+        // });
 
         deleteButtonWrapper.appendChild(deleteButton);
         entryWrapper.appendChild(deleteButton);
 
+        shadowOpen.append(entryWrapper);
 
-
-        this.shadowRoot.append(entryWrapper);
-
+        console.log(entryWrapper);
     }
 
-    
+    /**
+      * @param {any} Object
+      */
+    data(data) {
+        if(!data) return;
+        
+        const entryDiv = this.shadowRoot.querySelector('.entry');
+        // update the information
+        const entryName = entryDiv.querySelector('.entry-name');
+        entryName.innerHTML = `${data.modalBookTitle}`;
+
+        const entryRating = entryDiv.querySelector('.entry-rating');
+        const entryScore = entryRating.querySelector('.entry-score');
+        entryScore.innerHTML = `${data.modalBookRating}`;
+
+        const entryProgress = entryDiv.querySelector('.entry-progress');
+        entryProgress.innerHTML = `${data.modalBookCurrPageNum1}/${data.modalBookCurrPageNum2}`;
+
+        const extras = entryDiv.querySelector('.entry-extras');
+        const extrasGenresTitle = extras.querySelector('.entry-genres');
+        extrasGenresTitle.innerHTML = `${data.modalBookGenre}`;
+        if(data.modalBookReview) {
+            const entryReviewWrapper = entryDiv.querySelector('.entry-review');
+            const reviewBody = entryReviewWrapper.querySelector('p');
+            reviewBody.innerHTML = `${data.modalBookReview}`;
+        }
+        if(data.modalBookLnk) {
+            const entryCover = entryDiv.querySelector('.entry-cover');
+            const cover = entryCover.querySelector('.entry-img');
+            cover.src = String(data.modalBookLnk);
+        }
+    }
 }
 
 // takes a book entry as input, throws a popup on the screen, updates the entry, and closes
@@ -287,8 +313,6 @@ function contentDialog(entry) {
         modal.classList.remove('active');
         overlay.classList.remove('active');
     });
-
-
 }
 
 customElements.define('book-entry', BookEntry);
