@@ -88,14 +88,13 @@ fieldset {
     padding-right: 5px;
 }
 
-
 .modal {
     font-size: 150%;
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%) scale(0);
-    transition: 200ms ease-in-out;
+    /* transition: 100ms ease-in-out; */
     border: 1px solid black;
     border-radius: 10px;
     z-index: 10;
@@ -146,7 +145,7 @@ fieldset {
     right: 0;
     bottom: 0;
     background-color: rgba(0,0,0,0.5);
-    transition: 200ms ease-in-out;
+    /* transition: 100ms ease-in-out; */
     pointer-events: none;
 }
 
@@ -176,7 +175,7 @@ fieldset {
 }
 
 /* All Booklists */
-booklist {
+#book-list {
     display: flex;
     flex-flow: column nowrap;
     justify-content: space-between;

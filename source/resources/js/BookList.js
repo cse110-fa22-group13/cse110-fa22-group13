@@ -113,12 +113,36 @@ class BookList extends HTMLElement {
 
         this.shadowRoot.append(styles);
 
+        // add local storage functionality
+        // random class name generator 
+        let guid = () => {
+            let s4 = () => {
+                return Math.floor((1 + Math.random()) * 0x10000)
+                    .toString(16)
+                    .substring(1);
+            }
+            //return id of format 'aaaaaaaa'-'aaaa'-'aaaa'-'aaaa'-'aaaaaaaaaaaa'
+            return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
+        }
+        
+        let newNum;
+        if(localStorage.getItem("listOfNames") === null){
+            newNum = 0;
+        }
+        else {
+            const newLength = JSON.parse(localStorage.getItem("listOfNames"));
+            newNum = newLength.length;
+        }
+
         // add the section for the list to inhabit
         const section = document.createElement('section');
         // Makes the id seperate for each new section
-        const allNewIds = document.querySelectorAll('*[id^="new-list"]');
-        section.id = 'new-list' + allNewIds.length;
+        // const allNewIds = document.querySelectorAll('*[id^="new-list"]');
         
+        section.id = 'new-list' + newNum;
+        const uniqueClassForSection = String(guid());
+        section.classList.add(uniqueClassForSection);
+
         const listLabel = document.createElement('h2');
         listLabel.classList.add('list-title');
         listLabel.innerHTML = 'New List';
@@ -173,7 +197,6 @@ class BookList extends HTMLElement {
 
         addBook.addEventListener('click', () => {
             
-    
             // get the modal from the document
             const modal = document.getElementById("modal");
             
@@ -189,15 +212,16 @@ class BookList extends HTMLElement {
             closeButton.addEventListener('click', () => {
                 modal.classList.remove('active');
                 overlay.classList.remove('active');
+                document.querySelector('form').reset();
             });
 
             // close the dialog if the user clicks outside of it
             overlay.addEventListener('click', () => {
                 modal.classList.remove('active');
                 overlay.classList.remove('active');
+                document.querySelector('form').reset();
             });
-
-            // add the book and close the dialog if the user hits the add button
+         
             const addButton = document.querySelectorAll('#modal .entry-add-button')
             addButton.forEach(button => {
                 button.addEventListener('click', () => {
@@ -213,8 +237,56 @@ class BookList extends HTMLElement {
 
                 });
             });
-
             
+            
+            const formRef = document.querySelector("form");
+
+            formRef.addEventListener('submit', () => {
+
+                modal.classList.remove('active');
+                overlay.classList.remove('active');
+
+                const entries = this.shadowRoot.querySelector('.entries');
+                const entry = document.createElement('book-entry');
+
+                const uniqueIdForEntry = String(guid());
+
+                // entry.classList.add(uniqueIdForEntry);
+
+                // store the unique key for entry
+                const entryDiv = entry.shadowRoot.querySelector('.entry');
+                entryDiv.id = uniqueIdForEntry;
+                
+                entries.appendChild(entry);
+
+                // store the section.id value to a child node of entry node
+                // to avoid having the same id, add 1 to the front
+                const entryExtra = entryDiv.querySelector('.entry-extras');
+                const infoStorage = entryExtra.querySelector('summary');
+                infoStorage.id= '1' + section.id;
+
+                //const entrySome = entryDiv.querySelector('.entry-cover');
+                //const editButton = entrySome.querySelector('button');
+                // editButton.classList.add(section.id);                
+
+                const formData = new FormData(formRef);
+                const entryObject = new Object();
+                for (const [key, value] of formData) {
+                    entryObject[key] = value;
+                }
+                
+                entry.data(entryObject);
+
+                // set a unique class name of the entry to specific title 
+                const entriesArray = getEntriesFromStorage(section.id);
+                entriesArray.push(uniqueIdForEntry);
+                localStorage.setItem(section.id, JSON.stringify(entriesArray));
+
+                // set info to a unique class name of the entry
+                const eachArray = getEntriesFromStorage(uniqueIdForEntry);
+                eachArray.push(entryObject);
+                localStorage.setItem(uniqueIdForEntry, JSON.stringify(eachArray));
+            });   
         });
 
         // add column text to header
@@ -247,6 +319,15 @@ class BookList extends HTMLElement {
         const listLabel = this.shadowRoot.querySelector(".list-title");
         listLabel.innerHTML = entry;
     }
+}
+
+function getEntriesFromStorage(title) {
+    if (window.localStorage.getItem(title) === null) {
+      return [];
+    }
+    
+    return JSON.parse(window.localStorage.getItem(title));
+  
 }
 
 customElements.define('book-list', BookList);
