@@ -11,7 +11,7 @@ async function init() {
         console.log(`Error fetch items: ${err}`);
         return; // Return if fetch fails
     }
-    addButton = document.querySelector('.add-button');
+    let addButton = document.querySelector('.add-button');
     addButton.addEventListener('click', addNewList);
 }
 

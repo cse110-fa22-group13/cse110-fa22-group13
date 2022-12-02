@@ -41,7 +41,8 @@ header {
   color: #dbc6bb;
 }
 
-#in-progress, #completed{
+#in-progress, 
+#completed {
   display: none;
 }
 
@@ -53,15 +54,10 @@ fieldset {
   width: max-content;
 }
 
-/* selection screen*/
-#modalBookCurrPageNum1 {
+/* selection screen */
+.modal-book-page {
   width: 60px;
 }
-
-#modalBookCurrPageNum2 {
-  width: 60px;
-}
-
 
 /* modal settings */
 #modal-pages {
@@ -77,11 +73,11 @@ fieldset {
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%) scale(0);
+  transform: translate(-50%,-50%), scale(0);
   border: 1px solid black;
   border-radius: 10px;
   z-index: 10;
-  background-color: #DBC6BB;
+  background-color: #dbc6bb;
   width: 1000px;
   height: 600px;
   max-width: 80%;
@@ -119,8 +115,6 @@ fieldset {
   padding: 10px 15px;
 }
 
-
-
 /* Header entry titles */
 #new-modal-info fieldset legend {
   font-weight: bold;
@@ -129,42 +123,51 @@ fieldset {
 /* overlay */
 
 #overlay { 
-    position: fixed;
-    opacity: 0;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0,0,0,0.5);
-    /* transition: 100ms ease-in-out; */
-    pointer-events: none;
+  position: fixed;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 50%);
+
+  /* transition: 100ms ease-in-out; */
+  pointer-events: none;
 }
 
 #overlay.active {
-    opacity: 1;
-    pointer-events: all;
+  opacity: 1;
+  pointer-events: all;
 }
 
 /* Add buttons and homepage button */
-.add-button, .entry-add-button, #homepage {
+.add-button, 
+.entry-add-button, 
+#homepage {
   background-color: #e57a44;
   color: #dbc6bb;
   padding: 3px;
   border: 1px #422040 solid;
 }
 
-.add-button:hover, .entry-add-button:hover #homepage:hover {
+.add-button:hover,
+.entry-add-button:hover 
+#homepage:hover {
   background-color: hsl(20deg 76% 68%);
   color: #dbc6bb;
   padding: 3px;
   border: 1px #422040 solid;
 }
 
-.add-button, .entry-add-button, .delete-button {
+.add-button, 
+.entry-add-button, 
+.delete-button {
   width: 70px;
 }
 
-.add-button:hover, .entry-add-button:hover .delete-button:hover {
+.add-button:hover, 
+.entry-add-button:hover 
+.delete-button:hover {
   width: 70px;
 }
 
@@ -183,12 +186,12 @@ fieldset {
 
 /* All Booklists */
 #book-list {
-    display: flex;
-    flex-flow: column wrap;
-    justify-content: space-between;
-    align-content: space-between;
-    row-gap: 20px;
-    margin: 50px;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-between;
+  align-content: space-between;
+  row-gap: 20px;
+  margin: 50px;
 }
 
 /* Single Booklist, includes list header and all list entries */
@@ -232,7 +235,7 @@ fieldset {
 }
 
  /* List delete button */
- .list-header .entry-cover {
+.list-header .entry-cover {
   background-color: #dbc6bb;
   color: #422040;
   padding: 3px;
@@ -240,7 +243,7 @@ fieldset {
 }
 
 .list-header .entry-cover:hover {
-  background-color: hsl(304 19% 70%);
+  background-color: hsl(304deg 19% 70%);
   color: #422040;
   padding: 3px;
   border: 1px #422040 solid;
@@ -355,7 +358,7 @@ p {
 }
 
 .add-book:hover{
-    color: white;
+  color: white;
 }
 
 
@@ -365,6 +368,7 @@ p {
     text-align: left;
   }
 } */
+
 /* responsive feature according to the size of the screen */
 @media only screen and (max-width: 900px) {
   h1 {
