@@ -34,132 +34,12 @@ const STATUSES = ['completed', 'in progress', 'planned'];
         const shadowOpen = this.attachShadow({ mode: 'open' });
 
         // add css
-        const styles = document.createElement('style');
-        styles.innerHTML = `
-        /* Single Booklist, includes list header and all list entries */
-        .entry-list {
-            display: flex;
-            flex-flow: column nowrap;
-            justify-content: space-between;
-            align-content: space-between;
-            row-gap: 0px;
-            border: 2px #E57A44 solid;
-            background-color: #E57A44;
-            margin: 5px;
-        }
-        
-        /* Contains all list entries */
-        .entries {
-            display: flex;
-            flex-flow: column nowrap;
-            justify-content: space-between;
-            align-content: space-between;
-            row-gap: 0px;
-        }
-        
-        /* List header and individual entries */
-        .list-header, .entry {
-            display: flex;
-            flex-flow: row nowrap;
-            justify-content: space-between;
-            align-items: center;
-            align-content: space-between;
-            text-align: center;
-            gap: 10px;
-            border: 1px #422040 solid;
-            color: #DBC6BB;
-        }
-        
-        .list-header {
-            font-weight: bold;
-            background-color: #422040;
-        }
-        
-        /* Entry rating and progress */
-        .entry-rating, .entry-progress {
-            flex: 1;
-        }
-        
-        /* Entry image/modify button */
-        .entry-cover {
-            width: 70px;
-            max-width: 70px;
-            height: auto;
-            flex: 0 1 auto;
-        }
-        
-        .entry .entry-cover {
-            display: grid;
-            justify-items: center;
-            justify-content: center;
-            align-items: center;
-            align-content: center;
-            text-align: center;
-        }
-        
-        .entry-cover .entry-img, .entry-cover .modify-button {
-            grid-column: 1;
-            grid-row: 1;
-        }
-        
-        .entry-img {
-            opacity: 1.0;
-            width: 70px;
-            max-width: 70px;
-            height: auto;
-            object-fit: cover;
-            display: inline-block;
-            width: calc(100% + 32px);
-        }
-        
-        .entry-cover:hover .entry-img {
-            opacity: 0.1;
-        }
-        
-        .entry-cover .modify-button {
-            opacity: 0.0;
-            width: 70px;
-            max-width: 70px;
-            height: 100%;
-            border: none;
-        }
-        
-        .entry-cover:hover .modify-button {
-            opacity: 1.0;
-        }
-        
-        .entry-name {
-            flex: 5;
-            text-align: left;
-        }
-        
-        .entry-extras, .entry-review {
-            flex: 2;
-        }
-        
-        .entries .entry-review p, .entry-genres {
-            text-align: left;
-        }
+        let link = document.createElement('link');
+        link.setAttribute('rel', 'stylesheet');
+        link.setAttribute('href', '../bookEntries/bookEntries.css');;
 
-        /*data popup form*/
-        .popup {
-            background-color: rgba(0,0,0,0.5);
-            position: absolute;
-            height: 100%;
-            width: 100%;
-            justify-content: center;
-            justify-text: center;
-            align-items: center;
-            display: flex;
-            top: 0;
-            left: 0;
-        }
-        `;
-
-        // apply style to the shadow DOM
-        shadowOpen.append(styles);
-
-        //contentDialog(this);
+        // apply css link to the shadow DOM
+        this.shadowRoot.appendChild(link);
 
         // wrapper for the entry
         const entryWrapper = document.createElement('div');
@@ -213,24 +93,19 @@ const STATUSES = ['completed', 'in progress', 'planned'];
         entryWrapper.appendChild(entryProgress);
 
         // entry extras
-        const extrasWrapper = document.createElement('details');
+        const extrasWrapper = document.createElement('span');
         extrasWrapper.classList.add('entry-extras');
         
         const extrasSummary = document.createElement('summary');
-        extrasSummary.innerHTML = 'Extra Details';
+        extrasSummary.innerHTML = '';
         extrasWrapper.appendChild(extrasSummary);
-        
-        const extrasGenresTitle = document.createElement('span');
-        extrasGenresTitle.classList.add('entry-genres');
-        extrasGenresTitle.innerHTML = 'Genres';
-        extrasWrapper.appendChild(extrasGenresTitle);
         
         const genreList = document.createElement('ul');
         genreList.classList.add('entry-genres');
+        genreList.innerHTML = 'N/A';
         extrasWrapper.appendChild(genreList);
 
         entryWrapper.appendChild(extrasWrapper);
-
 
         // entry review
         const entryReviewWrapper = document.createElement('details');
@@ -239,7 +114,7 @@ const STATUSES = ['completed', 'in progress', 'planned'];
         reviewSummary.innerHTML = 'View Review';
         entryReviewWrapper.appendChild(reviewSummary);
         const reviewBody = document.createElement('p');
-        reviewBody.innerHTML = 'reviewTextBody';
+        reviewBody.innerHTML = 'N/A';
         entryReviewWrapper.appendChild(reviewBody);
         entryWrapper.appendChild(entryReviewWrapper);
 
@@ -265,30 +140,40 @@ const STATUSES = ['completed', 'in progress', 'planned'];
         
         const entryDiv = this.shadowRoot.querySelector('.entry');
         // update the information
-        const entryName = entryDiv.querySelector('.entry-name');
-        entryName.innerHTML = `${data.modalBookTitle}`;
+        if(data.modalBookTitle) {
+            const entryName = entryDiv.querySelector('.entry-name');
+            entryName.innerHTML = `${data.modalBookTitle}`;
+        }
 
-        const entryRating = entryDiv.querySelector('.entry-rating');
-        const entryScore = entryRating.querySelector('.entry-score');
-        entryScore.innerHTML = `${data.modalBookRating}`;
+        if(data.modalBookRating) {
+            const entryRating = entryDiv.querySelector('.entry-rating');
+            const entryScore = entryRating.querySelector('.entry-score');
+            entryScore.innerHTML = `${data.modalBookRating}`;
+        }
 
-        const entryProgress = entryDiv.querySelector('.entry-progress');
-        entryProgress.innerHTML = `${data.modalBookCurrPageNum1}/${data.modalBookCurrPageNum2}`;
+        if(data.modalBookCurrPageNum1 && data.modalBookCurrPageNum2) {
+            const entryProgress = entryDiv.querySelector('.entry-progress');
+            entryProgress.innerHTML = `${data.modalBookCurrPageNum1}/${data.modalBookCurrPageNum2}`;
+        }
 
-        const extras = entryDiv.querySelector('.entry-extras');
-        const extrasGenresTitle = extras.querySelector('.entry-genres');
-        extrasGenresTitle.innerHTML = `${data.modalBookGenre}`;
+        if(data.modalBookGenre) {
+            const extras = entryDiv.querySelector('.entry-extras');
+            const extrasGenresTitle = extras.querySelector('.entry-genres');
+            extrasGenresTitle.innerHTML = `${data.modalBookGenre}`;
+        }
+        
 
         if(data.modalBookReview) {
             const entryReviewWrapper = entryDiv.querySelector('.entry-review');
             const reviewBody = entryReviewWrapper.querySelector('p');
             reviewBody.innerHTML = `${data.modalBookReview}`;
         }
+
         if(data.modalBookLnk) {
             const entryCover = entryDiv.querySelector('.entry-cover');
             const cover = entryCover.querySelector('.entry-img');
-            console.log(data.modalBookLnk);
-            cover.src = data.modalBookLnk;
+            cover.alt = `${data.modalBookTitle}`;
+            cover.src = `${data.modalBookLnk}`;
         }
     }
 }
@@ -350,29 +235,34 @@ function contentDialog(entry) {
 
 // when delete button is clicked, it deletes the corresponding the info from the local storage
 function deleteStorage(entry) {
-    const grabEntry = entry.shadowRoot.querySelector('.entry');
-    //key for the entry list
-    const listKey = grabEntry.classList[1];
+    const deleteEntry = prompt("Are you sure you want to delete this book entry? (y/n)");
+    if(deleteEntry == 'y' || deleteEntry == 'Y' || deleteEntry == 'yes' || deleteEntry == 'YES' || deleteEntry == 'Yes'){
+        const grabEntry = entry.shadowRoot.querySelector('.entry');
+        //key for the entry list
+        const listKey = grabEntry.classList[1];
 
-    //key for the entry
-    const entryKey = grabEntry.classList[2];
+        //key for the entry
+        const entryKey = grabEntry.classList[2];
 
-    window.localStorage.removeItem(entryKey);
+        window.localStorage.removeItem(entryKey);
 
-    const entriesArray = getEntriesFromStorage(listKey);
-    if (entriesArray.length === 1) {
-        window.localStorage.removeItem(listKey);
-    } else {
-        const array = [];
-        for(let i = 0; i < entriesArray.length; i++) {
-            if (entriesArray[i] !== entryKey) {
-                array.push(entriesArray[i]);
+        const entriesArray = getEntriesFromStorage(listKey);
+        if (entriesArray.length === 1) {
+            window.localStorage.removeItem(listKey);
+        } else {
+            const array = [];
+            for(let i = 0; i < entriesArray.length; i++) {
+                if (entriesArray[i] !== entryKey) {
+                    array.push(entriesArray[i]);
+                }
             }
+            localStorage.setItem(listKey, JSON.stringify(array));
         }
-        localStorage.setItem(listKey, JSON.stringify(array));
+        grabEntry.remove();
     }
-    
-    grabEntry.remove();
+    else{
+        console.log("User said no");
+    }
 }
 
 function getEntriesFromStorage(title) {

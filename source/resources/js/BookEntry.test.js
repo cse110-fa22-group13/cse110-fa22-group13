@@ -18,7 +18,6 @@
 }); 
 
 
-
 //test constructor
 test('not null constructor', () => {
   const bookEntry = document.createElement('book-entry');

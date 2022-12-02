@@ -8,110 +8,12 @@ class BookList extends HTMLElement {
         this.attachShadow({ mode: 'open' }); // Create the Shadow DOM
 
         // set the styles for the shadow DOM
-        const styles = document.createElement('style');
-        styles.innerHTML = `
-        
-        /* Single Booklist, includes list header and all list entries */
-        .entry-list {
-            display: flex;
-            flex-flow: column nowrap;
-            justify-content: space-between;
-            align-content: space-between;
-            row-gap: 0px;
-            border: 2px #E57A44 solid;
-            background-color: #E57A44;
-            margin: 5px;
-        }
-        
-        /* Contains all list entries */
-        .entries {
-            display: flex;
-            flex-flow: column nowrap;
-            justify-content: space-between;
-            align-content: space-between;
-            row-gap: 0px;
-        }
-        
-        /* List header and individual entries */
-        .list-header, .entry {
-            display: flex;
-            flex-flow: row nowrap;
-            justify-content: space-between;
-            align-items: center;
-            align-content: space-between;
-            text-align: center;
-            gap: 10px;
-            border: 1px #422040 solid;
-            color: #DBC6BB;
-        }
-        
-        .list-header {
-            font-weight: bold;
-            background-color: #422040;
-        }
-        
-        /* Entry rating and progress */
-        .entry-rating, .entry-progress {
-            flex: 1;
-        }
-        
-        /* Entry image/modify button */
-        .entry-cover {
-            width: 70px;
-            height: auto;
-            flex: 0 1 auto;
-        }
-        
-        .entry .entry-cover {
-            display: grid;
-            justify-items: center;
-            justify-content: center;
-            align-items: center;
-            align-content: center;
-            text-align: center;
-        }
-        
-        .entry-cover .entry-img, .entry-cover .modify-button {
-            grid-column: 1;
-            grid-row: 1;
-        }
-        
-        .entry-img {
-            opacity: 1.0;
-            width: 70px;
-            height: auto;
-        }
-        
-        .entry-cover:hover .entry-img {
-            opacity: 0.1;
-        }
-        
-        .entry-cover .modify-button {
-            opacity: 0.0;
-            width: 70px;
-            height: 100%;
-            border: none;
-        }
-        
-        .entry-cover:hover .modify-button {
-            opacity: 1.0;
-        }
-        
-        .entry-name {
-            flex: 5;
-            text-align: left;
-        }
-        
-        .entry-extras, .entry-review {
-            flex: 2;
-        }
-        
-        .entries .entry-review p, .entry-genres {
-            text-align: left;
-        }
-        `;
+        let link = document.createElement('link');
+        link.setAttribute('rel', 'stylesheet');
+        link.setAttribute('href', '../bookEntries/bookEntries.css');;
 
-        this.shadowRoot.append(styles);
+        // apply style to the shadow DOM
+        this.shadowRoot.appendChild(link);
 
         // add local storage functionality
         // random class name generator 
@@ -161,9 +63,9 @@ class BookList extends HTMLElement {
         // create and add the labels for the columns
         
         // entry cover
-        const entryCover = document.createElement('span');
+        const entryCover = document.createElement('button');
         entryCover.classList.add('entry-cover');
-        entryCover.innerHTML = '&nbsp;';
+        entryCover.innerHTML = 'Delete List';
 
         // entry name
         const entryName = document.createElement('span');
@@ -183,7 +85,7 @@ class BookList extends HTMLElement {
         // entry extras
         const entryExtras = document.createElement('span');
         entryExtras.classList.add('entry-extras');
-        entryExtras.innerHTML = 'Extras';
+        entryExtras.innerHTML = 'Genres';
 
         // entry review
         const entryReview = document.createElement('span');
@@ -192,8 +94,46 @@ class BookList extends HTMLElement {
 
         // add book entry button
         const addBook = document.createElement('button');
-        addBook.classList.add('addButton');
-        addBook.innerHTML = 'Add-Book';
+        addBook.classList.add('add-button');
+        addBook.innerHTML = 'Add Book';
+
+        entryCover.addEventListener('click', () => {
+            const deleteList = prompt('Are you sure you want to delete this list? (y/n)');
+            if(deleteList == 'y' || deleteList == 'Y' || deleteList == 'yes' || deleteList == 'YES' || deleteList == 'Yes'){
+                //Name of list we are deleting
+                const nameOfList = listLabel.innerHTML;
+                
+                //Name of the list of all book lists
+                const listOfNames = getEntriesFromStorage('listOfNames');
+
+                // delete the the list name from listOfNames
+                const array = [];
+                for(let i = 0; i < listOfNames.length; i++) {
+                    if (listOfNames[i] !== nameOfList) {
+                        array.push(listOfNames[i]);
+                    }
+                }
+                localStorage.setItem('listOfNames', JSON.stringify(array));
+
+                // delete the entries of the list
+                const entriesOfList = getEntriesFromStorage(section.id);
+                for(let j = 0; j < entriesOfList.length; j++){
+                    window.localStorage.removeItem(entriesOfList[j]);
+                }
+                
+                // delete the list itself
+                if (window.localStorage.getItem(listOfNames) === null)
+                    window.localStorage.removeItem(listOfNames);
+                window.localStorage.removeItem(section.id);
+                window.localStorage.removeItem(nameOfList);
+
+                // refresh the page 
+                window.location.reload();
+            }
+            else{
+                console.log("User said no");
+            }
+        });
 
         addBook.addEventListener('click', () => {
             
@@ -238,7 +178,6 @@ class BookList extends HTMLElement {
                 });
             });
             
-            
             const formRef = document.querySelector("form");
 
             formRef.addEventListener('submit', () => {
@@ -259,12 +198,6 @@ class BookList extends HTMLElement {
                 
                 entries.appendChild(entry);
 
-                // store the section.id value to a child node of entry node
-                // to avoid having the same id, add 1 to the front
-                const entryExtra = entryDiv.querySelector('.entry-extras');
-                const infoStorage = entryExtra.querySelector('summary');
-                infoStorage.id= '1' + section.id;
-
                 //const entrySome = entryDiv.querySelector('.entry-cover');
                 //const editButton = entrySome.querySelector('button');
                 // editButton.classList.add(section.id);                
@@ -274,6 +207,8 @@ class BookList extends HTMLElement {
                 for (const [key, value] of formData) {
                     entryObject[key] = value;
                 }
+
+                
                 
                 entry.data(entryObject);
 
@@ -286,7 +221,11 @@ class BookList extends HTMLElement {
                 const eachArray = getEntriesFromStorage(uniqueIdForEntry);
                 eachArray.push(entryObject);
                 localStorage.setItem(uniqueIdForEntry, JSON.stringify(eachArray));
-            });   
+                
+                // page reload to prevent a user from seeing a saved entry
+                window.location.reload(); 
+
+            });  
         });
 
         // add column text to header

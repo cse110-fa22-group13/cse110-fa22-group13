@@ -26,16 +26,17 @@
                 <img id="logo" src="/source/resources/images/vectors/Logo.svg" alt="logo">
                 <h1>BookTime</h1>
             </div>
+            <!-- Website tabs aren't needed, remove later
             <ul>
                 <li class="page">Profile</li>
                 <li class="page">Recommendations</li>
                 <li class="page" onclick="location.href='/source/bookEntries/bookEntries.html'">Booklist</li>
-            </ul>           
+            </ul>      
+            -->     
         </header>
-
         <!--main-->
         <main>
-            <button id="edit button">Edit</button>
+            <!-- <button id="edit button">Edit</button> -->
             <div id="add-entry">
                 <button class="add-button" title="Click to add a new list">Add List</button>
                 <fieldset></fieldset>
@@ -48,8 +49,8 @@
                         <h2>BookEntry</h2>
                     </div>
                     <div>
-                        <button id="entry-add-button">ADD</button>
-                        <button class="close-button">&times</button>
+                        <!-- <button id="entry-add-button">ADD</button> -->
+                        <button class="close-button">&times;</button>
                     </div>
                 </div>
                 <div class="modal-body">
@@ -57,41 +58,41 @@
                         <fieldset>
                             <legend>Title</legend>
                             <label for="modal-title">
-                                <input type="text" id="modalBookTitle" name="modalBookTitle" required>
+                                <input type="text" id="modalBookTitle" name="modalBookTitle">
                             </label>
                         </fieldset>
                         <fieldset>
                             <label for="modal-title-lnk">
                                 <legend>Image Link</legend>
-                                <input type="url" id="modalBookLnk" name="modalTitleLnk">
+                                <input type="url" id="modalBookLnk" name="modalBookLnk">
                             </label>
                         </fieldset>
                         <fieldset>
-                            <legend>Genre</legend>
+                            <legend>Genres</legend>
                             <label for="modal-genre">
-                                <input type="text" id="modalBookGenre" name="modalBookGenre" required>
+                                <input type="text" id="modalBookGenre" name="modalBookGenre">
                             </label>
                         </fieldset>
                         <fieldset>
                             <legend>Number of Pages</legend>
                             <label for="modal-book-curr-pageNum1">
-                                <input type="number" id="modalBookCurrPageNum1" name="modalBookCurrPageNum1" required>
+                                <input type="number" id="modalBookCurrPageNum1" name="modalBookCurrPageNum1" min="0">
                             </label>/
                             <label for="modal-book-curr-pageNum2">
-                                <input type="number" id="modalBookCurrPageNum2" name="modalBookCurrPageNum2" required>
+                                <input type="number" id="modalBookCurrPageNum2" name="modalBookCurrPageNum2" min="0">
                             </label>
                         </fieldset>
                         <fieldset>
                             <legend>Rating</legend>
                             <label for="modal-book-rating">
-                                <input type="number" id="modalBookRating" name="modalBookRating" min="0" max ="10" required> 
+                                <input type="number" id="modalBookRating" name="modalBookRating" min="0" max ="10"> 
                             </label>
                         </fieldset>
                         <fieldset>
                             <legend>Review</legend>
                             <textarea name="modalBookReview" id="modalBookReview" cols="38" rows="10"></textarea>
                         </fieldset>
-                        <button type="submit" class="entry-add-button">ADD</button>
+                        <button type="submit" class="entry-add-button">Add Book</button>
                     </form>
                 </div>
             </div>
@@ -99,19 +100,19 @@
 
             <!--structure for in progress list-->
             <section id="bookList">
-                <h2 class="booklist-title">Your Book List</h2>
+                <h2 class="booklist-title">Your Book Lists</h2>
                 
                 <section id="in-progress" hidden="true">
                     <h2 class="list-title">In Progress</h2>
                     <div class="entry-list">
                         <div class="list-header">
-                            <span class="entry-cover">&nbsp;</span>
+                            <button class="entry-cover">Delete List</button>
                             <span class="entry-name">Title</span>
                             <span class="entry-rating">Rating</span>
                             <span class="entry-progress">Progress</span>
                             <span class="entry-extras">Extras</span>
                             <span class="entry-review">Review</span>
-                            <button class="addButton">Add-Book</button>
+                            <button class="add-button">Add Book</button>
                         </div>
 
                         <div class="entries">
@@ -139,7 +140,7 @@
                                     <p>Too much water.</p>
                                 </details>
                                 <div>
-                                    <button class="deleteButton">Delete</button>
+                                    <button class="delete-button">Delete</button>
                                 </div>
                             </div>
 
@@ -185,13 +186,13 @@
                     <h2 class="list-title">Completed</h2>
                     <div class="entry-list">
                         <div class="list-header">
-                            <span class="entry-cover">&nbsp;</span>
+                            <button class="entry-cover">Delete List</button>
                             <span class="entry-name">Title</span>
                             <span class="entry-rating">Rating</span>
                             <span class="entry-progress">Progress</span>
                             <span class="entry-extras">Extras</span>
                             <span class="entry-review">Review</span>
-                            <button class="addButton">Add-Book</button>
+                            <button class="add-button">Add Book</button>
                         </div>
                         <div class="entries">
                             <!--default entry-->
@@ -229,13 +230,13 @@
                     <h2 class="list-title">Dropped</h2>
                     <div class="entry-list">
                         <div class="list-header">
-                            <span class="entry-cover">&nbsp;</span>
+                            <button class="entry-cover">Delete List</button>
                             <span class="entry-name">Title</span>
                             <span class="entry-rating">Rating</span>
                             <span class="entry-progress">Progress</span>
                             <span class="entry-extras">Extras</span>
                             <span class="entry-review">Review</span>
-                            <button class="addButton">Add-Book</button>
+                            <button class="add-button">Add Book</button>
                         </div>
                         <div class="entries">
 
@@ -274,12 +275,12 @@
                     <h2 class="list-title">Planned</h2>
                     <div class="entry-list">
                         <div class="list-header">
-                            <span class="entry-cover">&nbsp;</span>
+                            <button class="entry-cover">Delete-List</button>
                             <span class="entry-name">Title</span>
                             <span class="entry-rating">Rating</span>
                             <span class="entry-progress">Progress</span>
                             <span class="entry-extras">Extras</span>
-                            <button id="addButton">Add-Book</button>
+                            <button id="add-button">Add-Book</button>
                             <details class="entry-review">
                                 <summary>View Review</summary>
                                 <p></p>
