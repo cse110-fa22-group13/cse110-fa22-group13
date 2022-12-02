@@ -30,6 +30,12 @@ header {
   grid-template-columns: 1fr 1fr 1fr;
 }
 
+
+p {
+  word-break: break-all;
+  white-space: normal;
+}
+
 .header-main {
   display: flex;
   text-align: center;
@@ -57,16 +63,6 @@ fieldset {
 /* selection screen */
 .modal-book-page {
   width: 60px;
-}
-
-/* modal settings */
-#modal-pages {
-  display: flex;
-}
-
-#modal-pages > p {
-  padding-left: 5px;
-  padding-right: 5px;
 }
 
 .modal {
@@ -129,7 +125,7 @@ fieldset {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 50%);
+  background-color: rgba(0, 0, 0, 0.5);
 
   /* transition: 100ms ease-in-out; */
   pointer-events: none;
@@ -206,6 +202,22 @@ fieldset {
   background-color: #422040;
 }
 
+/* Entry image/modify button */
+.entry-cover {
+  width: 70px;
+  height: auto;
+  flex: 0 1 auto;
+}
+
+.entry .entry-cover {
+  display: grid;
+  justify-items: center;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  text-align: center;
+}
+
 /* List delete button */
 .list-header .entry-cover {
   background-color: #dbc6bb;
@@ -241,22 +253,6 @@ fieldset {
 .entry-progress,
 .entry-extras {
   flex: 1;
-}
-
-/* Entry image/modify button */
-.entry-cover {
-  width: 70px;
-  height: auto;
-  flex: 0 1 auto;
-}
-
-.entry .entry-cover {
-  display: grid;
-  justify-items: center;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
-  text-align: center;
 }
 
 .entry-img {
@@ -341,9 +337,14 @@ fieldset {
   margin: 50px;
 }
 
-p {
-  word-break: break-all;
-  white-space: normal;
+/* modal settings */
+#modal-pages {
+  display: flex;
+}
+
+#modal-pages > p {
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
 .add-book:hover {
