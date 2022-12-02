@@ -1,7 +1,8 @@
-let addButton;
-
 window.addEventListener('DOMContentLoaded', init);
-
+/**
+ * This function initializes the webpage
+ * 
+ */
 async function init() {
     try {
         await fetchItems();
@@ -14,6 +15,9 @@ async function init() {
     addButton.addEventListener('click', addNewList);
 }
 
+/**
+ * This function adds a new list to the page
+ */
 function addNewList(){
     let label = prompt("Name of new list?");
     if(label != null){
@@ -40,7 +44,9 @@ function addNewList(){
     }
 }
 
-
+/**
+ * This function finds out what needs to be populated based on the contents of localStorage
+ */
 async function fetchItems() {
     return new Promise(async (resolve, reject) => {
         if(localStorage.getItem("listOfNames") === null){

@@ -7,6 +7,9 @@
  * @description - Defines the custom HTMLElement book-list
  */
 class BookList extends HTMLElement {
+    /**
+     * Constructor for the book-list webcomponent
+     */
     constructor() {
         super();  // inherit HTMLElement
         this.attachShadow({ mode: 'open' }); // Create the Shadow DOM
@@ -207,7 +210,7 @@ class BookList extends HTMLElement {
                 // editButton.classList.add(section.id);                
 
                 const formData = new FormData(formRef);
-                const entryObject = new Object();
+                const entryObject = {};
                 for (const [key, value] of formData) {
                     entryObject[key] = value;
                 }

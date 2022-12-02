@@ -6,6 +6,10 @@
  * @description The BookEntry Class, which defines the custom book-entry htmlelement.
  */
 class BookEntry extends HTMLElement {
+    
+    /**
+     * Constructor for the book-entry webcomponent. 
+     */
     constructor(){
 
         super();
