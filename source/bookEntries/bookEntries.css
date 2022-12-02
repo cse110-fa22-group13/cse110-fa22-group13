@@ -148,6 +148,7 @@ fieldset {
   color: #dbc6bb;
   padding: 3px;
   border: 1px #422040 solid;
+  width: 70px;
 }
 
 .add-button:hover,
@@ -157,12 +158,6 @@ fieldset {
   color: #dbc6bb;
   padding: 3px;
   border: 1px #422040 solid;
-}
-
-.add-button,
-.entry-add-button,
-.delete-button {
-  width: 70px;
 }
 
 .add-button:hover,
@@ -300,6 +295,7 @@ fieldset {
   color: #422040;
   padding: 3px;
   border: 1px #422040 solid;
+  width: 70px;
 }
 
 .delete-button:hover {
