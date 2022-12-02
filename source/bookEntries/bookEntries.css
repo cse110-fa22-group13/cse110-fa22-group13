@@ -41,7 +41,7 @@ header {
   color: #dbc6bb;
 }
 
-#in-progress, 
+#in-progress,
 #completed {
   display: none;
 }
@@ -63,6 +63,7 @@ fieldset {
 #modal-pages {
   display: flex;
 }
+
 #modal-pages > p {
   padding-left: 5px;
   padding-right: 5px;
@@ -121,8 +122,7 @@ fieldset {
 }
 
 /* overlay */
-
-#overlay { 
+#overlay {
   position: fixed;
   opacity: 0;
   top: 0;
@@ -141,8 +141,8 @@ fieldset {
 }
 
 /* Add buttons and homepage button */
-.add-button, 
-.entry-add-button, 
+.add-button,
+.entry-add-button,
 #homepage {
   background-color: #e57a44;
   color: #dbc6bb;
@@ -151,7 +151,7 @@ fieldset {
 }
 
 .add-button:hover,
-.entry-add-button:hover 
+.entry-add-button:hover,
 #homepage:hover {
   background-color: hsl(20deg 76% 68%);
   color: #dbc6bb;
@@ -159,14 +159,14 @@ fieldset {
   border: 1px #422040 solid;
 }
 
-.add-button, 
-.entry-add-button, 
+.add-button,
+.entry-add-button,
 .delete-button {
   width: 70px;
 }
 
-.add-button:hover, 
-.entry-add-button:hover 
+.add-button:hover,
+.entry-add-button:hover
 .delete-button:hover {
   width: 70px;
 }
@@ -300,8 +300,7 @@ fieldset {
 }
 
 .entry-img {
-  opacity: 1.0;
-  width: 70px;
+  opacity: 1;
   max-width: 70px;
   height: auto;
   object-fit: cover;
@@ -310,7 +309,7 @@ fieldset {
 }
 
 .entry-cover:hover .entry-img {
-  opacity: 0.1;
+  opacity: .1;
 }
 
 .entry-cover .modify-button {
@@ -348,7 +347,7 @@ fieldset {
   flex: 3;
 }
 
-.entries .entry-review, p {
+.entries .entry-review p {
   text-align: left;
 }
 
@@ -357,7 +356,7 @@ p {
   white-space: normal;
 }
 
-.add-book:hover{
+.add-book:hover {
   color: white;
 }
 
