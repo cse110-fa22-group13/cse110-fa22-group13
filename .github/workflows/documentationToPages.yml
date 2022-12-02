@@ -18,7 +18,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  # Single deploy job since we're just deploying
+  # Single deploy job since we're just deploying, though two things
   deploy:
     environment:
       name: github-pages
@@ -30,20 +30,19 @@ jobs:
       - name: Build
         uses: andstor/jsdoc-action@v1
         with:
-          source_dir: ./source/resources/js
-          output_dir: ./out
+          recurse: true
+          source_dir: ./source
+          output_dir: ./docs
           template: minami
           front_page: README.md
-      - name: Print path
-        run: ls -la /home/runner/work/cse110-fa22-group13/cse110-fa22-group13/    
+ 
       - name: Setup Pages
         uses: actions/configure-pages@v2
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
-          path: '/home/runner/work/cse110-fa22-group13/cse110-fa22-group13/out/'
+          path: '/home/runner/work/cse110-fa22-group13/cse110-fa22-group13/'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1
-
         

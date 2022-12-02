@@ -9,6 +9,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="/source/resources/images/vectors/Logo.svg">
+    <script src="../resources/js/BookEntry.js" type="module"></script>
+    <script src="../resources/js/BookList.js" type="module"></script>
+    <script src="./bookEntries.js" type="module"></script>
     <style>
         body {
             background-color: hsl(36, 100%, 90%);
@@ -23,33 +26,93 @@
                 <img id="logo" src="/source/resources/images/vectors/Logo.svg" alt="logo">
                 <h1>BookTime</h1>
             </div>
+            <!-- Website tabs aren't needed, remove later
             <ul>
                 <li class="page">Profile</li>
                 <li class="page">Recommendations</li>
                 <li class="page" onclick="location.href='/source/bookEntries/bookEntries.html'">Booklist</li>
-            </ul>           
+            </ul>      
+            -->     
         </header>
-
         <!--main-->
         <main>
+            <!-- <button id="edit button">Edit</button> -->
             <div id="add-entry">
-                <button class="add-button" title="Click to add a new entry to your list.">Add Entry</button>
+                <button class="add-button" title="Click to add a new list">Add List</button>
                 <fieldset></fieldset>
             </div>
 
+            <!-- modal page; it will pop up when some certain button is clicked -->
+            <div class="modal" id="modal">
+                <div class="modal-header">
+                    <div class="title">
+                        <h2>BookEntry</h2>
+                    </div>
+                    <div>
+                        <!-- <button id="entry-add-button">ADD</button> -->
+                        <button class="close-button">&times;</button>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <form id="new-modal-info">
+                        <fieldset>
+                            <legend>Title</legend>
+                            <label for="modalBookTitle">
+                                <input type="text" id="modalBookTitle" name="modalBookTitle">
+                            </label>
+                        </fieldset>
+                        <fieldset>
+                            <legend>Image Link</legend>
+                            <label for="modalBookLnk">
+                                <input type="url" id="modalBookLnk" name="modalBookLnk">
+                            </label>
+                        </fieldset>
+                        <fieldset>
+                            <legend>Genres</legend>
+                            <label for="modalBookGenre">
+                                <input type="text" id="modalBookGenre" name="modalBookGenre">
+                            </label>
+                        </fieldset>
+                        <fieldset>
+                            <legend>Page Progress/Number of Pages</legend>
+                            <label for="modalBookCurrPageNum1">
+                                <input type="number" id="modalBookCurrPageNum1" name="modalBookCurrPageNum1" class="modal-book-page" min="0">
+                            </label>/
+                            <label for="modalBookCurrPageNum2">
+                                <input type="number" id="modalBookCurrPageNum2" name="modalBookCurrPageNum2" class="modal-book-page" min="0">
+                            </label>
+                        </fieldset>
+                        <fieldset>
+                            <legend>Rating</legend>
+                            <label for="modalBookRating">
+                                <input type="number" id="modalBookRating" name="modalBookRating" min="0" max ="10"> 
+                            </label>
+                        </fieldset>
+                        <fieldset>
+                            <legend>Review</legend>
+                            <textarea name="modalBookReview" id="modalBookReview" cols="38" rows="10"></textarea>
+                        </fieldset>
+                        <button type="submit" class="entry-add-button">Add Book</button>
+                    </form>
+                </div>
+            </div>
+            <div class="" id="overlay"></div>
+
             <!--structure for in progress list-->
-            <section id="booklist">
-                <h2 class="booklist-title">Your Book List</h2>
+            <section id="bookList">
+                <h2 class="booklist-title">Your Book Lists</h2>
+                
                 <section id="in-progress">
                     <h2 class="list-title">In Progress</h2>
                     <div class="entry-list">
                         <div class="list-header">
-                            <span class="entry-cover">&nbsp;</span>
+                            <button class="entry-cover">Delete List</button>
                             <span class="entry-name">Title</span>
                             <span class="entry-rating">Rating</span>
                             <span class="entry-progress">Progress</span>
                             <span class="entry-extras">Extras</span>
                             <span class="entry-review">Review</span>
+                            <button class="add-button">Add Book</button>
                         </div>
 
                         <div class="entries">
@@ -76,6 +139,9 @@
                                     <summary>View Review</summary>
                                     <p>Too much water.</p>
                                 </details>
+                                <div>
+                                    <button class="delete-button">Delete</button>
+                                </div>
                             </div>
 
                             <div>
@@ -104,6 +170,9 @@
                                     <summary>View Review</summary>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Pretium nibh ipsum consequat nisl vel pretium lectus quam. Tristique sollicitudin nibh sit amet commodo nulla facilisi nullam. Varius morbi enim nunc faucibus. Adipiscing bibendum est ultricies integer quis auctor elit. Turpis egestas pretium aenean pharetra magna ac placerat vestibulum lectus. Sed euismod nisi porta lorem mollis. Mi proin sed libero enim sed. Faucibus nisl tincidunt eget nullam non nisi est sit amet.</p>
                                 </details>
+                                <div>
+                                    <button class="delete-button">Delete</button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -111,15 +180,17 @@
 
                 <!--structure for in completed list-->
                 <section id="completed">
+
                     <h2 class="list-title">Completed</h2>
                     <div class="entry-list">
                         <div class="list-header">
-                            <span class="entry-cover">&nbsp;</span>
+                            <button class="entry-cover">Delete List</button>
                             <span class="entry-name">Title</span>
                             <span class="entry-rating">Rating</span>
                             <span class="entry-progress">Progress</span>
                             <span class="entry-extras">Extras</span>
                             <span class="entry-review">Review</span>
+                            <button class="add-button">Add Book</button>
                         </div>
                         <div class="entries">
                             <!--default entry-->
@@ -144,6 +215,9 @@
                                     <summary>View Review</summary>
                                     <p>It was mid.</p>
                                 </details>
+                                <div>
+                                    <button class="deleteButton">Delete</button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -154,12 +228,13 @@
                     <h2 class="list-title">Dropped</h2>
                     <div class="entry-list">
                         <div class="list-header">
-                            <span class="entry-cover">&nbsp;</span>
+                            <button class="entry-cover">Delete List</button>
                             <span class="entry-name">Title</span>
                             <span class="entry-rating">Rating</span>
                             <span class="entry-progress">Progress</span>
                             <span class="entry-extras">Extras</span>
                             <span class="entry-review">Review</span>
+                            <button class="add-button">Add Book</button>
                         </div>
                         <div class="entries">
 
@@ -185,6 +260,9 @@
                                     <summary>View Review</summary>
                                     <p>It was mid.</p>
                                 </details>
+                                <div>
+                                    <button class="deleteButton">Delete</button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -195,11 +273,12 @@
                     <h2 class="list-title">Planned</h2>
                     <div class="entry-list">
                         <div class="list-header">
-                            <span class="entry-cover">&nbsp;</span>
+                            <button class="entry-cover">Delete-List</button>
                             <span class="entry-name">Title</span>
                             <span class="entry-rating">Rating</span>
                             <span class="entry-progress">Progress</span>
                             <span class="entry-extras">Extras</span>
+                            <button id="add-button">Add-Book</button>
                             <details class="entry-review">
                                 <summary>View Review</summary>
                                 <p></p>
