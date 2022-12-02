@@ -125,7 +125,7 @@ fieldset {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: #00000080;
 
   /* transition: 100ms ease-in-out; */
   pointer-events: none;
@@ -134,6 +134,15 @@ fieldset {
 #overlay.active {
   opacity: 1;
   pointer-events: all;
+}
+
+/* Delete entry button */
+.delete-button {
+  background-color: #dbc6bb;
+  color: #422040;
+  padding: 3px;
+  border: 1px #422040 solid;
+  width: 70px;
 }
 
 /* Add buttons and homepage button */
@@ -283,15 +292,6 @@ fieldset {
 
 .entry-cover:hover .modify-button {
   opacity: 1;
-}
-
-/* Delete entry button */
-.delete-button {
-  background-color: #dbc6bb;
-  color: #422040;
-  padding: 3px;
-  border: 1px #422040 solid;
-  width: 70px;
 }
 
 .delete-button:hover {
