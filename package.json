@@ -22,5 +22,9 @@
   "jest": {
     "preset": "jest-puppeteer",
     "verbose": true
+  },
+  "dependencies": {
+    "follow-redirects": "^1.15.2",
+    "jest-environment-jsdom": "^29.3.1"
   }
 }
