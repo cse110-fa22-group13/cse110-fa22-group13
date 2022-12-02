@@ -1,32 +1,11 @@
 /**
- * @global
- * @constant STATUSES
-*  The STATUSES constant which holds the 3 possibilities for the status variable: completed, in progress, and planned
-*
-*/
-const STATUSES = ['completed', 'in progress', 'planned'];
-
-
- class BookEntry extends HTMLElement {
-    /**
-     * 
-     * @class BookEntry
-     * The BookEntry class, which represents a book entry, which includes a book and the requisite information like title, ISBN, and authorName, as well as ancillary information like the status of being read, 
-     * the current review for the book, the genres the book is tagged in, the date the book was read (if finished) and the current page progress of the user for that book. 
-     * @description The constructor for the BookEntry Class, which takes in 9 pieces of information to represent a BookEntry, 
-     * which is more than simply a book, it is also user information related to reading that book. 
-     * @param {string} tags - a string to hold the tags representing genres for the book
-     * @param {Date} dateRead - the date the book was read
-     * @param {Number} rating - a number rating, representing the rating the user has given the book
-     * @param {Number} pageProgress - a number representing the number of pages currently read for the book, should be a positive integer
-     * @param {string} status - a string representing the current status of the book being planned, in progress, or completed
-     * @param {string} reviewTextBody - a string representing the review for the book
-     * @param {string} ISBN - a string representing the ISBN of the book
-     * @param {string} authorName - a string representing the book author's name, should be both first and sur name
-     * @param {string} title - a string representing the title of the book
-     *
-     * when initially creating a BookEntry for a new book, pass pageProgress=0, reviewTextBody='', rating=NaN, dateRead=Date() for defaults
-     */
+ * 
+ * @class BookEntry
+ * The BookEntry class, a custom HTML Element used to display a book entry in a list.
+ * 
+ * @description The BookEntry Class, which defines the custom book-entry htmlelement.
+ */
+class BookEntry extends HTMLElement {
     constructor(){
 
         super();
@@ -133,42 +112,48 @@ const STATUSES = ['completed', 'in progress', 'planned'];
     }
 
     /**
-      * @param {any} Object
+      * @param {any} Object - Data used to populate the entry with data from local storage   
       */
     data(data) {
         if(!data) return;
         
+        // the entry container
         const entryDiv = this.shadowRoot.querySelector('.entry');
-        // update the information
+        
+        // update the title
         if(data.modalBookTitle) {
             const entryName = entryDiv.querySelector('.entry-name');
             entryName.innerHTML = `${data.modalBookTitle}`;
         }
 
+        // update the rating
         if(data.modalBookRating) {
             const entryRating = entryDiv.querySelector('.entry-rating');
             const entryScore = entryRating.querySelector('.entry-score');
             entryScore.innerHTML = `${data.modalBookRating}`;
         }
 
+        // update the page progress
         if(data.modalBookCurrPageNum1 && data.modalBookCurrPageNum2) {
             const entryProgress = entryDiv.querySelector('.entry-progress');
             entryProgress.innerHTML = `${data.modalBookCurrPageNum1}/${data.modalBookCurrPageNum2}`;
         }
 
+        // update the genre
         if(data.modalBookGenre) {
             const extras = entryDiv.querySelector('.entry-extras');
             const extrasGenresTitle = extras.querySelector('.entry-genres');
             extrasGenresTitle.innerHTML = `${data.modalBookGenre}`;
         }
         
-
+        // update the review content
         if(data.modalBookReview) {
             const entryReviewWrapper = entryDiv.querySelector('.entry-review');
             const reviewBody = entryReviewWrapper.querySelector('p');
             reviewBody.innerHTML = `${data.modalBookReview}`;
         }
 
+        // update the book cover
         if(data.modalBookLnk) {
             const entryCover = entryDiv.querySelector('.entry-cover');
             const cover = entryCover.querySelector('.entry-img');
@@ -178,7 +163,12 @@ const STATUSES = ['completed', 'in progress', 'planned'];
     }
 }
 
-// takes a book entry as input, throws a popup on the screen, updates the entry, and closes
+/**
+ * This function shows the content dialog box populated with information pulled
+ * from the entry passed as an argument
+ * 
+ * @param {any} entry - The entry whose info is being updated by the dialog
+ */
 function contentDialog(entry) {
     
     // get the modal from the document
@@ -210,6 +200,7 @@ function contentDialog(entry) {
 
     const formRef = document.querySelector("form");
 
+    // store the data in local storage if the user hits submit
     formRef.addEventListener('submit', () => {
 
         modal.classList.remove('active');
@@ -218,7 +209,7 @@ function contentDialog(entry) {
         const entryKey = grabEntry.classList[2];
 
         const formData = new FormData(formRef);
-        const entryObject = new Object();
+        const entryObject = {};
         for (const [key, value] of formData) {
             entryObject[key] = value;
         }
@@ -233,10 +224,15 @@ function contentDialog(entry) {
     });   
 }
 
-// when delete button is clicked, it deletes the corresponding the info from the local storage
+/**
+ *  This function deletes an entry from local storage
+ * 
+ * @param {any} entry - Entry to be deleted
+ */
 function deleteStorage(entry) {
     const deleteEntry = prompt("Are you sure you want to delete this book entry? (y/n)");
-    if(deleteEntry == 'y' || deleteEntry == 'Y' || deleteEntry == 'yes' || deleteEntry == 'YES' || deleteEntry == 'Yes'){
+    deleteEntry.toUpperCase();
+    if(deleteEntry == 'Y' || deleteEntry == 'YES'){
         const grabEntry = entry.shadowRoot.querySelector('.entry');
         //key for the entry list
         const listKey = grabEntry.classList[1];
@@ -265,6 +261,12 @@ function deleteStorage(entry) {
     }
 }
 
+
+/**
+ * 
+ * @param {any} title - title of the entry
+ * @returns object, if it exists, empty array otherwise
+ */
 function getEntriesFromStorage(title) {
     if (window.localStorage.getItem(title) === null) {
       return [];
@@ -273,4 +275,6 @@ function getEntriesFromStorage(title) {
     return JSON.parse(window.localStorage.getItem(title));
   
 }
+
+// define the custom HTMLElement
 customElements.define('book-entry', BookEntry);

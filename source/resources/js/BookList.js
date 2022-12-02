@@ -1,7 +1,11 @@
 // BookList.js
 
 //import {BookEntry} from './BookEntry';
-
+/**
+ * @class BookList
+ * 
+ * @description - Defines the custom HTMLElement book-list
+ */
 class BookList extends HTMLElement {
     constructor() {
         super();  // inherit HTMLElement
@@ -250,16 +254,24 @@ class BookList extends HTMLElement {
         
     }
 
-    /*
-    *
-    *
-    */
-    setListLabel(entry){
+    /**
+     * This function sets the list label text 
+     * 
+     * @param {any} - text to set the label to
+     */
+    setListLabel(input){
         const listLabel = this.shadowRoot.querySelector(".list-title");
-        listLabel.innerHTML = entry;
+        listLabel.innerHTML = input;
     }
 }
 
+
+/** 
+ * This function retrieves a list object from local storage
+ * 
+ * @param {any} title - title of the entry to retrieve from local storage
+ * @returns The object that has the title, or nothing if no such list exists
+ */
 function getEntriesFromStorage(title) {
     if (window.localStorage.getItem(title) === null) {
       return [];
@@ -269,4 +281,5 @@ function getEntriesFromStorage(title) {
   
 }
 
+// define custom htmlElement book-list
 customElements.define('book-list', BookList);
