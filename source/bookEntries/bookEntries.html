@@ -57,34 +57,34 @@
                     <form id="new-modal-info">
                         <fieldset>
                             <legend>Title</legend>
-                            <label for="modal-title">
+                            <label for="modalBookTitle">
                                 <input type="text" id="modalBookTitle" name="modalBookTitle">
                             </label>
                         </fieldset>
                         <fieldset>
-                            <label for="modal-title-lnk">
-                                <legend>Image Link</legend>
+                            <legend>Image Link</legend>
+                            <label for="modalBookLnk">
                                 <input type="url" id="modalBookLnk" name="modalBookLnk">
                             </label>
                         </fieldset>
                         <fieldset>
                             <legend>Genres</legend>
-                            <label for="modal-genre">
+                            <label for="modalBookGenre">
                                 <input type="text" id="modalBookGenre" name="modalBookGenre">
                             </label>
                         </fieldset>
                         <fieldset>
                             <legend>Number of Pages</legend>
-                            <label for="modal-book-curr-pageNum1">
+                            <label for="modalBookCurrPageNum1">
                                 <input type="number" id="modalBookCurrPageNum1" name="modalBookCurrPageNum1" min="0">
                             </label>/
-                            <label for="modal-book-curr-pageNum2">
+                            <label for="modalBookCurrPageNum2">
                                 <input type="number" id="modalBookCurrPageNum2" name="modalBookCurrPageNum2" min="0">
                             </label>
                         </fieldset>
                         <fieldset>
                             <legend>Rating</legend>
-                            <label for="modal-book-rating">
+                            <label for="modalBookRating">
                                 <input type="number" id="modalBookRating" name="modalBookRating" min="0" max ="10"> 
                             </label>
                         </fieldset>
@@ -102,7 +102,7 @@
             <section id="bookList">
                 <h2 class="booklist-title">Your Book Lists</h2>
                 
-                <section id="in-progress" hidden="true">
+                <section id="in-progress">
                     <h2 class="list-title">In Progress</h2>
                     <div class="entry-list">
                         <div class="list-header">
@@ -177,8 +177,6 @@
                         </div>
                     </div>
                 </section>
-
-                <section id="completed" hidden="true">
 
                 <!--structure for in completed list-->
                 <section id="completed">

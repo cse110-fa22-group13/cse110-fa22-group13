@@ -41,6 +41,10 @@ header {
   color: #dbc6bb;
 }
 
+#in-progress, #completed{
+  display: none;
+}
+
 /* basic settings for main */
 fieldset {
   border: 2px solid rgb(214 214 214);
