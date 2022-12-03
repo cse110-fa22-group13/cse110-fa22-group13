@@ -37,7 +37,7 @@ class BookEntry extends HTMLElement {
         const cover = document.createElement('img');
         cover.classList.add('entry-img');
         cover.alt = this.title;
-        cover.src = "/source/resources/images/icons/Books-Icon.png";
+        cover.src = "https://cse110-fa22-group13.github.io/cse110-fa22-group13/source/resources/images/icons/Books-Icon.png";
         entryCover.appendChild(cover);
 
         // button on hover
