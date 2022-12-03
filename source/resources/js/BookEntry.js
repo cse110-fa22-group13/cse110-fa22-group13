@@ -235,8 +235,8 @@ function contentDialog(entry) {
  */
 function deleteStorage(entry) {
     const deleteEntry = prompt("Are you sure you want to delete this book entry? (y/n)");
-    deleteEntry.toUpperCase();
-    if(deleteEntry == 'Y' || deleteEntry == 'YES'){
+    const userInput = deleteEntry.toUpperCase();
+    if(userInput == 'Y' || userInput == 'YES'){
         const grabEntry = entry.shadowRoot.querySelector('.entry');
         //key for the entry list
         const listKey = grabEntry.classList[1];
