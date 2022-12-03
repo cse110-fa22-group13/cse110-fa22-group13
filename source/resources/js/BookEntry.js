@@ -37,7 +37,7 @@ class BookEntry extends HTMLElement {
         const cover = document.createElement('img');
         cover.classList.add('entry-img');
         cover.alt = this.title;
-        cover.src = "/source/resources/images/icons/Books-Icon.png";
+        cover.src = "https://cse110-fa22-group13.github.io/cse110-fa22-group13/source/resources/images/icons/Books-Icon.png";
         entryCover.appendChild(cover);
 
         // button on hover
@@ -235,8 +235,8 @@ function contentDialog(entry) {
  */
 function deleteStorage(entry) {
     const deleteEntry = prompt("Are you sure you want to delete this book entry? (y/n)");
-    deleteEntry.toUpperCase();
-    if(deleteEntry == 'Y' || deleteEntry == 'YES'){
+    const userInput = deleteEntry.toUpperCase();
+    if(userInput == 'Y' || userInput == 'YES'){
         const grabEntry = entry.shadowRoot.querySelector('.entry');
         //key for the entry list
         const listKey = grabEntry.classList[1];

@@ -169,21 +169,22 @@ class BookList extends HTMLElement {
                 document.querySelector('form').reset();
             });
          
-            const addButton = document.querySelectorAll('#modal .entry-add-button')
-            addButton.forEach(button => {
-                button.addEventListener('click', () => {
-                    const entries = this.shadowRoot.querySelector('.entries');
-                    const entry = document.createElement('book-entry');
+            // it seems we can clean up this code
+            // const addButton = document.querySelectorAll('#modal .entry-add-button')
+            // addButton.forEach(button => {
+            //     button.addEventListener('click', () => {
+            //         const entries = this.shadowRoot.querySelector('.entries');
+            //         const entry = document.createElement('book-entry');
 
 
                     
-                    entries.appendChild(entry);
+            //         entries.appendChild(entry);
                         
-                    modal.classList.remove('active');
-                    overlay.classList.remove('active');
+            //         modal.classList.remove('active');
+            //         overlay.classList.remove('active');
 
-                });
-            });
+            //     });
+            // });
             
             const formRef = document.querySelector("form");
 
@@ -228,9 +229,13 @@ class BookList extends HTMLElement {
                 const eachArray = getEntriesFromStorage(uniqueIdForEntry);
                 eachArray.push(entryObject);
                 localStorage.setItem(uniqueIdForEntry, JSON.stringify(eachArray));
+
+                modal.classList.remove('active');
+                overlay.classList.remove('active');
                 
                 // page reload to prevent a user from seeing a saved entry
-                window.location.reload(); 
+                // I think we can clean this part later
+                // window.location.reload(); 
 
             });  
         });
