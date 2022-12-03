@@ -5,7 +5,7 @@
 
 
 //not working
- test('in progress', () => {
+ test('in progress', async () => {
   const bookEntry = document.createElement('book-entry');
   console.log(bookEntry);
   const sRoot = bookEntry.shadowRoot;
