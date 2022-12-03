@@ -3,21 +3,6 @@
  */
  const STATUSES = ['completed', 'in progress', 'planned']
 
-
-//not working
- test('in progress', () => {
-  const bookEntry = document.createElement('book-entry');
-  console.log(bookEntry);
-  const sRoot = bookEntry.shadowRoot;
-  console.log(sRoot);
-  const bookEntryStyleList = document.getElementsByTagName('div');
-  console.log(bookEntryStyleList[0]);
-  console.log(bookEntryStyleList.length);
- 
-  expect(bookEntry).not.toBeNull();
-}); 
-
-
 //test constructor
 test('not null constructor', () => {
   const bookEntry = document.createElement('book-entry');
