@@ -55,3 +55,8 @@ test('constructor with simulated added values', () => {
   expect(bookEntry.tags).toBe('Sci-Fi, Classic');
   
 }); 
+
+//represents the user modifying the form and have the same constraints we had for add entry
+test('modifying the created bookentry'){
+  
+}
