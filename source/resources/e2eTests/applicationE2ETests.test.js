@@ -320,6 +320,8 @@ describe('Basic user flow for PWA Usage', () => {
       it('Check local storage after the book entry is modified', async () => {
         //get local storage
         const lStorage = await page.evaluate(() => Object.assign({}, window.localStorage));
+        console.log(Object.entries(lStorage));
+        console.log(lStorage['new-list0']);
         //get key as dirty string
         let bookEntryKey = lStorage['new-list0'].toString().replaceAll('\"', '');
         console.log(Object.entries(lStorage));
