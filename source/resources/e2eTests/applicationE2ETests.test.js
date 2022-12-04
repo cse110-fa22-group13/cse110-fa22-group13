@@ -323,7 +323,8 @@ describe('Basic user flow for PWA Usage', () => {
         console.log(Object.entries(lStorage));
         console.log(lStorage['new-list0']);
         //get key as dirty string
-        let bookEntryKey = lStorage['new-list0'].toString().replaceAll('\"', '');
+        let bookEntryKey = lStorage['new-list0'];
+        bookEntryKey = bookEntryKey.toString().replaceAll('\"', '');
         console.log(Object.entries(lStorage));
         console.log(lStorage['new-list0']);
         bookEntryKey = bookEntryKey.replace('[', '');
