@@ -320,13 +320,9 @@ describe('Basic user flow for PWA Usage', () => {
       it('Check local storage after the book entry is modified', async () => {
         //get local storage
         const lStorage = await page.evaluate(() => Object.assign({}, window.localStorage));
-        console.log(Object.entries(lStorage));
-        console.log(lStorage['new-list0']);
         //get key as dirty string
         let bookEntryKey = lStorage['new-list0'];
-        console.log(typeof bookEntryKey);
-        bookEntryKey = bookEntryKey.replace('\"', '');
-        bookEntryKey = bookEntryKey.replace('\"', '');
+        bookEntryKey = bookEntryKey.replaceAll('\"', '');
         bookEntryKey = bookEntryKey.replace('[', '');
         bookEntryKey = bookEntryKey.replace(']', '');
 
@@ -334,6 +330,7 @@ describe('Basic user flow for PWA Usage', () => {
         //empty app has two default keys in local storage, and one gets added for a list of lists
         expect(Object.keys(lStorage).length).toBe(4);
       }, 2500);   
+
 
       it("Test the delete book button", async () => {
         console.log('Testing the delete button...')
@@ -431,7 +428,6 @@ describe('Basic user flow for PWA Usage', () => {
         await submitButton.click();
         await page.waitForSelector('.modal', {visible: false});
       }, 2500);
-
       it('add book entry3 WILL ALWAYS PASS', async () => {
         console.log("adding Book Entry3...");
         // get the add button
@@ -486,7 +482,6 @@ describe('Basic user flow for PWA Usage', () => {
         await submitButton.click();
         await page.waitForSelector('.modal', {visible: false});
       }, 2500);
-
       it('add book entry5 WILL ALWAYS PASS', async () => {
         console.log("adding Book Entry5...");
         // get the add button
