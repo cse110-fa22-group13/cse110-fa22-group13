@@ -217,7 +217,11 @@ function contentDialog(entry) {
     
     // bring all the keys for the object
     let keys = [];
-    for(let k in extractedKeys) keys.push(k);
+    for(let k in extractedKeys){
+        if(k !== null){
+            keys.push(k);
+        }
+    } 
     
     // pre-populating with the stored data
     for(let i = 0; i<keys.length-1; i++){

@@ -1,4 +1,3 @@
-const { Dialog, default: puppeteer, Browser } = require("puppeteer");
 
 describe('Basic user flow for PWA Usage', () => {
     beforeAll(async () => {
@@ -26,6 +25,7 @@ describe('Basic user flow for PWA Usage', () => {
 
         let buttonText = await listButton.getProperty('innerText');
         buttonText = await buttonText.jsonValue();
+        console.log(buttonText);
 
         page.on('dialog', async dialog => {
           const message = await dialog.message();
@@ -382,6 +382,7 @@ describe('Basic user flow for PWA Usage', () => {
         let bookButton = await shadow.$('.add-button');
         let buttonText = await bookButton.getProperty('innerText');
         buttonText = await buttonText.jsonValue();
+        console.log(buttonText);
         // click the add button
         await bookButton.click();
     
@@ -407,8 +408,6 @@ describe('Basic user flow for PWA Usage', () => {
         let list = await page.$('book-list');
         let shadow = await list.getProperty('shadowRoot');
         let bookButton = await shadow.$('.add-button');
-        let buttonText = await bookButton.getProperty('innerText');
-        buttonText = await buttonText.jsonValue();
         // click the add button
         await bookButton.click();
     
@@ -434,8 +433,6 @@ describe('Basic user flow for PWA Usage', () => {
         let list = await page.$('book-list');
         let shadow = await list.getProperty('shadowRoot');
         let bookButton = await shadow.$('.add-button');
-        let buttonText = await bookButton.getProperty('innerText');
-        buttonText = await buttonText.jsonValue();
         // click the add button
         await bookButton.click();
     
@@ -461,8 +458,6 @@ describe('Basic user flow for PWA Usage', () => {
         let list = await page.$('book-list');
         let shadow = await list.getProperty('shadowRoot');
         let bookButton = await shadow.$('.add-button');
-        let buttonText = await bookButton.getProperty('innerText');
-        buttonText = await buttonText.jsonValue();
         // click the add button
         await bookButton.click();
     
@@ -488,8 +483,6 @@ describe('Basic user flow for PWA Usage', () => {
         let list = await page.$('book-list');
         let shadow = await list.getProperty('shadowRoot');
         let bookButton = await shadow.$('.add-button');
-        let buttonText = await bookButton.getProperty('innerText');
-        buttonText = await buttonText.jsonValue();
         // click the add button
         await bookButton.click();
     

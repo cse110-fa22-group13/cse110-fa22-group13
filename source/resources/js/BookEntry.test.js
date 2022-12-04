@@ -26,7 +26,7 @@ test('constructor with simulated added values', () => {
   bookEntry.pageProgress = 340;
   expect(bookEntry.pageProgress).toBe(340);
   bookEntry.status = 'completed';
-  expect(bookEntry.status).toBe('completed');
+  expect(bookEntry.status).toBe(STATUSES[0]);
 
   bookEntry.dateRead = 'Thu Nov 17 2022 03:24:00 GMT-0800 (Universal Standard Time)';
   expect(bookEntry.dateRead).toBe('Thu Nov 17 2022 03:24:00 GMT-0800 (Universal Standard Time)');
