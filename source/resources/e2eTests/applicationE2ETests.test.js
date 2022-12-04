@@ -1,8 +1,7 @@
-const { Dialog, default: puppeteer } = require("puppeteer");
+const { Dialog, default: puppeteer, Browser } = require("puppeteer");
 
 describe('Basic user flow for Website', () => {
     beforeAll(async () => {
-      
       
       });
 
@@ -70,6 +69,8 @@ describe('Basic user flow for Website', () => {
         await page.goto('https://cse110-fa22-group13.github.io/cse110-fa22-group13/source/bookEntries/bookEntries.html');
         console.log("Testing the 'add list' button...");
         // Query select the add List button
+        
+        let listButtonWorks = true;
         const listButton = await page.$('#add-entry .add-button');
 
         let buttonText = await listButton.getProperty('innerText');
@@ -84,16 +85,71 @@ describe('Basic user flow for Website', () => {
         // click the list and type a name for the new list
         await listButton.click();
 
-        const list = await page.$('book-list');
-        const shadowRoot = await list.getProperty('shadowRoot');
+        // check to see if the list is there
+        let list = await page.$('book-list');
+        let shadowRoot = await list.getProperty('shadowRoot');
         let label = await shadowRoot.$('.list-title');
         label = await label.getProperty('innerText');
         label = await label.jsonValue();
+        if(label != "Test") { listButtonWorks = false;}
+
+        // reload the page
+        await page.reload();
+
+        // make sure the list still exists
+        list = await page.$('book-list');
+        shadowRoot = await list.getProperty('shadowRoot');
+        label = await shadowRoot.$('.list-title');
+        label = await label.getProperty('innerText');
+        label = await label.jsonValue();
+        if(label != "Test") { listButtonWorks = false;}
         
-        
-        
-        expect(label).toBe('Test');
+        expect(listButtonWorks).toBe(true);
       }, 10000);
+
+      it('Check that the book entries are being added', async () => {
+        console.log("Checking Book Entries...");
+        let bookAdds = true;
+
+        // get the add button
+        let list = await page.$('book-list');
+        let shadow = await list.getProperty('shadowRoot');
+        let bookButton = await shadow.$('.add-button');
+        let buttonText = await bookButton.getProperty('innerText');
+        buttonText = await buttonText.jsonValue();
+        console.log(buttonText);
+
+        // click the add button
+        await bookButton.click();
+        
+        // wait for the dialog box
+        await page.waitForSelector('.modal', {visible: true});
+        const submitButton = await page.$(`#new-modal-info .entry-add-button`);
+
+        // input dialog box info
+        await page.type('#modalBookTitle', 'testBook');
+        await page.type('#modalBookGenre', 'testGenre');
+        await page.type('#modalBookCurrPageNum1', '1');
+        await page.type('#modalBookCurrPageNum2', '100');
+        await page.type('#modalBookRating', '10'); 
+        await page.type('#modalBookReview', 'This is a test Review');
+        
+        // submit
+        await submitButton.click();
+        await page.waitForSelector('.modal', {visible: false});
+
+        // get the book entry
+        list = await page.$('book-list');
+        shadow = await list.getProperty('shadowRoot');
+        const entry = await shadow.$('book-entry');
+        // does the book exist?
+        if (entry == null) { bookAdds = false };
+
+        // are the details correct?
+        
+
+        expect(bookAdds).toBe(true);
+      });
 
   });
 
