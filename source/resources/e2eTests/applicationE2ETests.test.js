@@ -132,7 +132,7 @@ describe('Basic user flow for Website', () => {
         await page.type('#modalBookCurrPageNum1', '1');
         await page.type('#modalBookCurrPageNum2', '100');
         await page.type('#modalBookRating', '10'); 
-        await page.type('#modalBookReview', 'This is a test Review');
+        await page.type('#modalBookReview', 'This is a test review');
         
         // submit
         await submitButton.click();
@@ -141,15 +141,120 @@ describe('Basic user flow for Website', () => {
         // get the book entry
         list = await page.$('book-list');
         shadow = await list.getProperty('shadowRoot');
-        const entry = await shadow.$('book-entry');
+        let entry = await shadow.$('book-entry');
         // does the book exist?
         if (entry == null) { bookAdds = false };
+        shadow = await entry.getProperty('shadowRoot');
 
-        // are the details correct?
+        // Check the title
+        let bookTitle = await shadow.$('.entry-name');
+        bookTitle = await bookTitle.getProperty('innerText');
+        bookTitle = await bookTitle.jsonValue();
+        if (bookTitle != 'testBook') { 
+          bookAdds = false 
+          console.log(`Title: ${bookTitle}`);
+        };
         
+        // Check the genre
+        let  bookGenre = await shadow.$('.entry-genres');
+        bookGenre = await bookGenre.getProperty('innerText');
+        bookGenre = await bookGenre.jsonValue();
+        if (bookGenre != 'testGenre') { 
+          bookAdds = false 
+          console.log(`Genre: ${bookGenre}`);
+        };
+
+        // check the page progress
+        let  bookPages = await shadow.$('.entry-progress');
+        bookPages = await bookPages.getProperty('innerText');
+        bookPages = await bookPages.jsonValue();
+        if (bookPages != '1/100') { 
+          bookAdds = false 
+          console.log(`Pages: ${bookPages}`);
+        };
+
+        // check the rating
+        let bookRating = await shadow.$('.entry-rating .entry-score');
+        bookRating = await bookRating.getProperty('innerText');
+        bookRating = await bookRating.jsonValue();
+        if (bookRating != '10') { 
+          bookAdds = false 
+          console.log(`Rating: ${bookRating}`);
+        };
+
+        // check the review
+        let reviewDetails = await shadow.$('details');
+        await reviewDetails.click();
+
+        let bookReview = await shadow.$('.entry-review p');
+        bookReview = await bookReview.getProperty('innerText');
+        bookReview = await bookReview.jsonValue();
+        if (bookReview != 'This is a test review') { 
+          bookAdds = false 
+          console.log(`Review: ${bookReview}`);
+        };
+
+        // reload the page and make sure the changes are persistent
+        await page.reload();
+
+        // get the book entry
+        list = await page.$('book-list');
+        shadow = await list.getProperty('shadowRoot');
+        entry = await shadow.$('book-entry');
+        // does the book exist?
+        if (entry == null) { bookAdds = false };
+        shadow = await entry.getProperty('shadowRoot');
+
+        // Check the title
+        bookTitle = await shadow.$('.entry-name');
+        bookTitle = await bookTitle.getProperty('innerText');
+        bookTitle = await bookTitle.jsonValue();
+        if (bookTitle != 'testBook') { 
+          bookAdds = false 
+          console.log(`Title: ${bookTitle}`);
+        };
+        
+        // Check the genre
+        bookGenre = await shadow.$('.entry-genres');
+        bookGenre = await bookGenre.getProperty('innerText');
+        bookGenre = await bookGenre.jsonValue();
+        if (bookGenre != 'testGenre') { 
+          bookAdds = false 
+          console.log(`Genre: ${bookGenre}`);
+        };
+
+        // check the page progress
+        bookPages = await shadow.$('.entry-progress');
+        bookPages = await bookPages.getProperty('innerText');
+        bookPages = await bookPages.jsonValue();
+        if (bookPages != '1/100') { 
+          bookAdds = false 
+          console.log(`Pages: ${bookPages}`);
+        };
+
+        // check the rating
+        bookRating = await shadow.$('.entry-rating .entry-score');
+        bookRating = await bookRating.getProperty('innerText');
+        bookRating = await bookRating.jsonValue();
+        if (bookRating != '10') { 
+          bookAdds = false 
+          console.log(`Rating: ${bookRating}`);
+        };
+
+        // check the review
+        reviewDetails = await shadow.$('details');
+        await reviewDetails.click();
+
+        bookReview = await shadow.$('.entry-review p');
+        bookReview = await bookReview.getProperty('innerText');
+        bookReview = await bookReview.jsonValue();
+        if (bookReview != 'This is a test review') { 
+          bookAdds = false 
+          console.log(`Review: ${bookReview}`);
+        };
 
         expect(bookAdds).toBe(true);
-      });
+      }, 10000);
 
   });
 
