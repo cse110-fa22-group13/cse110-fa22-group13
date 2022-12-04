@@ -221,7 +221,7 @@ describe('Basic user flow for PWA Usage', () => {
         //get local storage
         const lStorage = await page.evaluate(() => Object.assign({}, window.localStorage));
         //get key as dirty string
-        let bookEntryKey = lStorage['new-list0'].replaceAll('\"', '');
+        let bookEntryKey = lStorage['new-list0'].toString().replaceAll('\"', '');
         bookEntryKey = bookEntryKey.replace('[', '');
         bookEntryKey = bookEntryKey.replace(']', '');
 
@@ -321,7 +321,7 @@ describe('Basic user flow for PWA Usage', () => {
         //get local storage
         const lStorage = await page.evaluate(() => Object.assign({}, window.localStorage));
         //get key as dirty string
-        let bookEntryKey = lStorage['new-list0'].replaceAll('\"', '');
+        let bookEntryKey = lStorage['new-list0'].toString().replaceAll('\"', '');
         bookEntryKey = bookEntryKey.replace('[', '');
         bookEntryKey = bookEntryKey.replace(']', '');
 
