@@ -257,7 +257,89 @@ describe('Basic user flow for Website', () => {
       }, 10000);
 
       it('Test whether the modify button works', async () => {
+        console.log("Testing the modify button");
+        let alteredSuccess = true;
+        
+        let list = await page.$('book-list');
+        let shadow = await list.getProperty('shadowRoot');
+        let entry = await shadow.$('book-entry');
+        shadow = await entry.getProperty('shadowRoot');
+        let modifyButton = await shadow.$('.entry-img');
 
+        // click the button
+        await modifyButton.click();
+
+        // wait for the dialog box
+        await page.waitForSelector('.modal', {visible: true});
+        const submitButton = await page.$(`#new-modal-info .entry-add-button`);
+
+        // input dialog box info
+        await page.type('#modalBookTitle', 'Book');
+        await page.type('#modalBookGenre', 'Genre');
+        await page.type('#modalBookCurrPageNum1', '50');
+        await page.type('#modalBookCurrPageNum2', '1000');
+        await page.type('#modalBookRating', '7'); 
+        await page.type('#modalBookReview', 'This is a review that is changed');
+        
+        // submit
+        await submitButton.click();
+        await page.waitForSelector('.modal', {visible: false});
+
+        // get the book entry
+        list = await page.$('book-list');
+        shadow = await list.getProperty('shadowRoot');
+        entry = await shadow.$('book-entry');
+        shadow = await entry.getProperty('shadowRoot');
+
+        // Check the title
+        bookTitle = await shadow.$('.entry-name');
+        bookTitle = await bookTitle.getProperty('innerText');
+        bookTitle = await bookTitle.jsonValue();
+        if (bookTitle != 'Book') { 
+          alteredSuccess = false 
+          console.log(`Title: ${bookTitle}`);
+        };
+        
+        // Check the genre
+        bookGenre = await shadow.$('.entry-genres');
+        bookGenre = await bookGenre.getProperty('innerText');
+        bookGenre = await bookGenre.jsonValue();
+        if (bookGenre != 'Genre') { 
+          alteredSuccess = false 
+          console.log(`Genre: ${bookGenre}`);
+        };
+
+        // check the page progress
+        bookPages = await shadow.$('.entry-progress');
+        bookPages = await bookPages.getProperty('innerText');
+        bookPages = await bookPages.jsonValue();
+        if (bookPages != '50/1000') { 
+          alteredSuccess = false 
+          console.log(`Pages: ${bookPages}`);
+        };
+
+        // check the rating
+        bookRating = await shadow.$('.entry-rating .entry-score');
+        bookRating = await bookRating.getProperty('innerText');
+        bookRating = await bookRating.jsonValue();
+        if (bookRating != '7') { 
+          alteredSuccess = false 
+          console.log(`Rating: ${bookRating}`);
+        };
+
+        // check the review
+        reviewDetails = await shadow.$('details');
+        await reviewDetails.click();
+
+        bookReview = await shadow.$('.entry-review p');
+        bookReview = await bookReview.getProperty('innerText');
+        bookReview = await bookReview.jsonValue();
+        if (bookReview != 'This is a review that is changed') { 
+          alteredSuccess = false 
+          console.log(`Review: ${bookReview}`);
+        };
+
+        expect(alteredSuccess).toBe(true);
       });
   });
 
