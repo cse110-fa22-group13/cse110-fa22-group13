@@ -78,8 +78,19 @@ describe('Basic user flow for Website', () => {
         buttonText = await buttonText.jsonValue();
 
         page.on('dialog', async dialog => {
-          console.log(await dialog.message());
-          await dialog.accept("Test");
+          const message = await dialog.message();
+          console.log(message);
+
+          if (message == 'Are you sure you want to delete this book entry? (y/n)'){
+            console.log('yes')
+            await dialog.accept('y');
+          } else if (message == 'Name of new list?'){
+            console.log('Test')
+            await dialog.accept("Test");
+          } else {
+            console.log('ok')
+            await dialog.accept();
+          }
         });
 
         // click the list and type a name for the new list
@@ -340,6 +351,43 @@ describe('Basic user flow for Website', () => {
         };
 
         expect(alteredSuccess).toBe(true);
+      });
+
+      it("Test the delete book button", async () => {
+        console.log('Testing the delete button...')
+        let buttonDeleted = true;
+
+        // locate the book list, and the book entry
+        let list = await page.$('book-list');
+        let shadow = await list.getProperty('shadowRoot');
+        let entry = await shadow.$('book-entry');
+        shadow = await entry.getProperty('shadowRoot');
+        
+        // get the delete button
+        let deleteButton = await shadow.$('.delete-button');
+
+        // when the dialog shows up, say yes
+        /*page.on('dialog', async dialog => {
+          console.log(await dialog.type());
+          console.log(await dialog.message());
+          await dialog.accept("y");
+        });*/
+
+        // click the delete button
+        await deleteButton.click();
+
+        // refresh the page
+        await page.reload();
+
+        // look for the book entry
+        list = await page.$('book-list');
+        shadow = await list.getProperty('shadowRoot');
+        entry = await shadow.$('book-entry');
+        
+        // if it's still around, button didn't work
+        if (entry != null) { buttonDeleted = false}
+
+        expect(buttonDeleted).toBe(true);
       });
   });
 
