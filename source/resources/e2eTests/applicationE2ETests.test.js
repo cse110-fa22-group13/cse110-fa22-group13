@@ -1,15 +1,13 @@
 const { Dialog, default: puppeteer, Browser } = require("puppeteer");
 
-describe('Basic user flow for Website', () => {
+describe('Basic user flow for PWA Usage', () => {
     beforeAll(async () => {
-      
+        await page.goto('https://cse110-fa22-group13.github.io/cse110-fa22-group13/source/bookEntries/bookEntries.html');
       });
 
 //checking book entries page, main functionality page
       it('check icon on bookentries page', async () => {
         console.log('Checking icon img on bookentries page...');
-       
-        await page.goto('https://cse110-fa22-group13.github.io/cse110-fa22-group13/source/bookEntries/bookEntries.html');
         // Query select the icon img
         const images = await page.$$('img');
         const src = await images[0].getProperty('src');
@@ -18,55 +16,8 @@ describe('Basic user flow for Website', () => {
         expect(text).toBe('https://cse110-fa22-group13.github.io/cse110-fa22-group13/source/resources/images/vectors/Logo.svg');
       }, 5000);
 
-
-//checking homepage      
-    //check start button
-    it('check homepage start button text', async () => {
-        
-        await page.goto('https://cse110-fa22-group13.github.io/cse110-fa22-group13/source/homepage/index.html');
-        console.log('Checking start button...');
-        // Query select the start button
-        const button = await page.$('button');
-        const data = await button.getProperty('textContent');
-        const text = await data.jsonValue();
-
-        
-
-        expect(text).toBe('Start now');
-      }, 2500);
-
-    //check learn more button
-    it('check homepage learn more button text', async () => {
-        
-        await page.goto('https://cse110-fa22-group13.github.io/cse110-fa22-group13/source/homepage/index.html');
-        console.log('Checking learn more button...');
-        // Query select the learn more button
-        const buttons = await page.$$('button');
-        const data = await buttons[1].getProperty('textContent');
-        const text = await data.jsonValue();
-        
-        
-        expect(text).toBe('Learn more');
-      }, 2500);
-  
-    //check icon image
-    it('check homepage icon image', async () => {
-        await page.goto('https://cse110-fa22-group13.github.io/cse110-fa22-group13/source/homepage/index.html');
-        console.log('Checking icon img...');
-        // Query select the icon img
-        const images = await page.$$('img');
-        const src = await images[0].getProperty('src');
-        const text = await src.jsonValue();
-
-       
-
-        expect(text).toBe('https://cse110-fa22-group13.github.io/cse110-fa22-group13/source/resources/images/vectors/Logo.svg');
-      }, 2500);
-
-
-      //check the add List buttton
+      //check the add List button
       it('Check that the add-List button works', async () =>{
-        await page.goto('https://cse110-fa22-group13.github.io/cse110-fa22-group13/source/bookEntries/bookEntries.html');
         console.log("Testing the 'add list' button...");
 
         // Query select the add List button
@@ -74,7 +25,6 @@ describe('Basic user flow for Website', () => {
         const listButton = await page.$('#add-entry .add-button');
 
         let buttonText = await listButton.getProperty('innerText');
-
         buttonText = await buttonText.jsonValue();
 
         page.on('dialog', async dialog => {
@@ -270,18 +220,15 @@ describe('Basic user flow for Website', () => {
       it('Check local storage after the book entry is added', async () => {
         //get local storage
         const lStorage = await page.evaluate(() => Object.assign({}, window.localStorage));
-        //get values of local storage
-        const bookEntriesInLStorage = Object.values(lStorage);
+        //get key as dirty string
+        let bookEntryKey = lStorage['new-list0'].replaceAll('\"', '');
+        bookEntryKey = bookEntryKey.replace('[', '');
+        bookEntryKey = bookEntryKey.replace(']', '');
 
-        let indexOfBookEntry = 0;
-        //finding value in local storage, index moves based on page load
-        while(bookEntriesInLStorage[indexOfBookEntry] != `[{\"modalBookTitle\":\"testBook\",\"modalBookLnk\":\"\",\"modalBookGenre\":\"testGenre\",\"modalBookCurrPageNum1\":\"1\",\"modalBookCurrPageNum2\":\"100\",\"modalBookRating\":\"10\",\"modalBookReview\":\"This is a test review\"}]`){
-          indexOfBookEntry++;
-        }
-        expect(bookEntriesInLStorage[indexOfBookEntry]).toBe(`[{\"modalBookTitle\":\"testBook\",\"modalBookLnk\":\"\",\"modalBookGenre\":\"testGenre\",\"modalBookCurrPageNum1\":\"1\",\"modalBookCurrPageNum2\":\"100\",\"modalBookRating\":\"10\",\"modalBookReview\":\"This is a test review\"}]`);
+        expect(lStorage[bookEntryKey]).toBe(`[{\"modalBookTitle\":\"testBook\",\"modalBookLnk\":\"\",\"modalBookGenre\":\"testGenre\",\"modalBookCurrPageNum1\":\"1\",\"modalBookCurrPageNum2\":\"100\",\"modalBookRating\":\"10\",\"modalBookReview\":\"This is a test review\"}]`);
         //empty app has two default keys in local storage
         expect(Object.keys(lStorage).length).toBe(4);
-      }, 2500);   //timing out will catch infinite loop possibility for finding book in local storage
+      }, 2500);  
 
       it('Test whether the modify button works', async () => {
         console.log("Testing the modify button");
@@ -373,18 +320,15 @@ describe('Basic user flow for Website', () => {
       it('Check local storage after the book entry is modified', async () => {
         //get local storage
         const lStorage = await page.evaluate(() => Object.assign({}, window.localStorage));
-        //get values of local storage
-        const bookEntriesInLStorage = Object.values(lStorage);
+        //get key as dirty string
+        let bookEntryKey = lStorage['new-list0'].replaceAll('\"', '');
+        bookEntryKey = bookEntryKey.replace('[', '');
+        bookEntryKey = bookEntryKey.replace(']', '');
 
-        let indexOfBookEntry = 0;
-        //finding value in local storage, index moves based on page load
-        while(bookEntriesInLStorage[indexOfBookEntry] != `[{"modalBookTitle":"Book","modalBookLnk":"","modalBookGenre":"Genre","modalBookCurrPageNum1":"50","modalBookCurrPageNum2":"1000","modalBookRating":"7","modalBookReview":"This is a review that is changed"}]`){
-          indexOfBookEntry++;
-        }
-        expect(bookEntriesInLStorage[indexOfBookEntry]).toBe(`[{"modalBookTitle":"Book","modalBookLnk":"","modalBookGenre":"Genre","modalBookCurrPageNum1":"50","modalBookCurrPageNum2":"1000","modalBookRating":"7","modalBookReview":"This is a review that is changed"}]`);
-        //empty app has two default keys in local storage
+        expect(lStorage[bookEntryKey]).toBe(`[{"modalBookTitle":"Book","modalBookLnk":"","modalBookGenre":"Genre","modalBookCurrPageNum1":"50","modalBookCurrPageNum2":"1000","modalBookRating":"7","modalBookReview":"This is a review that is changed"}]`);
+        //empty app has two default keys in local storage, and one gets added for a list of lists
         expect(Object.keys(lStorage).length).toBe(4);
-      }, 2500);   //timing out will catch infinite loop possibility for finding book in local storage
+      }, 2500);   
 
       it("Test the delete book button", async () => {
         console.log('Testing the delete button...')
@@ -420,9 +364,8 @@ describe('Basic user flow for Website', () => {
       it('Check local storage after the book entry is deleted', async () => {
         //get local storage
         const lStorage = await page.evaluate(() => Object.assign({}, window.localStorage));
-        //get values of local storage
-        const bookEntriesInLStorage = Object.values(lStorage);
-        expect(bookEntriesInLStorage.toString()).toBe(`[\"Test\"],[]`); //empty local storage string
+        //get values of local storage of test list
+        expect(lStorage['Test']).toBe(`[]`); //empty local storage string, list named Test
         //empty app has two default keys in local storage
         expect(Object.keys(lStorage).length).toBe(2);
       }, 2500);   
@@ -577,8 +520,41 @@ describe('Basic user flow for Website', () => {
         expect(bookEntriesInLStorageKeys.length).toBe(8); 
       }, 2500);
 
-    
+//checking homepage      
+    //check start button
+    it('check homepage start button text', async () => {
+      await page.goto('https://cse110-fa22-group13.github.io/cse110-fa22-group13/source/homepage/index.html');
+      console.log('Checking start button...');
+      // Query select the start button
+      const button = await page.$('button');
+      const data = await button.getProperty('textContent');
+      const text = await data.jsonValue();
+
+      expect(text).toBe('Start now');
+    }, 2500);
+
+  //check learn more button
+  it('check homepage learn more button text', async () => {
+      console.log('Checking learn more button...');
+      // Query select the learn more button
+      const buttons = await page.$$('button');
+      const data = await buttons[1].getProperty('textContent');
+      const text = await data.jsonValue();
+      
+      expect(text).toBe('Learn more');
+    }, 2500);
+
+  //check icon image
+  it('check homepage icon image', async () => {
+      console.log('Checking icon img...');
+      // Query select the icon img
+      const images = await page.$$('img');
+      const src = await images[0].getProperty('src');
+      const text = await src.jsonValue();
+
+      expect(text).toBe('https://cse110-fa22-group13.github.io/cse110-fa22-group13/source/resources/images/vectors/Logo.svg');
+    }, 2500);
+
 
   });
-
 
