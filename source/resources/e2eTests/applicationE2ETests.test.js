@@ -366,13 +366,6 @@ describe('Basic user flow for Website', () => {
         // get the delete button
         let deleteButton = await shadow.$('.delete-button');
 
-        // when the dialog shows up, say yes
-        /*page.on('dialog', async dialog => {
-          console.log(await dialog.type());
-          console.log(await dialog.message());
-          await dialog.accept("y");
-        });*/
-
         // click the delete button
         await deleteButton.click();
 

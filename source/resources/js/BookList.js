@@ -45,9 +45,8 @@ class BookList extends HTMLElement {
 
         // add the section for the list to inhabit
         const section = document.createElement('section');
-        // Makes the id seperate for each new section
-        // const allNewIds = document.querySelectorAll('*[id^="new-list"]');
-        
+      
+        // Makes the id seperate for each new section  
         section.id = 'new-list' + newNum;
         const uniqueClassForSection = String(guid());
         section.classList.add(uniqueClassForSection);
@@ -104,6 +103,7 @@ class BookList extends HTMLElement {
         addBook.classList.add('add-button');
         addBook.innerHTML = 'Add Book';
 
+        // delete list button
         entryCover.addEventListener('click', () => {
             const deleteList = prompt('Are you sure you want to delete this list? (y/n)');
             if(deleteList == 'y' || deleteList == 'Y' || deleteList == 'yes' || deleteList == 'YES' || deleteList == 'Yes'){
@@ -142,6 +142,7 @@ class BookList extends HTMLElement {
             }
         });
 
+        // adding book entry button
         addBook.addEventListener('click', () => {
             
             // get the modal from the document
@@ -168,26 +169,10 @@ class BookList extends HTMLElement {
                 overlay.classList.remove('active');
                 document.querySelector('form').reset();
             });
-         
-            // it seems we can clean up this code
-            // const addButton = document.querySelectorAll('#modal .entry-add-button')
-            // addButton.forEach(button => {
-            //     button.addEventListener('click', () => {
-            //         const entries = this.shadowRoot.querySelector('.entries');
-            //         const entry = document.createElement('book-entry');
-
-
-                    
-            //         entries.appendChild(entry);
-                        
-            //         modal.classList.remove('active');
-            //         overlay.classList.remove('active');
-
-            //     });
-            // });
             
             const formRef = document.querySelector("form");
 
+            // submit button on adding book entry form
             formRef.addEventListener('submit', () => {
 
                 modal.classList.remove('active');
@@ -198,25 +183,17 @@ class BookList extends HTMLElement {
 
                 const uniqueIdForEntry = String(guid());
 
-                // entry.classList.add(uniqueIdForEntry);
-
                 // store the unique key for entry
                 const entryDiv = entry.shadowRoot.querySelector('.entry');
                 entryDiv.id = uniqueIdForEntry;
                 
                 entries.appendChild(entry);
 
-                //const entrySome = entryDiv.querySelector('.entry-cover');
-                //const editButton = entrySome.querySelector('button');
-                // editButton.classList.add(section.id);                
-
                 const formData = new FormData(formRef);
                 const entryObject = {};
                 for (const [key, value] of formData) {
                     entryObject[key] = value;
                 }
-
-                
                 
                 entry.data(entryObject);
 
@@ -232,11 +209,6 @@ class BookList extends HTMLElement {
 
                 modal.classList.remove('active');
                 overlay.classList.remove('active');
-                
-                // page reload to prevent a user from seeing a saved entry
-                // I think we can clean this part later
-                // window.location.reload(); 
-
             });  
         });
 

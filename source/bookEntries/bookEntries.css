@@ -351,14 +351,6 @@ fieldset {
   color: white;
 }
 
-
-/* @media only screen and (max-width: 1400px) {
-  .entry-name {
-    flex: 2;
-    text-align: left;
-  }
-} */
-
 /* responsive feature according to the size of the screen */
 @media only screen and (max-width: 900px) {
   h1 {
@@ -383,10 +375,6 @@ fieldset {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
   }
-
-  /* .entry-review {
-    flex: 1 0 100%;
-  } */
 
   .list-header,
   .entry {
