@@ -574,7 +574,7 @@ describe('Basic user flow for Website', () => {
         //get values of local storage
         const bookEntriesInLStorageKeys = Object.keys(lStorage);
         //after adding 5 entries, there should be 8 keys in local storage
-        expect(bookEntriesInLStorageKeys.length).toBe(8); //empty local storage string
+        expect(bookEntriesInLStorageKeys.length).toBe(8); 
       }, 2500);
 
     
