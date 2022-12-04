@@ -248,11 +248,18 @@ describe('Basic user flow for PWA Usage', () => {
         const submitButton = await page.$(`#new-modal-info .entry-add-button`);
 
         // input dialog box info
+
+        await page.evaluate( () => document.getElementById("modalBookTitle").value = "");
         await page.type('#modalBookTitle', 'Book');
+        await page.evaluate( () => document.getElementById("modalBookGenre").value = "");
         await page.type('#modalBookGenre', 'Genre');
+        await page.evaluate( () => document.getElementById("modalBookCurrPageNum1").value = "");
         await page.type('#modalBookCurrPageNum1', '50');
+        await page.evaluate( () => document.getElementById("modalBookCurrPageNum2").value = "");
         await page.type('#modalBookCurrPageNum2', '1000');
+        await page.evaluate( () => document.getElementById("modalBookRating").value = "");
         await page.type('#modalBookRating', '7'); 
+        await page.evaluate( () => document.getElementById("modalBookReview").value = "");
         await page.type('#modalBookReview', 'This is a review that is changed');
         
         // submit
