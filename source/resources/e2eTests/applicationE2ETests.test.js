@@ -16,7 +16,7 @@ describe('Basic user flow for Website', () => {
         const text = await src.jsonValue();
 
         expect(text).toBe('https://cse110-fa22-group13.github.io/cse110-fa22-group13/source/resources/images/vectors/Logo.svg');
-      }, 2500);
+      }, 5000);
 
 
 //checking homepage      
@@ -68,8 +68,8 @@ describe('Basic user flow for Website', () => {
       it('Check that the add-List button works', async () =>{
         await page.goto('https://cse110-fa22-group13.github.io/cse110-fa22-group13/source/bookEntries/bookEntries.html');
         console.log("Testing the 'add list' button...");
+
         // Query select the add List button
-        
         let listButtonWorks = true;
         const listButton = await page.$('#add-entry .add-button');
 
@@ -382,6 +382,109 @@ describe('Basic user flow for Website', () => {
 
         expect(buttonDeleted).toBe(true);
       });
+
+      it('Check that multiple book entries are being added', async () => {
+        console.log("Checking Multiple Book Entries...");
+        let bookAdds = true;
+
+        for (let i = 0; i < 5; i++) {
+          // get the add button
+          let list = await page.$('book-list');
+          let shadow = await list.getProperty('shadowRoot');
+          let bookButton = await shadow.$('.add-button');
+          let buttonText = await bookButton.getProperty('innerText');
+          buttonText = await buttonText.jsonValue();
+          console.log(buttonText);
+          await bookButton.click();
+       
+          // wait for the dialog box
+          await page.waitForSelector('.modal', {visible: true});
+          let submitButton = await page.$(`#new-modal-info .entry-add-button`);
+  
+          // input dialog box info
+          await page.type('#modalBookTitle', 'testBook');
+          await page.type('#modalBookGenre', 'testGenre');
+          await page.type('#modalBookCurrPageNum1', '1');
+          await page.type('#modalBookCurrPageNum2', '100');
+          await page.type('#modalBookRating', '10'); 
+          await page.type('#modalBookReview', 'This is a test review');
+          
+          // submit
+          await submitButton.click();
+          await page.waitForSelector('.modal', {visible: false});
+          
+        }
+
+    
+        //check all book entries are correct.
+        // get the book entries     
+        for (let i = 0; i < 1; i++) {
+          list = await page.$('book-list');
+          shadow = await list.getProperty('shadowRoot');
+          let entries = await shadow.$$('book-entry');
+          // do the books exist?
+          if (entries[i] == null) { bookAdds = false };
+          shadow = await entries[i].getProperty('shadowRoot');
+
+          // Check the titles
+          let bookTitles = await shadow.$$('.entry-name');
+          bookTitles[i] = await bookTitles[i].getProperty('innerText');
+          bookTitles[i] = await bookTitles[i].jsonValue();
+          console.log('here',bookTitles[i]);
+          if (bookTitles[i] != 'testBook') { 
+            bookAddsMultiple = false 
+            console.log(`Title: ${bookTitles[i]} `);
+          };
+          
+          // Check the genres
+          let  bookGenres = await shadow.$$('.entry-genres');
+          bookGenres[i] = await bookGenres[i].getProperty('innerText');
+          bookGenres[i] = await bookGenres[i].jsonValue();
+          if (bookGenres[i] != 'testGenre') { 
+            bookAddsMultiple = false 
+            console.log(`Genre: ${bookGenres[i]}`);
+          };
+
+          // check the page progresses
+          let  bookPageProgresses = await shadow.$$('.entry-progress');
+          bookPageProgresses[i] = await bookPageProgresses[i].getProperty('innerText');
+          bookPageProgresses[i] = await bookPageProgresses[i].jsonValue();
+          if (bookPageProgresses[i] != '1/100') { 
+            bookAddsMultiple = false 
+            console.log(`Pages: ${bookPageProgresses[i]}`);
+          };
+
+          // check the ratings
+          let bookRatings = await shadow.$$('.entry-rating .entry-score');
+          bookRatings[i] = await bookRatings[i].getProperty('innerText');
+          bookRatings[i] = await bookRatings[i].jsonValue();
+          if (bookRatings[i] != '10') { 
+            bookAddsMultiple = false 
+            console.log(`Rating: ${bookRatings[i]}`);
+          };
+
+          // check the reviews
+          let reviewDetails = await shadow.$$('details');
+          await reviewDetails[i].click();
+
+          let bookReviews = await shadow.$$('.entry-review p');
+          bookReviews[i] = await bookReviews[i].getProperty('innerText');
+          bookReviews[i] = await bookReviews[i].jsonValue();
+          if (bookReviews[i] != 'This is a test review') { 
+            bookAddsMultiple = false 
+            console.log(`Review: ${bookReviews[i]}`);
+          };
+
+          
+        }
+        // reload the page and make sure the changes are persistent
+        await page.reload();
+        // TODO
+
+        expect(bookAdds).toBe(true);
+      }, 10000);
+
+      
   });
 
 
