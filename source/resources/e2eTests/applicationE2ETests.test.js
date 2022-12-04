@@ -256,6 +256,9 @@ describe('Basic user flow for Website', () => {
         expect(bookAdds).toBe(true);
       }, 10000);
 
+      it('Test whether the modify button works', async () => {
+
+      });
   });
 
 
