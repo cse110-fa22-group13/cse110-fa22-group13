@@ -4,7 +4,7 @@
  * The BookEntry class, a custom HTML Element used to display a book entry in a list.
  * 
  * @description The BookEntry Class, which defines the custom book-entry htmlelement. This web component encapsulates the book entry's information, 
- * like the cover image, the title, the user's rating of that book, the page progress, and the user's review. One can display, create, modify, or delete this web components
+ * like the cover image, the title, the user's rating of that book, the page progress, and the user's review. One can display, create, modify, or delete this web component.
  */
 class BookEntry extends HTMLElement {
     
