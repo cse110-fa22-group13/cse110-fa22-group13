@@ -1,6 +1,8 @@
 /**
  * @jest-environment jsdom
  */
+ const STATUSES = ['completed', 'in progress', 'planned']
+
 
 //test constructor
 test('not null constructor', () => {
@@ -18,15 +20,13 @@ test('constructor with simulated added values', () => {
   const bookEntry = document.createElement('book-entry');
   bookEntry.title = 'Stranger in a Strange Land';
   expect(bookEntry.title).toBe('Stranger in a Strange Land');
-  bookEntry.authorName = 'Robert Heinlein';
-  expect(bookEntry.authorName).toBe('Robert Heinlein');
 
   bookEntry.rating = 9;
   expect(bookEntry.rating).toBe(9);
   bookEntry.pageProgress = 340;
   expect(bookEntry.pageProgress).toBe(340);
   bookEntry.status = 'completed';
-  expect(bookEntry.status).toBe('completed');
+  expect(bookEntry.status).toBe(STATUSES[0]);
 
   bookEntry.dateRead = 'Thu Nov 17 2022 03:24:00 GMT-0800 (Universal Standard Time)';
   expect(bookEntry.dateRead).toBe('Thu Nov 17 2022 03:24:00 GMT-0800 (Universal Standard Time)');

@@ -1,6 +1,6 @@
 window.addEventListener('DOMContentLoaded', init);
 /**
- * This function initializes the webpage
+ * This function initializes the webpage by first fetching from local storage, displaying all current book entries in their list, in they exist.
  * 
  */
 async function init() {
@@ -16,7 +16,7 @@ async function init() {
 }
 
 /**
- * This function adds a new list to the page
+ * This function adds a new list to the page using the name given by the user
  */
 function addNewList(){
     let label = prompt("Name of new list?");
@@ -45,7 +45,7 @@ function addNewList(){
 }
 
 /**
- * This function finds out what needs to be populated based on the contents of localStorage
+ * This function finds out what needs to be populated based on the contents of localStorage, and then fetches them from local storage
  */
 async function fetchItems() {
     return new Promise(async (resolve, reject) => {

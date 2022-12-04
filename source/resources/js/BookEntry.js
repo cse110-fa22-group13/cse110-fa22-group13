@@ -3,12 +3,13 @@
  * @class BookEntry
  * The BookEntry class, a custom HTML Element used to display a book entry in a list.
  * 
- * @description The BookEntry Class, which defines the custom book-entry htmlelement.
+ * @description The BookEntry Class, which defines the custom book-entry htmlelement. This web component encapsulates the book entry's information, 
+ * like the cover image, the title, the user's rating of that book, the page progress, and the user's review. One can display, create, modify, or delete this web components
  */
 class BookEntry extends HTMLElement {
     
     /**
-     * Constructor for the book-entry webcomponent. 
+     * Constructor for the book-entry web component. 
      */
     constructor(){
 
@@ -64,7 +65,7 @@ class BookEntry extends HTMLElement {
         // entry score
         const entryScore = document.createElement('span');
         entryScore.classList.add('entry-score');
-        entryScore.innerHTML = `0/10`;
+        entryScore.innerHTML = '0/10';
         entryRating.appendChild(entryScore);
 
         entryWrapper.appendChild(entryRating);
@@ -116,6 +117,7 @@ class BookEntry extends HTMLElement {
     }
 
     /**
+      * This function sets the data for the book entry web component from the data in local storage 
       * @param {any} Object - Data used to populate the entry with data from local storage   
       */
     data(data) {
@@ -199,37 +201,60 @@ function contentDialog(entry) {
         modal.classList.remove('active');
         overlay.classList.remove('active');
         document.querySelector('form').reset();
-        
     });
 
     const formRef = document.querySelector("form");
+    const grabEntry = entry.shadowRoot.querySelector('.entry');
+    const entryKey = grabEntry.classList[2];
+    // get the currently stored data for entry
+    let storedData;
+    if(getEntriesFromStorage(entryKey).length) {
+        storedData = getEntriesFromStorage(entryKey);
+    } else {
+        storedData = {};
+    }
+    const extractedKeys = storedData[0];
+    
+    // bring all the keys for the object
+    let keys = [];
+    for(let k in extractedKeys){
+        if(k !== null){
+            keys.push(k);
+        }
+    } 
+    
+    // pre-populating with the stored data
+    for(let i = 0; i<keys.length-1; i++){
+        const eachKey = keys[i];
+        const storedContent = extractedKeys[eachKey];
+
+        if(eachKey) {
+            document.querySelector('#' + `${eachKey}`).value = storedContent;
+        }
+    }
 
     // store the data in local storage if the user hits submit
     formRef.addEventListener('submit', () => {
 
         modal.classList.remove('active');
         overlay.classList.remove('active');
-        const grabEntry = entry.shadowRoot.querySelector('.entry');
-        const entryKey = grabEntry.classList[2];
-
+        
         const formData = new FormData(formRef);
-        const entryObject = {};
+        //const formData = new FormData(formRef);
         for (const [key, value] of formData) {
-            entryObject[key] = value;
+            storedData[0][key] = value;   
         }
         
-        entry.data(entryObject);
+        entry.data(storedData);
 
         // set info to a unique class name of the entry
         window.localStorage.removeItem(entryKey);
-        const eachArray = getEntriesFromStorage(entryKey);
-        eachArray.push(entryObject);
-        localStorage.setItem(entryKey, JSON.stringify(eachArray));
+        localStorage.setItem(entryKey, JSON.stringify(storedData));
     });   
 }
 
 /**
- *  This function deletes an entry from local storage
+ *  This function deletes an entry from local storage using a key
  * 
  * @param {any} entry - Entry to be deleted
  */
