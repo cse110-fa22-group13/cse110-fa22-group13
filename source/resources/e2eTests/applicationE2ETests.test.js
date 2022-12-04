@@ -279,7 +279,9 @@ describe('Basic user flow for Website', () => {
           indexOfBookEntry++;
         }
         expect(bookEntriesInLStorage[indexOfBookEntry]).toBe(`[{\"modalBookTitle\":\"testBook\",\"modalBookLnk\":\"\",\"modalBookGenre\":\"testGenre\",\"modalBookCurrPageNum1\":\"1\",\"modalBookCurrPageNum2\":\"100\",\"modalBookRating\":\"10\",\"modalBookReview\":\"This is a test review\"}]`);
-      });
+        //empty app has two default keys in local storage
+        expect(Object.keys(lStorage).length).toBe(4);
+      }, 2500);   //timing out will catch infinite loop possibility for finding book in local storage
 
       it('Test whether the modify button works', async () => {
         console.log("Testing the modify button");
@@ -380,7 +382,9 @@ describe('Basic user flow for Website', () => {
           indexOfBookEntry++;
         }
         expect(bookEntriesInLStorage[indexOfBookEntry]).toBe(`[{"modalBookTitle":"Book","modalBookLnk":"","modalBookGenre":"Genre","modalBookCurrPageNum1":"50","modalBookCurrPageNum2":"1000","modalBookRating":"7","modalBookReview":"This is a review that is changed"}]`);
-      }); 
+        //empty app has two default keys in local storage
+        expect(Object.keys(lStorage).length).toBe(4);
+      }, 2500);   //timing out will catch infinite loop possibility for finding book in local storage
 
       it("Test the delete book button", async () => {
         console.log('Testing the delete button...')
@@ -419,8 +423,162 @@ describe('Basic user flow for Website', () => {
         //get values of local storage
         const bookEntriesInLStorage = Object.values(lStorage);
         expect(bookEntriesInLStorage.toString()).toBe(`[\"Test\"],[]`); //empty local storage string
-      }); 
+        //empty app has two default keys in local storage
+        expect(Object.keys(lStorage).length).toBe(2);
+      }, 2500);   
       
+
+//setup for checking adding multiple book entries
+      it('add book entry1 WILL ALWAYS PASS', async () => {
+        console.log("adding Book Entry1...");
+        // get the add button
+        let list = await page.$('book-list');
+        let shadow = await list.getProperty('shadowRoot');
+        let bookButton = await shadow.$('.add-button');
+        let buttonText = await bookButton.getProperty('innerText');
+        buttonText = await buttonText.jsonValue();
+        // click the add button
+        await bookButton.click();
+    
+        // wait for the dialog box
+        await page.waitForSelector('.modal', {visible: true});
+        const submitButton = await page.$(`#new-modal-info .entry-add-button`);
+
+        // input dialog box info
+        await page.type('#modalBookTitle', 'testBook');
+        await page.type('#modalBookGenre', 'testGenre');
+        await page.type('#modalBookCurrPageNum1', '1');
+        await page.type('#modalBookCurrPageNum2', '100');
+        await page.type('#modalBookRating', '10'); 
+        await page.type('#modalBookReview', 'This is a test review');
+        
+        // submit
+        await submitButton.click();
+        await page.waitForSelector('.modal', {visible: false});
+      }, 2500);
+      it('add book entry2 WILL ALWAYS PASS', async () => {
+        console.log("adding Book Entry2...");
+        // get the add button
+        let list = await page.$('book-list');
+        let shadow = await list.getProperty('shadowRoot');
+        let bookButton = await shadow.$('.add-button');
+        let buttonText = await bookButton.getProperty('innerText');
+        buttonText = await buttonText.jsonValue();
+        // click the add button
+        await bookButton.click();
+    
+        // wait for the dialog box
+        await page.waitForSelector('.modal', {visible: true});
+        const submitButton = await page.$(`#new-modal-info .entry-add-button`);
+
+        // input dialog box info
+        await page.type('#modalBookTitle', 'testerBook');
+        await page.type('#modalBookGenre', 'testerGenre');
+        await page.type('#modalBookCurrPageNum1', '100');
+        await page.type('#modalBookCurrPageNum2', '100');
+        await page.type('#modalBookRating', '8'); 
+        await page.type('#modalBookReview', 'This is another test review');
+        
+        // submit
+        await submitButton.click();
+        await page.waitForSelector('.modal', {visible: false});
+      }, 2500);
+
+      it('add book entry3 WILL ALWAYS PASS', async () => {
+        console.log("adding Book Entry3...");
+        // get the add button
+        let list = await page.$('book-list');
+        let shadow = await list.getProperty('shadowRoot');
+        let bookButton = await shadow.$('.add-button');
+        let buttonText = await bookButton.getProperty('innerText');
+        buttonText = await buttonText.jsonValue();
+        // click the add button
+        await bookButton.click();
+    
+        // wait for the dialog box
+        await page.waitForSelector('.modal', {visible: true});
+        const submitButton = await page.$(`#new-modal-info .entry-add-button`);
+
+        // input dialog box info
+        await page.type('#modalBookTitle', 'testerBook');
+        await page.type('#modalBookGenre', 'testerGenre');
+        await page.type('#modalBookCurrPageNum1', '100');
+        await page.type('#modalBookCurrPageNum2', '100');
+        await page.type('#modalBookRating', '8'); 
+        await page.type('#modalBookReview', 'This is another test review');
+        
+        // submit
+        await submitButton.click();
+        await page.waitForSelector('.modal', {visible: false});
+      }, 2500);
+      it('add book entry4 WILL ALWAYS PASS', async () => {
+        console.log("adding Book Entry4...");
+        // get the add button
+        let list = await page.$('book-list');
+        let shadow = await list.getProperty('shadowRoot');
+        let bookButton = await shadow.$('.add-button');
+        let buttonText = await bookButton.getProperty('innerText');
+        buttonText = await buttonText.jsonValue();
+        // click the add button
+        await bookButton.click();
+    
+        // wait for the dialog box
+        await page.waitForSelector('.modal', {visible: true});
+        const submitButton = await page.$(`#new-modal-info .entry-add-button`);
+
+        // input dialog box info
+        await page.type('#modalBookTitle', 'testerBook');
+        await page.type('#modalBookGenre', 'testerGenre');
+        await page.type('#modalBookCurrPageNum1', '100');
+        await page.type('#modalBookCurrPageNum2', '100');
+        await page.type('#modalBookRating', '8'); 
+        await page.type('#modalBookReview', 'This is another test review');
+        
+        // submit
+        await submitButton.click();
+        await page.waitForSelector('.modal', {visible: false});
+      }, 2500);
+
+      it('add book entry5 WILL ALWAYS PASS', async () => {
+        console.log("adding Book Entry5...");
+        // get the add button
+        let list = await page.$('book-list');
+        let shadow = await list.getProperty('shadowRoot');
+        let bookButton = await shadow.$('.add-button');
+        let buttonText = await bookButton.getProperty('innerText');
+        buttonText = await buttonText.jsonValue();
+        // click the add button
+        await bookButton.click();
+    
+        // wait for the dialog box
+        await page.waitForSelector('.modal', {visible: true});
+        const submitButton = await page.$(`#new-modal-info .entry-add-button`);
+
+        // input dialog box info
+        await page.type('#modalBookTitle', 'testerBook');
+        await page.type('#modalBookGenre', 'testerGenre');
+        await page.type('#modalBookCurrPageNum1', '100');
+        await page.type('#modalBookCurrPageNum2', '100');
+        await page.type('#modalBookRating', '8'); 
+        await page.type('#modalBookReview', 'This is another test review');
+        
+        // submit
+        await submitButton.click();
+        await page.waitForSelector('.modal', {visible: false});
+      }, 2500);
+
+//checking 5 book entries were added by checking local storage
+      it('Check that multiple book entries are being added with local storage', async () => {
+        //get local storage
+        const lStorage = await page.evaluate(() => Object.assign({}, window.localStorage));
+        //get values of local storage
+        const bookEntriesInLStorageKeys = Object.keys(lStorage);
+        //after adding 5 entries, there should be 8 keys in local storage
+        expect(bookEntriesInLStorageKeys.length).toBe(8); //empty local storage string
+      }, 2500);
+
+    
+
   });
 
 
