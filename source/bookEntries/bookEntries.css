@@ -1,7 +1,14 @@
 /* basic settings for the background */
 @font-face {
-  font-family: roboto-regular;
+  font-family: "Roboto";
   src: url('/source/resources/fonts/Roboto-Regular.ttf');
+}
+
+:root {
+  --second-bg: #422040;
+  --main-bg: #E57A44;
+  --grey: #DBC6BB;
+  --font-white: #FFFF;
 }
 
 * {
@@ -10,16 +17,20 @@
   padding: 0;
 }
 
+body {
+  background-color: var(--grey);
+}
+
+.booklist-title {
+  font-size: 2rem;
+}
+
 .page:hover {
   color: white;
 }
 
 .page:active {
   color: white;
-}
-
-body {
-  background-color: #dbc6bb;
 }
 
 /* basic settings for the header tab */
@@ -34,6 +45,10 @@ header {
 p {
   word-break: break-all;
   white-space: normal;
+}
+
+.container {
+  margin: 25px 30px 0 30px;
 }
 
 .header-main {
@@ -145,30 +160,26 @@ fieldset {
   width: 70px;
 }
 
+#add-entry {
+  display: flex;
+  justify-content: flex-end;
+  border-top: 3px solid var(--second-bg);
+  padding: 10px 0;
+}
 /* Add buttons and homepage button */
-.add-button,
-.entry-add-button,
-#homepage {
-  background-color: #e57a44;
-  color: #dbc6bb;
-  padding: 3px;
-  border: 1px #422040 solid;
-  width: 70px;
+.add-list-btn {
+    background-color: var(--second-bg);
+    border-radius: 25px;
+    color: var(--font-white);
+    border: none;
+    font-size: 18px;
+    padding: 8px 15px 8px 15px;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
 }
 
-.add-button:hover,
-.entry-add-button:hover,
-#homepage:hover {
-  background-color: hsl(20deg 76% 68%);
-  color: #dbc6bb;
-  padding: 3px;
-  border: 1px #422040 solid;
-}
-
-.add-button:hover,
-.entry-add-button:hover,
-.delete-button:hover {
-  width: 70px;
+.add-list-btn:hover {
+  box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
 }
 
 /* Single Booklist, includes list header and all list entries */

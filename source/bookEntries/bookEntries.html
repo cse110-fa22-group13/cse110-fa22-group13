@@ -12,11 +12,6 @@
     <script src="../resources/js/BookEntry.js" type="module"></script>
     <script src="../resources/js/BookList.js" type="module"></script>
     <script src="./bookEntries.js" type="module"></script>
-    <style>
-        body {
-            background-color: hsl(36, 100%, 90%);
-        }
-    </style>
   </head>
   <!--body-->
   <body class="body">
@@ -28,13 +23,13 @@
             </div> 
         </header>
         <!--main-->
-        <main>
+        <main class="container">
+            <h2 class="booklist-title">Your Book Lists</h2>
             <div id="add-entry">
-                <button class="add-button" title="Click to add a new list">Add List</button>
-                <fieldset></fieldset>
+                <button class="add-list-btn" title="Click to add a new list">Add New List</button>
             </div>
 
-            <!-- modal page; it will pop up when some certain button is clicked -->
+            <!-- modal page will pop up when adding a new book button is clicked -->
             <div class="modal" id="modal">
                 <div class="modal-header">
                     <div class="title">
@@ -92,194 +87,7 @@
 
             <!--structure for in progress list-->
             <section id="bookList">
-                <h2 class="booklist-title">Your Book Lists</h2>
-                
-                <section id="in-progress">
-                    <h2 class="list-title">In Progress</h2>
-                    <div class="entry-list">
-                        <div class="list-header">
-                            <button class="entry-cover">Delete List</button>
-                            <span class="entry-name">Title</span>
-                            <span class="entry-rating">Rating</span>
-                            <span class="entry-progress">Progress</span>
-                            <span class="entry-extras">Extras</span>
-                            <span class="entry-review">Review</span>
-                            <button class="add-button">Add Book</button>
-                        </div>
-
-                        <div class="entries">
-
-                            <!--default entry-->
-                            <div class="entry">
-                                <div class="entry-cover">
-                                    <img src="https://cse110-fa22-group13.github.io/cse110-fa22-group13/source/resources/images/icons/Books-Icon.png" class="entry-img" alt="Generic Book Icon">
-                                    <button class="modify-button" title="Click to modify this entry.">Modify Entry</button>
-                                </div>
-                                <span class="entry-name">Generic Book Name</span>
-                                <div class="entry-rating">
-                                    <span class="entry-score">7.8/10</span>
-                                </div>
-                                <span class="entry-progress">123/456</span>
-                                <details class="entry-extras">
-                                    <summary>Extra Details</summary>
-                                    <span class="entry-genres">Genres</span>
-                                    <ul class="entry-genres">
-                                        <li>Reference</li>
-                                    </ul>
-                                </details>
-                                <details class="entry-review">
-                                    <summary>View Review</summary>
-                                    <p>Too much water.</p>
-                                </details>
-                                <div>
-                                    <button class="delete-button">Delete</button>
-                                </div>
-                            </div>
-
-                            <div>
-
-                            </div>
-
-                            <!--default entry2-->
-                            <div class="entry">
-                                <div class="entry-cover">
-                                    <img src="https://cse110-fa22-group13.github.io/cse110-fa22-group13/source/resources/images/book-covers/all-my-rage-cover.png" class="entry-img" alt="Generic Book Icon">
-                                    <button class="modify-button" title="Click to modify this entry.">Modify Entry</button>
-                                </div>
-                                <span class="entry-name">Another Book Name</span>
-                                <div class="entry-rating">
-                                    <span class="entry-score">8.5/10</span>
-                                </div>
-                                <span class="entry-progress">654/765</span>
-                                <details class="entry-extras">
-                                    <summary>Extra Details</summary>
-                                    <span class="entry-genres">Genres</span>
-                                    <ul class="entry-genres">
-                                        <li>Reference</li>
-                                    </ul>
-                                </details>
-                                <details class="entry-review">
-                                    <summary>View Review</summary>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Pretium nibh ipsum consequat nisl vel pretium lectus quam. Tristique sollicitudin nibh sit amet commodo nulla facilisi nullam. Varius morbi enim nunc faucibus. Adipiscing bibendum est ultricies integer quis auctor elit. Turpis egestas pretium aenean pharetra magna ac placerat vestibulum lectus. Sed euismod nisi porta lorem mollis. Mi proin sed libero enim sed. Faucibus nisl tincidunt eget nullam non nisi est sit amet.</p>
-                                </details>
-                                <div>
-                                    <button class="delete-button">Delete</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!--structure for in completed list-->
-                <section id="completed">
-
-                    <h2 class="list-title">Completed</h2>
-                    <div class="entry-list">
-                        <div class="list-header">
-                            <button class="entry-cover">Delete List</button>
-                            <span class="entry-name">Title</span>
-                            <span class="entry-rating">Rating</span>
-                            <span class="entry-progress">Progress</span>
-                            <span class="entry-extras">Extras</span>
-                            <span class="entry-review">Review</span>
-                            <button class="add-button">Add Book</button>
-                        </div>
-                        <div class="entries">
-                            <!--default entry-->
-                            <div class="entry">
-                                <div class="entry-cover">
-                                    <img src="https://cse110-fa22-group13.github.io/cse110-fa22-group13/source/resources/images/icons/Checklist-Icon.jpg" class="entry-img" alt="Checklist Icon">
-                                    <button class="modify-button" title="Click to modify this entry.">Modify Entry</button>
-                                </div>
-                                <span class="entry-name">The Check</span>
-                                <div class="entry-rating">
-                                    <span class="entry-score">6.5/10</span>
-                                </div>
-                                <span class="entry-progress">333/333</span>
-                                <details class="entry-extras">
-                                    <summary>Extra Details</summary>
-                                    <span class="entry-genres">Genres</span>
-                                    <ul class="entry-genres">
-                                        <li>Reference</li>
-                                    </ul>
-                                </details>
-                                <details class="entry-review">
-                                    <summary>View Review</summary>
-                                    <p>It was mid.</p>
-                                </details>
-                                <div>
-                                    <button class="deleteButton">Delete</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!--structure for in dropped list-->
-                <section id="dropped" hidden>
-                    <h2 class="list-title">Dropped</h2>
-                    <div class="entry-list">
-                        <div class="list-header">
-                            <button class="entry-cover">Delete List</button>
-                            <span class="entry-name">Title</span>
-                            <span class="entry-rating">Rating</span>
-                            <span class="entry-progress">Progress</span>
-                            <span class="entry-extras">Extras</span>
-                            <span class="entry-review">Review</span>
-                            <button class="add-button">Add Book</button>
-                        </div>
-                        <div class="entries">
-
-                            <!--default entry-->
-                            <div class="entry">
-                                <div class="entry-cover">
-                                    <img src="https://cse110-fa22-group13.github.io/cse110-fa22-group13/source/resources/images/icons/Checklist-Icon.jpg" class="entry-img" alt="Checklist Icon">
-                                    <button class="modify-button" title="Click to modify this entry.">Modify Entry</button>
-                                </div>
-                                <span class="entry-name">The Check</span>
-                                <div class="entry-rating">
-                                    <span class="entry-score">6.5/10</span>
-                                </div>
-                                <span class="entry-progress">333/333</span>
-                                <details class="entry-extras">
-                                    <summary>Extra Details</summary>
-                                    <span class="entry-genres">Genres</span>
-                                    <ul class="entry-genres">
-                                        <li>Reference</li>
-                                    </ul>
-                                </details>
-                                <details class="entry-review">
-                                    <summary>View Review</summary>
-                                    <p>It was mid.</p>
-                                </details>
-                                <div>
-                                    <button class="deleteButton">Delete</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!--structure for in planned list-->
-                <section id="planned" hidden>
-                    <h2 class="list-title">Planned</h2>
-                    <div class="entry-list">
-                        <div class="list-header">
-                            <button class="entry-cover">Delete-List</button>
-                            <span class="entry-name">Title</span>
-                            <span class="entry-rating">Rating</span>
-                            <span class="entry-progress">Progress</span>
-                            <span class="entry-extras">Extras</span>
-                            <button id="add-button">Add-Book</button>
-                            <details class="entry-review">
-                                <summary>View Review</summary>
-                                <p></p>
-                            </details>
-                        </div>
-                        <div class="entries">
-                        </div>
-                    </div>
-                </section>
+                <!-- BookList elements added to the DOM here -->
             </section>
             <button id="homepage" onclick="location.href='./../homepage/index.html'">Go back to homepage</button>
         </main> 
