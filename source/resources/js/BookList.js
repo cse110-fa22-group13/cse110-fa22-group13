@@ -1,10 +1,9 @@
 // BookList.js
 
-//import {BookEntry} from './BookEntry';
 /**
  * @class BookList
  * 
- * @description - Defines the custom HTMLElement book-list
+ * @description - Defines the custom HTMLElement book-list, which will hold book entries from the user. One can add a list, add book entries to any list, and delete any list.
  */
 class BookList extends HTMLElement {
     /**
@@ -235,7 +234,7 @@ class BookList extends HTMLElement {
     }
 
     /**
-     * This function sets the list label text 
+     * This function sets the list label text for the created list.
      * 
      * @param {any} - text to set the label to
      */
@@ -247,7 +246,7 @@ class BookList extends HTMLElement {
 
 
 /** 
- * This function retrieves a list object from local storage
+ * This function retrieves a list object from local storage and uses it to populate the webpage.
  * 
  * @param {any} title - title of the entry to retrieve from local storage
  * @returns The object that has the title, or nothing if no such list exists

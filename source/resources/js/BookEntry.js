@@ -3,12 +3,13 @@
  * @class BookEntry
  * The BookEntry class, a custom HTML Element used to display a book entry in a list.
  * 
- * @description The BookEntry Class, which defines the custom book-entry htmlelement.
+ * @description The BookEntry Class, which defines the custom book-entry htmlelement. This web component encapsulates the book entry's information, 
+ * like the cover image, the title, the user's rating of that book, the page progress, and the user's review. One can display, create, modify, or delete this web components
  */
 class BookEntry extends HTMLElement {
     
     /**
-     * Constructor for the book-entry webcomponent. 
+     * Constructor for the book-entry web component. 
      */
     constructor(){
 
@@ -116,6 +117,7 @@ class BookEntry extends HTMLElement {
     }
 
     /**
+      * This function sets the data for the book entry web component from the data in local storage 
       * @param {any} Object - Data used to populate the entry with data from local storage   
       */
     data(data) {
@@ -248,7 +250,7 @@ function contentDialog(entry) {
 }
 
 /**
- *  This function deletes an entry from local storage
+ *  This function deletes an entry from local storage using a key
  * 
  * @param {any} entry - Entry to be deleted
  */

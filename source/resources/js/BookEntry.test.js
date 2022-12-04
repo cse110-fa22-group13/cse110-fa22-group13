@@ -34,8 +34,6 @@ test('constructor with simulated added values', () => {
   const bookEntry = document.createElement('book-entry');
   bookEntry.title = 'Stranger in a Strange Land';
   expect(bookEntry.title).toBe('Stranger in a Strange Land');
-  bookEntry.authorName = 'Robert Heinlein';
-  expect(bookEntry.authorName).toBe('Robert Heinlein');
 
   bookEntry.rating = 9;
   expect(bookEntry.rating).toBe(9);
