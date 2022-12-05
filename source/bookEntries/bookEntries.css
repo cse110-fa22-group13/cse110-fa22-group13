@@ -1,18 +1,18 @@
 /* basic settings for the background */
 @font-face {
-  font-family: "Roboto";
+  font-family: 'Roboto';
   src: url('/source/resources/fonts/Roboto-Regular.ttf');
 }
 
 :root {
   --second-bg: #422040;
-  --main-bg: #E57A44;
-  --grey: #DBC6BB;
-  --font-white: #FFFF;
+  --main-bg: #e57a44;
+  --grey: #dbc6bb;
+  --font-white: #ffffffff;
 }
 
 * {
-  font-family: "Roboto";
+  font-family: 'Roboto';
   margin: 0;
   padding: 0;
 }
@@ -29,13 +29,13 @@ body {
 .list-title {
   font-size: 1.8rem;
   padding-left: 14px;
-  margin: 15px 0px;
+  margin: 15px 0;
 }
 
 .list-title::after {
   border-bottom: 3px solid var(--second-bg);
   display: block;
-  content: "";
+  content: '';
 }
 
 /* basic settings for the header tab */
@@ -53,7 +53,7 @@ p {
 }
 
 .container {
-  margin: 25px 30px 0 30px;
+  margin: 25px 30px 0;
 }
 
 .header-main {
@@ -93,7 +93,7 @@ p {
   border-radius: 10px;
   z-index: 10;
   min-width: 1000px;
-  transition: 0.2s transform ease-in-out;
+  transition: .2s transform ease-in-out;
   opacity: 0;
 }
 
@@ -107,24 +107,24 @@ p {
   flex-direction: column;
 }
 
-#new-modal-info label{
+#new-modal-info label {
   color: black;
   font-weight: bold;
   font-size: 24px;
   margin-bottom: 4px;
 }
 
-#new-modal-info input{
-    background-color: var(--font-white);
-    height: 28px;
-    padding: 5px 0 5px 14px;
-    font-size: 14px;
-    border: none;
-    border-radius: 5px;
-    margin-bottom: 8px;
+#new-modal-info input {
+  background-color: var(--font-white);
+  height: 28px;
+  padding: 5px 0 5px 14px;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 8px;
 }
 
-#new-modal-info textarea{
+#new-modal-info textarea {
   background-color: var(--font-white);
   padding: 5px 0 5px 14px;
   font-size: 14px;
@@ -133,13 +133,13 @@ p {
   border: none;
 }
 
-#new-modal-info .pages-number{
+#new-modal-info .pages-number {
   display: flex;
   align-items: center;
 }
 
 
-#new-modal-info .pages-number #separator{
+#new-modal-info .pages-number #separator {
   padding: 0 10px;
 }
 
@@ -166,11 +166,7 @@ p {
   font-size: 1.25rem;
   font-weight: bold;
   color: var(--main-bg);
-  transition: 0.2s scale ease-in-out;
-}
-
-.modal-header .close-button:hover {
-  scale: 125%;
+  transition: .2s scale ease-in-out;
 }
 
 .modal-body {
@@ -213,20 +209,17 @@ p {
   border-top: 3px solid var(--second-bg);
   padding: 10px 0;
 }
+
 /* Add buttons and homepage button */
 .add-list-btn {
-    background-color: var(--second-bg);
-    border-radius: 25px;
-    color: var(--font-white);
-    border: none;
-    font-size: 18px;
-    padding: 8px 15px 8px 15px;
-    cursor: pointer;
-    transition: 0.2s box-shadow ease-in-out;
-}
-
-.add-list-btn:hover, .entry-add-button:hover {
-  box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+  background-color: var(--second-bg);
+  border-radius: 25px;
+  color: var(--font-white);
+  border: none;
+  font-size: 18px;
+  padding: 8px 15px;
+  cursor: pointer;
+  transition: .2s box-shadow ease-in-out;
 }
 
 .entry-add-button {
@@ -240,6 +233,11 @@ p {
   border-radius: 5px;
   border: none;
   cursor: pointer;
+}
+
+.add-list-btn:hover,
+.entry-add-button:hover {
+  box-shadow: rgb(0 0 0 / 18%) 0 2px 4px;
 }
 
 #homepage {
@@ -282,9 +280,6 @@ p {
   gap: 10px;
   border: 1px #422040 solid;
   color: #dbc6bb;
-}
-
-.list-header {
   font-weight: bold;
   background-color: #422040;
   min-height: 80px;
@@ -329,7 +324,6 @@ p {
   background-color: var(--main-bg);
   color: #dbc6bb;
   padding: 3px;
-  border: none;
   border-radius: 100%;
   height: 70px;
   width: 70px;
@@ -368,7 +362,7 @@ p {
 }
 
 .modify-button:hover {
-  opacity: 0.8;
+  opacity: .8;
 }
 
 .delete-button:hover {
