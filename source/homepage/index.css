@@ -114,11 +114,6 @@ header > ul {
   padding: 12px 32px;
 }
 
-a {
-  text-decoration: none;
-  color: black;
-}
-
 /* settings for the second row */
 #second-row {
   grid-column-start: 1;
