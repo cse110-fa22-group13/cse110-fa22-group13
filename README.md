@@ -10,6 +10,6 @@ We will create this application to serve Book lovers, burgeoning readers, and li
 This is a link to our [`team.md`](https://cse110-fa22-group13.github.io/cse110-fa22-group13/admin/team.md) file. 
 
 
-[Application](https://cse110-fa22-group13.github.io/cse110-fa22-group13/source/homepage/index.html) 
+[Application](https://cse110-fa22-group13.github.io/cse110-fa22-group13/source/homepage/index.html)
 
 [Documentation](https://cse110-fa22-group13.github.io/cse110-fa22-group13/docs) 
