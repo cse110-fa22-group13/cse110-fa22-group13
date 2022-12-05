@@ -1,25 +1,41 @@
 /* basic settings for the background */
 @font-face {
-  font-family: roboto-regular;
+  font-family: 'Roboto';
   src: url('/source/resources/fonts/Roboto-Regular.ttf');
 }
 
+:root {
+  --second-bg: #422040;
+  --main-bg: #e57a44;
+  --grey: #dbc6bb;
+  --font-white: #ffffffff;
+}
+
 * {
-  font-family: Roboto;
+  font-family: 'Roboto';
   margin: 0;
   padding: 0;
 }
 
-.page:hover {
-  color: white;
-}
-
-.page:active {
-  color: white;
-}
-
 body {
-  background-color: #dbc6bb;
+  background-color: var(--grey);
+}
+
+.booklist-title {
+  font-size: 2rem;
+}
+
+/* BookList Style */
+.list-title {
+  font-size: 1.8rem;
+  padding-left: 14px;
+  margin: 15px 0;
+}
+
+.list-title::after {
+  border-bottom: 3px solid var(--second-bg);
+  display: block;
+  content: '';
 }
 
 /* basic settings for the header tab */
@@ -34,6 +50,10 @@ header {
 p {
   word-break: break-all;
   white-space: normal;
+}
+
+.container {
+  margin: 25px 30px 0;
 }
 
 .header-main {
@@ -52,36 +72,75 @@ p {
   display: none;
 }
 
-/* basic settings for main */
-fieldset {
-  border: 2px solid rgb(214 214 214);
-  box-sizing: border-box;
-  display: block;
-  width: max-content;
-}
-
 /* selection screen */
 .modal-book-page {
   width: 60px;
 }
 
+.add-modal::after {
+  content: 'Add a New BookEntry';
+}
+
+.edit-modal::after {
+  content: 'Edit a BookEntry';
+}
+
 .modal {
-  font-size: 150%;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) scale(0);
-  border: 1px solid black;
   border-radius: 10px;
   z-index: 10;
-  background-color: #dbc6bb;
-  width: 1000px;
-  height: 600px;
-  max-width: 80%;
+  min-width: 1000px;
+  transition: .2s transform ease-in-out;
+  opacity: 0;
 }
 
 .modal.active {
   transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+}
+
+#new-modal-info {
+  display: flex;
+  flex-direction: column;
+}
+
+#new-modal-info label {
+  color: black;
+  font-weight: bold;
+  font-size: 24px;
+  margin-bottom: 4px;
+}
+
+#new-modal-info input {
+  background-color: var(--font-white);
+  height: 28px;
+  padding: 5px 0 5px 14px;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 8px;
+}
+
+#new-modal-info textarea {
+  background-color: var(--font-white);
+  padding: 5px 0 5px 14px;
+  font-size: 14px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: none;
+}
+
+#new-modal-info .pages-number {
+  display: flex;
+  align-items: center;
+}
+
+
+#new-modal-info .pages-number #separator {
+  padding: 0 10px;
 }
 
 .modal-header {
@@ -106,15 +165,13 @@ fieldset {
   background: none;
   font-size: 1.25rem;
   font-weight: bold;
+  color: var(--main-bg);
+  transition: .2s scale ease-in-out;
 }
 
 .modal-body {
   padding: 10px 15px;
-}
-
-/* Header entry titles */
-#new-modal-info fieldset legend {
-  font-weight: bold;
+  background-color: var(--grey);
 }
 
 /* overlay */
@@ -126,8 +183,7 @@ fieldset {
   right: 0;
   bottom: 0;
   background-color: #00000080;
-
-  /* transition: 100ms ease-in-out; */
+  z-index: 1;
   pointer-events: none;
 }
 
@@ -143,32 +199,52 @@ fieldset {
   padding: 3px;
   border: 1px #422040 solid;
   width: 70px;
+  height: 70px;
+  border-radius: 100%;
+}
+
+#add-entry {
+  display: flex;
+  justify-content: flex-end;
+  border-top: 3px solid var(--second-bg);
+  padding: 10px 0;
 }
 
 /* Add buttons and homepage button */
-.add-button,
-.entry-add-button,
+.add-list-btn {
+  background-color: var(--second-bg);
+  border-radius: 25px;
+  color: var(--font-white);
+  border: none;
+  font-size: 18px;
+  padding: 8px 15px;
+  cursor: pointer;
+  transition: .2s box-shadow ease-in-out;
+}
+
+.entry-add-button {
+  background-color: var(--second-bg);
+  color: var(--font-white);
+  width: 150px;
+  height: 40px;
+  align-self: center;
+  font-size: 20px;
+  text-align: center;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.add-list-btn:hover,
+.entry-add-button:hover {
+  box-shadow: rgb(0 0 0 / 18%) 0 2px 4px;
+}
+
 #homepage {
-  background-color: #e57a44;
-  color: #dbc6bb;
-  padding: 3px;
-  border: 1px #422040 solid;
-  width: 70px;
-}
-
-.add-button:hover,
-.entry-add-button:hover,
-#homepage:hover {
-  background-color: hsl(20deg 76% 68%);
-  color: #dbc6bb;
-  padding: 3px;
-  border: 1px #422040 solid;
-}
-
-.add-button:hover,
-.entry-add-button:hover,
-.delete-button:hover {
-  width: 70px;
+  border: none;
+  background-color: inherit;
+  cursor: pointer;
+  font-size: 30px;
 }
 
 /* Single Booklist, includes list header and all list entries */
@@ -181,6 +257,7 @@ fieldset {
   border: 2px #e57a44 solid;
   background-color: #e57a44;
   margin: 5px;
+  border-radius: 5px;
 }
 
 /* Contains all list entries */
@@ -193,8 +270,7 @@ fieldset {
 }
 
 /* List header and individual entries */
-.list-header,
-.entry {
+.list-header {
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
@@ -204,35 +280,36 @@ fieldset {
   gap: 10px;
   border: 1px #422040 solid;
   color: #dbc6bb;
-}
-
-.list-header {
   font-weight: bold;
   background-color: #422040;
+  min-height: 80px;
 }
 
 /* Entry image/modify button */
 .entry-cover {
-  width: 70px;
-  height: auto;
-  flex: 0 1 auto;
-}
-
-.entry .entry-cover {
-  display: grid;
-  justify-items: center;
+  position: relative;
+  display: flex;
   justify-content: center;
   align-items: center;
-  align-content: center;
+}
+
+.entry {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
   text-align: center;
+  border-bottom: solid 1px black;
 }
 
 /* List delete button */
 .list-header .entry-cover {
-  background-color: #dbc6bb;
-  color: #422040;
-  padding: 3px;
-  border: 1px #422040 solid;
+  border-radius: 100%;
+  height: 100px;
+  width: 100px;
+  border: none;
+  background-color: white;
+  padding: 10px;
 }
 
 .list-header .entry-cover:hover {
@@ -244,9 +321,12 @@ fieldset {
 
 /* Add book button */
 .list-header .add-button {
-  background-color: #e57a44;
+  background-color: var(--main-bg);
   color: #dbc6bb;
   padding: 3px;
+  border-radius: 100%;
+  height: 70px;
+  width: 70px;
   border: none;
 }
 
@@ -266,32 +346,23 @@ fieldset {
 
 .entry-img {
   opacity: 1;
-  max-width: 70px;
-  height: auto;
+  max-width: 100px;
+  height: 200px;
   object-fit: cover;
   display: inline-block;
-  width: calc(100% + 32px);
 }
 
-.entry-cover .entry-img,
-.entry-cover .modify-button {
-  grid-column: 1;
-  grid-row: 1;
-}
-
-.entry-cover:hover .entry-img {
-  opacity: .1;
-}
-
-.entry-cover .modify-button {
-  opacity: 0;
-  width: 70px;
+.modify-button {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
   height: 100%;
-  border: none;
+  opacity: 0;
 }
 
-.entry-cover:hover .modify-button {
-  opacity: 1;
+.modify-button:hover {
+  opacity: .8;
 }
 
 .delete-button:hover {
