@@ -46,7 +46,8 @@ class BookEntry extends HTMLElement {
     modifyButton.innerHTML = 'Modify Entry';
 
     // button functionality
-    cover.addEventListener('click', () => contentDialog(this));
+    modifyButton.addEventListener('click', () => contentDialog(this));
+
 
     entryCover.appendChild(modifyButton);
 
