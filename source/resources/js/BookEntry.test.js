@@ -1,21 +1,21 @@
 /**
  * @jest-environment jsdom
  */
-const STATUSES = ['completed', 'in progress', 'planned'];
+ const STATUSES = ['completed', 'in progress', 'planned']
 
 
-// test constructor
+//test constructor
 test('not null constructor', () => {
   const bookEntry = document.createElement('book-entry');
   expect(bookEntry).not.toBeNull();
-});
+}); 
 test('set to null', () => {
   let bookEntry = document.createElement('book-entry');
   bookEntry = null;
   expect(bookEntry).toBeNull();
-});
+}); 
 
-// represents the user using the form and setting values, there is input validation on the form itself
+//represents the user using the form and setting values, there is input validation on the form itself
 test('constructor with simulated added values', () => {
   const bookEntry = document.createElement('book-entry');
   bookEntry.title = 'Stranger in a Strange Land';
@@ -37,4 +37,5 @@ test('constructor with simulated added values', () => {
   expect(bookEntry.ISBN).toBe('A4238A53I1');
   bookEntry.tags = 'Sci-Fi, Classic';
   expect(bookEntry.tags).toBe('Sci-Fi, Classic');
-});
+  
+}); 
