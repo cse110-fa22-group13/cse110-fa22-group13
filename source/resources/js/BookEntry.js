@@ -180,7 +180,9 @@ function contentDialog(entry) {
 
   // don't do anything if you can't find it
   if (modal == null) return;
-
+  // Change title depending on the source
+  const modalTitle = document.getElementById('modal-title');
+  modalTitle.className = 'edit-modal';
   // otherwise show the dialog box
   modal.classList.add('active');
   overlay.classList.add('active');

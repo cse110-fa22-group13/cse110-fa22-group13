@@ -12,7 +12,6 @@
 }
 
 * {
-  font-family: Roboto;
   margin: 0;
   padding: 0;
 }
@@ -77,6 +76,14 @@ p {
   width: 60px;
 }
 
+.add-modal::after {
+  content: 'Add a New BookEntry';
+}
+
+.edit-modal::after {
+  content: 'Edit a BookEntry';
+}
+
 .modal {
   position: fixed;
   top: 50%;
@@ -86,10 +93,12 @@ p {
   z-index: 10;
   min-width: 1000px;
   transition: 0.2s transform ease-in-out;
+  opacity: 0;
 }
 
 .modal.active {
   transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
 }
 
 #new-modal-info {
@@ -178,7 +187,6 @@ p {
   bottom: 0;
   background-color: #00000080;
   z-index: 1;
-  /* transition: 100ms ease-in-out; */
   pointer-events: none;
 }
 
@@ -213,7 +221,7 @@ p {
     font-size: 18px;
     padding: 8px 15px 8px 15px;
     cursor: pointer;
-    transition: 0.2s ease-in-out;
+    transition: 0.2s box-shadow ease-in-out;
 }
 
 .add-list-btn:hover, .entry-add-button:hover {
@@ -231,7 +239,6 @@ p {
   border-radius: 5px;
   border: none;
   cursor: pointer;
-  transition: 0.2s ease-in-out;
 }
 
 #homepage {

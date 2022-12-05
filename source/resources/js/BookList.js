@@ -144,9 +144,11 @@ class BookList extends HTMLElement {
     addBook.addEventListener('click', () => {
       // get the modal from the document
       const modal = document.getElementById('modal');
-
       // don't do anything if you can't find it
       if (modal == null) return;
+      // Change title depending on the source
+      const modalTitle = document.getElementById('modal-title');
+      modalTitle.className = 'add-modal';
 
       // otherwise show the dialog box
       modal.classList.add('active');
