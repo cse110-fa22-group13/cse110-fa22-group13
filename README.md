@@ -13,3 +13,5 @@ This is a link to our [`team.md`](https://cse110-fa22-group13.github.io/cse110-f
 [Application](https://cse110-fa22-group13.github.io/cse110-fa22-group13/source/homepage/index.html) 
 
 [Documentation](https://cse110-fa22-group13.github.io/cse110-fa22-group13/docs)
+
+[Project Public Video](https://www.youtube.com/watch?v=ZNDj5pFZe2A&ab_channel=DouKwark)
