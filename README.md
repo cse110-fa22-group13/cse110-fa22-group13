@@ -15,4 +15,6 @@ This is a link to our [`team.md`](https://github.com/cse110-fa22-group13/cse110-
 
 [Project Public Video](https://www.youtube.com/watch?v=ZNDj5pFZe2A&ab_channel=DouKwark)
 
+[Project Private Video](https://youtu.be/1YxEXhm6LDs)
+
 The details about the repository and building process can be found in [Onboard.md](https://github.com/cse110-fa22-group13/cse110-fa22-group13/blob/main/admin/onboard.md)
