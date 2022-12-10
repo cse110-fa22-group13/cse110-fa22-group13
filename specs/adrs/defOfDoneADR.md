@@ -21,9 +21,13 @@ We have the current format for our sprint progess:
 
 ## Decision Outcome
 
-Chosen option: Keep the 4 "categories" of finality as we have it in GitHub Projects. However we've decided to elaborate more on what each part means exactly.
+Chosen option in a sprint iteration-wise way: Keep the 4 "categories" of finality as we have it in GitHub Projects. However we've decided to elaborate more on what each part means exactly.
 * TODO - backlog, task is not started
 * In Progress - task is actively being worked on
 * To Review - task is completed and needs review, if rejected, it goes back into In Progress
 * Done - task is done with review and the pr associated with it is merged to main. The task is done. 
 
+Chosen option in a product increment-wise way:     
+* The feature has been completely developed throughout iterations and fully tested out with test cases.
+* The feature has met all the required ADRs and other documents so that it is now ready to serve the customers.
+* All team leads and members accept the feature in sprint review meeting.
