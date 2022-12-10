@@ -9,10 +9,10 @@ We will create this application to serve Book lovers, burgeoning readers, and li
 
 This is a link to our [`team.md`](https://github.com/cse110-fa22-group13/cse110-fa22-group13/blob/main/admin/team.md) file. 
 
-[Application](https://cse110-fa22-group13.github.io/cse110-fa22-group13/source/homepage/index.html) 
+[Application](https://cse110-fa22-group13.github.io/cse110-fa22-group13/source/homepage/index.html).
 
-[Documentation](https://cse110-fa22-group13.github.io/cse110-fa22-group13/docs)
+[Documentation](https://cse110-fa22-group13.github.io/cse110-fa22-group13/docs).
 
-[Project Public Video](https://www.youtube.com/watch?v=ZNDj5pFZe2A&ab_channel=DouKwark)
+[Project Public Video](https://www.youtube.com/watch?v=ZNDj5pFZe2A&ab_channel=DouKwark).
 
 The details about the repository and building process can be found in [Onboard.md](https://github.com/cse110-fa22-group13/cse110-fa22-group13/blob/main/admin/onboard.md).
