@@ -5,7 +5,6 @@ As a SSoT, we can find all the detailed documents about the project here in the 
 Upon entering the GitHub repository, we can find a brief description of our project at the bottom of the repository page. As it describes, we have strived to create an application that supports a powerful, efficient, and utility-based book review and progress aggregator and tracker for users. Then, with each link, we can access the team introduction page, application page, code documentation page, as well as project public video page, respectively.
 
 ## Folders and Files:
-
 There are the README file, other automated pipeline-related files as well as 4 different folders in the repository, including .github, admin, source, and specs:
 
 
@@ -54,10 +53,10 @@ We can see the process of each iteration for the sprint with the 4 different sta
 - To review: the task is completed and needs to be reviewed by other team members. If rejected, the task needs to go back into In Progress.
 - Done: the task got approval from other team members through their reviews and thus it is merged into the main repository; in other words, the task is done.
 
-It can also be found in [Definition of Done](.\specs\adrs\defOfDoneADR.md).
+It can also be found in [Definition of Done](https://github.com/cse110-fa22-group13/cse110-fa22-group13/blob/main/specs/adrs/defOfDoneADR.md).
 
 
 # Building process
 After a developer makes some changes to the repository in non-main branch (the main branch is protected, and thus it is prohibited from directly pushing to the main), the developer needs to create a pull request to the main. Then, upon the creation of the pull request, the automated GitHub workflows will start running on our current branch with each of our GitHub workflows. Once our workflows properly ran and passed all the tests, we need other teammate to review and approve our changes. After successful approval from other teammates, we are now allowed to merge the changes into the main repository.
 
-The documents covering the building process in details can also be found in [CI Pipeline](.\admin\cipipeline).
+The documents covering the building process in details can also be found in [CI Pipeline](https://github.com/cse110-fa22-group13/cse110-fa22-group13/tree/main/admin/cipipeline).
